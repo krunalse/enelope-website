@@ -19,7 +19,7 @@ interface TestimonialFormProps {
 
 export function TestimonialForm({ action, testimonial, submitLabel }: TestimonialFormProps) {
   return (
-    <form action={action} className="space-y-6" encType="multipart/form-data">
+    <form action={action} className="space-y-6">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="customer_name" className={labelClass}>
