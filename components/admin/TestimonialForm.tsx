@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { SubmitButton } from "@/components/admin/SubmitButton";
-import type { TestimonialRow } from "@/lib/supabase/queries";
+import { LocaleFieldTabs } from "@/components/admin/LocaleFieldTabs";
+import { LOCALES, type Locale } from "@/lib/i18n/locales";
+import type { TestimonialRow, TestimonialTranslations } from "@/lib/supabase/queries";
 
 const inputClass =
   "w-full rounded-xl border border-ink/12 bg-surface px-4 py-3 text-sm text-ink placeholder:text-ink-soft/50 focus:border-brand dark:border-white/15 dark:bg-surface-dark-muted dark:text-white dark:placeholder:text-white/30 dark:focus:border-signal";
@@ -10,7 +13,7 @@ const labelClass = "mb-1.5 block text-sm font-medium text-ink dark:text-white";
 
 interface TestimonialFormProps {
   action: (formData: FormData) => void;
-  testimonial?: TestimonialRow | null;
+  testimonial?: (TestimonialRow & { translations: TestimonialTranslations }) | null;
   submitLabel: string;
 }
 
@@ -31,20 +34,6 @@ export function TestimonialForm({ action, testimonial, submitLabel }: Testimonia
           />
         </div>
         <div>
-          <label htmlFor="customer_role" className={labelClass}>
-            Role
-          </label>
-          <input
-            id="customer_role"
-            name="customer_role"
-            defaultValue={testimonial?.customer_role}
-            className={inputClass}
-          />
-        </div>
-      </div>
-
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
           <label htmlFor="company_name" className={labelClass}>
             Company
           </label>
@@ -56,36 +45,63 @@ export function TestimonialForm({ action, testimonial, submitLabel }: Testimonia
             className={inputClass}
           />
         </div>
-        <div>
-          <label htmlFor="rating" className={labelClass}>
-            Rating
-          </label>
-          <select
-            id="rating"
-            name="rating"
-            defaultValue={String(testimonial?.rating ?? 5)}
-            className={inputClass}
-          >
-            {[5, 4, 3, 2, 1].map((n) => (
-              <option key={n} value={n}>
-                {n} star{n === 1 ? "" : "s"}
-              </option>
-            ))}
-          </select>
-        </div>
       </div>
 
       <div>
-        <label htmlFor="testimonial" className={labelClass}>
-          Testimonial
+        <label htmlFor="rating" className={labelClass}>
+          Rating
         </label>
-        <textarea
-          id="testimonial"
-          name="testimonial"
-          required
-          rows={5}
-          defaultValue={testimonial?.testimonial}
-          className={inputClass}
+        <select
+          id="rating"
+          name="rating"
+          defaultValue={String(testimonial?.rating ?? 5)}
+          className={`${inputClass} sm:w-48`}
+        >
+          {[5, 4, 3, 2, 1].map((n) => (
+            <option key={n} value={n}>
+              {n} star{n === 1 ? "" : "s"}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <p className={labelClass}>Role &amp; testimonial</p>
+        <LocaleFieldTabs
+          panels={Object.fromEntries(
+            LOCALES.map((locale) => {
+              const t = testimonial?.translations[locale];
+              return [
+                locale,
+                <div className="space-y-5" key={locale}>
+                  <div>
+                    <label htmlFor={`customer_role_${locale}`} className={labelClass}>
+                      Role
+                    </label>
+                    <input
+                      id={`customer_role_${locale}`}
+                      name={`customer_role_${locale}`}
+                      defaultValue={t?.customer_role}
+                      className={inputClass}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor={`testimonial_${locale}`} className={labelClass}>
+                      Testimonial
+                    </label>
+                    <textarea
+                      id={`testimonial_${locale}`}
+                      name={`testimonial_${locale}`}
+                      required={locale === "en"}
+                      rows={5}
+                      defaultValue={t?.testimonial}
+                      className={inputClass}
+                    />
+                  </div>
+                </div>,
+              ];
+            })
+          ) as Record<Locale, ReactNode>}
         />
       </div>
 

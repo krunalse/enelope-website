@@ -12,9 +12,10 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Open http://localhost:3000. Services and testimonials are both live from
-Supabase now — you need a Supabase project and `.env.local` filled in (see
-below) before the site or admin panel will work.
+Open http://localhost:3000 — it redirects to `/en` (or your browser's
+language, if it's one of the four supported). Services and testimonials are
+both live from Supabase now — you need a Supabase project and `.env.local`
+filled in (see below) before the site or admin panel will work.
 
 ## Build status
 
@@ -25,6 +26,7 @@ below) before the site or admin panel will work.
 | 3 | Testimonials → Supabase, testimonials admin, auth | ✅ Done (code side — see setup below) |
 | 4 | Contact → Resend, SEO, final copy | ✅ Done — see below for what still needs a real value from you |
 | 5 | Polish, responsive/functional testing, deploy | ✅ Polish + QA done — deployment intentionally not done this session |
+| — | 4-language i18n (EN/DE/FR/IT), header dropdown | ✅ Done — see below |
 
 ### What Day 2 built
 - Public pages (`/`, `/services`, `/services/[slug]`, `/contact`'s service
@@ -97,13 +99,52 @@ was true since Day 2; nothing in the public UI currently displays an
 uploaded service image. Worth deciding whether that's intentional (icon-only
 look) before relying on the upload feature for anything visible to visitors.
 
+### 4-language i18n (English / German / French / Italian)
+
+No external CMS or translation service — everything is hand-rolled per the
+Next.js docs' own manual i18n pattern (`app/[locale]` segment nesting), so
+translations live entirely in this repo.
+
+- **Routing:** every public route moved under `app/[locale]/...`
+  (`/en`, `/de`, `/fr`, `/it`). `proxy.ts` redirects any unprefixed public
+  path to the visitor's language (`NEXT_LOCALE` cookie → `Accept-Language`
+  header → English). `/admin/**` and `/api/**` stay unprefixed and
+  untranslated on purpose. Service slugs (`ai-agents`, etc.) are the same
+  across all 4 languages, so switching language mid-page keeps you on the
+  same service/page.
+- **Static site copy** (nav, footer, every homepage section, About,
+  Services/Case Studies/Contact page chrome, the two legal pages, form
+  labels) lives in `app/[locale]/dictionaries/{en,de,fr,it}.json`, loaded
+  via `app/[locale]/dictionaries.ts`. English is the source of truth for
+  the TypeScript shape (`Dictionary = typeof en`).
+- **Services and Testimonials content** (title/descriptions,
+  testimonial/role) is also translatable — see `supabase/migrations/
+  0003_i18n_content.sql`, which adds `service_translations` /
+  `testimonial_translations` tables (**additive only**, nothing dropped —
+  see below). The admin edit forms show 4 language tabs; English is
+  required, German/French/Italian are optional per field — a blank field
+  just means the public site falls back to English for that language until
+  it's filled in. **The 4 seed services already have all 4 languages
+  filled in** (done directly through the live admin panel as part of this
+  work); any new services/testimonials you add will need translations
+  filled in the same way.
+- **Header dropdown:** `components/layout/LanguageSwitcher.tsx`, a native
+  `<select>` next to the theme toggle (desktop) / inside the mobile menu
+  (mobile).
+- Translations were drafted by AI. Marketing copy is lower-stakes to get
+  slightly imperfect, but if native-speaker review is available, it's
+  worth a pass — same caveat as the Day 4 legal-page copy, which is now
+  also translated into all 4 languages.
+
 ## Connecting Supabase (required for Day 2+)
 
 1. Create a project at supabase.com.
-2. In the SQL editor, run `supabase/migrations/0001_init.sql`, then
-   `supabase/migrations/0002_storage_policies.sql` — creates `services` /
-   `testimonials`, RLS policies, the storage buckets, and (0002) the storage
-   object policies those buckets need to actually accept uploads.
+2. In the SQL editor, run, in order: `supabase/migrations/0001_init.sql`,
+   `0002_storage_policies.sql`, `0003_i18n_content.sql`. These create
+   `services`/`testimonials`, RLS policies, the storage buckets, the
+   storage object policies uploads need, and the per-language content
+   tables (`0003` is additive — it doesn't touch or drop anything from
+   `0001`/`0002`).
 3. Copy your Project URL and anon/publishable key into `.env.local`
    (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`).
 4. In Supabase → Authentication → Users, manually create the admin user(s)
@@ -147,38 +188,50 @@ look) before relying on the upload feature for anything visible to visitors.
 
 ```
 app/
-  admin/
-    login/            /admin/login — Supabase Auth sign-in
-    (protected)/       auth-gated admin shell (layout calls requireAdmin())
-      page.tsx          /admin dashboard
-      services/         /admin/services CRUD + actions.ts (server actions)
-      testimonials/     /admin/testimonials CRUD + actions.ts (server actions)
-  services/           public /services, /services/[slug]
-  contact/, about/, case-studies/, privacy/, terms/
-  api/contact/         Resend-backed contact route
+  layout.tsx          true root — html/body, fonts, ThemeProvider (shared
+                      by both the localized site and /admin)
+  [locale]/           localized public site (en/de/fr/it)
+    layout.tsx          Navbar/Footer/HtmlLangSync, generateStaticParams
+    dictionaries.ts      getDictionary(locale)
+    dictionaries/         en.json (source of truth), de/fr/it.json
+    page.tsx, about/, services/, services/[slug]/, case-studies/,
+    contact/, privacy/, terms/
+  admin/              unlocalized, English-only
+    login/              /admin/login — Supabase Auth sign-in
+    (protected)/         auth-gated admin shell (layout calls requireAdmin())
+      page.tsx            /admin dashboard
+      services/           /admin/services CRUD + actions.ts (server actions)
+      testimonials/       /admin/testimonials CRUD + actions.ts
+  api/contact/        Resend-backed contact route (unlocalized)
 components/
-  layout/       Navbar, Footer, ThemeToggle
+  layout/       Navbar, Footer, ThemeToggle, LanguageSwitcher, HtmlLangSync
   ui/           Button, Card, Badge, Container, SectionHeading
-  sections/     homepage sections (Hero, Process, Testimonials, ...)
+  sections/     homepage sections (Hero, Process, Testimonials, ...) — all
+                take `dict`/`locale` props now instead of hardcoded copy
   services/     ServiceCard, ServiceGrid (public)
   testimonials/ TestimonialCard (public)
-  admin/        LoginForm, ServiceForm, TestimonialForm, SubmitButton,
-                DeleteButton, LogoutButton — shared across both CRUD flows
+  admin/        LoginForm, ServiceForm, TestimonialForm, LocaleFieldTabs,
+                SubmitButton, DeleteButton, LogoutButton
+  legal/        LegalBody — renders Privacy/Terms body text with the
+                {email} placeholder swapped for a real mailto link
   forms/        ContactForm
 lib/
-  data/         Day 1 placeholder data (case studies only — services and
-                testimonials both moved to Supabase)
+  i18n/         locales.ts (LOCALES/Locale/DEFAULT_LOCALE), getLocale.ts
+                (proxy-side negotiation), alternates.ts (hreflang helper)
   supabase/
     public.ts     cookie-free client for public reads (keeps pages static/ISR)
     server.ts     cookie-aware SSR client for admin reads/writes
     middleware.ts session refresh + optimistic /admin gate, used by proxy.ts
     admin-auth.ts requireAdmin() — the real per-request auth check
     admin-emails.ts ADMIN_EMAILS allowlist parsing
-    queries.ts     public + admin read functions (services + testimonials)
-  email/        resend.ts (Day 4)
+    queries.ts     public + admin read functions, locale-aware with
+                   fallback-to-English (services + testimonials)
+  email/        resend.ts (Day 4) — stays English, not visitor-facing
   utils/        cn.ts, serviceIcons.tsx (shared lucide icon map)
 types/          shared TypeScript types
 supabase/
-  migrations/   SQL schema + seed data
-proxy.ts        Next 16 Proxy (formerly Middleware) — runs on every request
+  migrations/   0001 schema+seed, 0002 storage policies, 0003 i18n content
+                (all additive — run in order)
+proxy.ts        Next 16 Proxy (formerly Middleware) — locale redirect, then
+                Supabase session refresh + admin gate
 ```

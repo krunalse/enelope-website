@@ -7,20 +7,29 @@ import { Menu, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { ThemeToggle } from "./ThemeToggle";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import type { Locale } from "@/lib/i18n/locales";
+import type { Dictionary } from "@/app/[locale]/dictionaries";
 
-const links = [
-  { href: "/services", label: "Services" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/about", label: "About" },
-];
+interface NavbarProps {
+  locale: Locale;
+  dict: Dictionary;
+}
 
-export function Navbar() {
+export function Navbar({ locale, dict: fullDict }: NavbarProps) {
   const [open, setOpen] = useState(false);
+  const dict = fullDict.nav;
+
+  const links = [
+    { href: `/${locale}/services`, label: dict.services },
+    { href: `/${locale}/case-studies`, label: dict.caseStudies },
+    { href: `/${locale}/about`, label: dict.about },
+  ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-ink/8 bg-paper/85 backdrop-blur dark:border-white/10 dark:bg-surface-dark/85">
       <Container className="flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+        <Link href={`/${locale}`} className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <Image
             src="/enelope-logo.png"
             alt="Enelope"
@@ -47,9 +56,10 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-4 md:flex">
+          <LanguageSwitcher locale={locale} label={fullDict.languageSwitcher.label} />
           <ThemeToggle />
-          <ButtonLink href="/contact" className="!px-5 !py-2.5 text-sm">
-            Start a project
+          <ButtonLink href={`/${locale}/contact`} className="!px-5 !py-2.5 text-sm">
+            {dict.startProject}
           </ButtonLink>
         </div>
 
@@ -57,7 +67,7 @@ export function Navbar() {
           type="button"
           className="flex h-10 w-10 items-center justify-center text-ink dark:text-white md:hidden"
           onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? dict.closeMenu : dict.openMenu}
           aria-expanded={open}
           aria-controls="mobile-nav"
         >
@@ -81,10 +91,13 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="flex items-center justify-between pt-2">
-              <ThemeToggle />
-              <ButtonLink href="/contact" onClick={() => setOpen(false)}>
-                Start a project
+            <div className="flex items-center justify-between gap-3 pt-2">
+              <div className="flex items-center gap-3">
+                <LanguageSwitcher locale={locale} label={fullDict.languageSwitcher.label} />
+                <ThemeToggle />
+              </div>
+              <ButtonLink href={`/${locale}/contact`} onClick={() => setOpen(false)}>
+                {dict.startProject}
               </ButtonLink>
             </div>
           </nav>

@@ -1,8 +1,15 @@
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import type { Locale } from "@/lib/i18n/locales";
+import type { Dictionary } from "@/app/[locale]/dictionaries";
 
-export function Hero() {
+interface HeroProps {
+  locale: Locale;
+  dict: Dictionary["home"]["hero"];
+}
+
+export function Hero({ locale, dict }: HeroProps) {
   return (
     <section className="relative overflow-hidden pb-20 pt-16 sm:pb-28 sm:pt-24">
       <div
@@ -11,37 +18,35 @@ export function Hero() {
       />
       <Container className="relative grid gap-16 lg:grid-cols-2 lg:items-center">
         <div className="animate-fade-up">
-          <Badge>AI Agents · Chatbots · Cloud · Consulting</Badge>
+          <Badge>{dict.badge}</Badge>
           <h1 className="mt-6 font-display text-4xl font-medium leading-[1.1] text-ink dark:text-white sm:text-5xl lg:text-[3.25rem]">
-            Automation your team will actually trust.
+            {dict.title}
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-soft dark:text-white/70">
-            Enelope designs AI agents and chatbots, builds the cloud
-            infrastructure underneath them, and tells you honestly where
-            automation earns its keep — and where it doesn&apos;t.
+            {dict.subtitle}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <ButtonLink href="/contact">Start a project</ButtonLink>
-            <ButtonLink href="/case-studies" variant="secondary">
-              See case studies
+            <ButtonLink href={`/${locale}/contact`}>{dict.startProject}</ButtonLink>
+            <ButtonLink href={`/${locale}/case-studies`} variant="secondary">
+              {dict.seeCaseStudies}
             </ButtonLink>
           </div>
         </div>
 
         <div className="relative mx-auto aspect-square w-full max-w-md animate-fade-up lg:max-w-none">
-          <HeroDiagram />
+          <HeroDiagram dict={dict} />
         </div>
       </Container>
     </section>
   );
 }
 
-function HeroDiagram() {
+function HeroDiagram({ dict }: { dict: Dictionary["home"]["hero"] }) {
   const nodes = [
-    { x: 60, y: 60, label: "Agents" },
-    { x: 340, y: 60, label: "Chatbots" },
-    { x: 60, y: 340, label: "Cloud" },
-    { x: 340, y: 340, label: "Consulting" },
+    { x: 60, y: 60, label: dict.nodeAgents },
+    { x: 340, y: 60, label: dict.nodeChatbots },
+    { x: 60, y: 340, label: dict.nodeCloud },
+    { x: 340, y: 340, label: dict.nodeConsulting },
   ];
 
   return (
@@ -49,7 +54,7 @@ function HeroDiagram() {
       viewBox="0 0 400 400"
       className="h-full w-full"
       role="img"
-      aria-label="Diagram connecting AI agents, chatbots, cloud, and consulting around a central node"
+      aria-label={dict.diagramAlt}
     >
       {nodes.map((n, i) => (
         <line
@@ -65,7 +70,7 @@ function HeroDiagram() {
       ))}
 
       {nodes.map((n, i) => (
-        <g key={n.label}>
+        <g key={i}>
           <circle
             cx={n.x}
             cy={n.y}

@@ -1,33 +1,25 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import type { Dictionary } from "@/app/[locale]/dictionaries";
 
-const points = [
-  {
-    stat: "3 weeks",
-    label: "average time to first working agent",
-  },
-  {
-    stat: "100%",
-    label: "of engagements start with a no-build consulting phase",
-  },
-  {
-    stat: "24/7",
-    label: "coverage once a chatbot or agent goes live",
-  },
-];
+export function ValueProp({ dict }: { dict: Dictionary["home"]["valueProp"] }) {
+  const points = [
+    { stat: dict.stat1Value, label: dict.stat1Label },
+    { stat: dict.stat2Value, label: dict.stat2Label },
+    { stat: dict.stat3Value, label: dict.stat3Label },
+  ];
 
-export function ValueProp() {
   return (
     <section className="py-20 sm:py-28">
       <Container>
         <SectionHeading
-          eyebrow="Why Enelope"
-          title="We build the automation, not just the demo."
-          description="Most AI projects stall between the prototype and production. We close that gap — grounding every agent and chatbot in your real data, your real systems, and infrastructure that holds up under real load."
+          eyebrow={dict.eyebrow}
+          title={dict.title}
+          description={dict.description}
         />
         <div className="mt-14 grid gap-8 sm:grid-cols-3">
-          {points.map((p) => (
-            <div key={p.label}>
+          {points.map((p, i) => (
+            <div key={i}>
               <p className="font-display text-4xl font-semibold text-brand dark:text-signal">
                 {p.stat}
               </p>

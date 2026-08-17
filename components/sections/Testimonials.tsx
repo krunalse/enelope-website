@@ -2,9 +2,16 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TestimonialCard } from "@/components/testimonials/TestimonialCard";
 import { getActiveTestimonials } from "@/lib/supabase/queries";
+import type { Locale } from "@/lib/i18n/locales";
+import type { Dictionary } from "@/app/[locale]/dictionaries";
 
-export async function Testimonials() {
-  const testimonials = await getActiveTestimonials();
+interface TestimonialsProps {
+  locale: Locale;
+  dict: Dictionary["home"]["testimonialsSection"];
+}
+
+export async function Testimonials({ locale, dict }: TestimonialsProps) {
+  const testimonials = await getActiveTestimonials(locale);
 
   if (testimonials.length === 0) return null;
 
@@ -12,8 +19,8 @@ export async function Testimonials() {
     <section className="py-20 sm:py-28">
       <Container>
         <SectionHeading
-          eyebrow="From clients"
-          title="What it's like to work with us."
+          eyebrow={dict.eyebrow}
+          title={dict.title}
           align="center"
           className="mx-auto"
         />

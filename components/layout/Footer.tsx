@@ -1,41 +1,50 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import type { Locale } from "@/lib/i18n/locales";
+import type { Dictionary } from "@/app/[locale]/dictionaries";
 
-const columns = [
-  {
-    heading: "Company",
-    links: [
-      { href: "/about", label: "About" },
-      { href: "/case-studies", label: "Case Studies" },
-      { href: "/contact", label: "Contact" },
-    ],
-  },
-  {
-    heading: "Services",
-    links: [
-      { href: "/services/ai-agents", label: "AI Agents" },
-      { href: "/services/chatbots", label: "Chatbots" },
-      { href: "/services/cloud", label: "Cloud" },
-      { href: "/services/consulting", label: "Consulting" },
-    ],
-  },
-  {
-    heading: "Legal",
-    links: [
-      { href: "/privacy", label: "Privacy" },
-      { href: "/terms", label: "Terms" },
-    ],
-  },
-];
+interface FooterProps {
+  locale: Locale;
+  dict: Dictionary;
+}
 
-export function Footer() {
+export function Footer({ locale, dict: fullDict }: FooterProps) {
+  const dict = fullDict.footer;
+
+  const columns = [
+    {
+      heading: dict.companyHeading,
+      links: [
+        { href: `/${locale}/about`, label: dict.aboutLink },
+        { href: `/${locale}/case-studies`, label: dict.caseStudiesLink },
+        { href: `/${locale}/contact`, label: dict.contactLink },
+      ],
+    },
+    {
+      heading: dict.servicesHeading,
+      links: [
+        { href: `/${locale}/services/ai-agents`, label: dict.aiAgentsLink },
+        { href: `/${locale}/services/chatbots`, label: dict.chatbotsLink },
+        { href: `/${locale}/services/cloud`, label: dict.cloudLink },
+        { href: `/${locale}/services/consulting`, label: dict.consultingLink },
+      ],
+    },
+    {
+      heading: dict.legalHeading,
+      links: [
+        { href: `/${locale}/privacy`, label: dict.privacyLink },
+        { href: `/${locale}/terms`, label: dict.termsLink },
+      ],
+    },
+  ];
+
   return (
     <footer className="border-t border-ink/8 bg-paper dark:border-white/10 dark:bg-surface-dark">
       <Container className="py-16">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href={`/${locale}`} className="flex items-center gap-2">
               <Image
                 src="/enelope-logo.png"
                 alt="Enelope"
@@ -48,8 +57,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-soft dark:text-white/60">
-              AI Agents · Chatbots · Cloud · Consulting — built for teams who
-              want automation they can actually trust.
+              {dict.tagline}
             </p>
           </div>
 
@@ -75,8 +83,8 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-ink/8 pt-8 text-xs text-ink-soft dark:border-white/10 dark:text-white/40 sm:flex-row sm:items-center">
-          <p>&copy; {new Date().getFullYear()} Enelope. All rights reserved.</p>
-          <p className="font-mono">Built with Next.js &amp; Supabase</p>
+          <p>{dict.copyright.replace("{year}", String(new Date().getFullYear()))}</p>
+          <p className="font-mono">{dict.builtWith}</p>
         </div>
       </Container>
     </footer>

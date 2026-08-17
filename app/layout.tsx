@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 const display = Space_Grotesk({
@@ -43,6 +41,12 @@ export const metadata: Metadata = {
   },
 };
 
+// True root layout. Shared by both the localized public site (app/[locale])
+// and the unlocalized admin panel (app/admin) — anything that must apply to
+// both lives here (fonts, ThemeProvider). Navbar/Footer live one level down
+// in app/[locale]/layout.tsx since admin has its own header and isn't
+// translated. <html lang> can't be set per-locale here since this layout
+// sits above the [locale] segment — see components/layout/HtmlLangSync.tsx.
 export default function RootLayout({
   children,
 }: {
@@ -56,9 +60,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          {children}
         </ThemeProvider>
       </body>
     </html>

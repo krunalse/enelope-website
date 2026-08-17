@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { requireAdmin } from "@/lib/supabase/admin-auth";
 import { createClient } from "@/lib/supabase/server";
 import { getAllTestimonialsForAdmin } from "@/lib/supabase/queries";
+import { LOCALES, DEFAULT_LOCALE } from "@/lib/i18n/locales";
 
 const BUCKET = "testimonial-avatars";
 
@@ -32,29 +33,58 @@ async function uploadAvatar(
 
 function readTestimonialFields(formData: FormData) {
   const rating = Number(formData.get("rating") ?? 5);
+
+  const translations = Object.fromEntries(
+    LOCALES.map((locale) => [
+      locale,
+      {
+        testimonial: String(formData.get(`testimonial_${locale}`) ?? "").trim(),
+        customer_role: String(formData.get(`customer_role_${locale}`) ?? "").trim(),
+      },
+    ])
+  ) as Record<(typeof LOCALES)[number], { testimonial: string; customer_role: string }>;
+
   return {
     customer_name: String(formData.get("customer_name") ?? "").trim(),
-    customer_role: String(formData.get("customer_role") ?? "").trim(),
     company_name: String(formData.get("company_name") ?? "").trim(),
-    testimonial: String(formData.get("testimonial") ?? "").trim(),
     rating: Number.isFinite(rating) ? Math.min(5, Math.max(1, rating)) : 5,
     is_active: formData.get("is_active") === "on",
+    translations,
   };
+}
+
+async function saveTranslations(
+  supabase: ReturnType<typeof createClient>,
+  testimonialId: string,
+  translations: ReturnType<typeof readTestimonialFields>["translations"]
+) {
+  const rows = LOCALES.map((locale) => ({
+    testimonial_id: testimonialId,
+    locale,
+    ...translations[locale],
+  }));
+  const { error } = await supabase
+    .from("testimonial_translations")
+    .upsert(rows, { onConflict: "testimonial_id,locale" });
+  if (error) throw new Error(error.message);
 }
 
 function revalidateTestimonialPaths() {
   revalidatePath("/admin/testimonials");
   revalidatePath("/admin");
-  revalidatePath("/");
+  for (const locale of LOCALES) {
+    revalidatePath(`/${locale}`);
+  }
 }
 
 export async function createTestimonial(formData: FormData) {
   await requireAdmin();
   const supabase = createClient();
   const fields = readTestimonialFields(formData);
+  const en = fields.translations[DEFAULT_LOCALE];
 
-  if (!fields.customer_name || !fields.company_name || !fields.testimonial) {
-    throw new Error("Customer name, company, and testimonial are required.");
+  if (!fields.customer_name || !fields.company_name || !en.testimonial) {
+    throw new Error("Customer name, company, and English testimonial are required.");
   }
 
   const existing = await getAllTestimonialsForAdmin();
@@ -68,14 +98,25 @@ export async function createTestimonial(formData: FormData) {
     avatarFields = await uploadAvatar(supabase, avatar);
   }
 
-  const { error } = await supabase.from("testimonials").insert({
-    ...fields,
-    display_order: nextOrder,
-    avatar_url: avatarFields?.avatar_url ?? null,
-    avatar_path: avatarFields?.avatar_path ?? null,
-  });
+  const { data: inserted, error } = await supabase
+    .from("testimonials")
+    .insert({
+      customer_name: fields.customer_name,
+      company_name: fields.company_name,
+      rating: fields.rating,
+      is_active: fields.is_active,
+      display_order: nextOrder,
+      testimonial: en.testimonial,
+      customer_role: en.customer_role,
+      avatar_url: avatarFields?.avatar_url ?? null,
+      avatar_path: avatarFields?.avatar_path ?? null,
+    })
+    .select("id")
+    .single();
 
-  if (error) throw new Error(error.message);
+  if (error || !inserted) throw new Error(error?.message ?? "Failed to create testimonial.");
+
+  await saveTranslations(supabase, inserted.id, fields.translations);
 
   revalidateTestimonialPaths();
   redirect("/admin/testimonials");
@@ -85,9 +126,10 @@ export async function updateTestimonial(id: string, formData: FormData) {
   await requireAdmin();
   const supabase = createClient();
   const fields = readTestimonialFields(formData);
+  const en = fields.translations[DEFAULT_LOCALE];
 
-  if (!fields.customer_name || !fields.company_name || !fields.testimonial) {
-    throw new Error("Customer name, company, and testimonial are required.");
+  if (!fields.customer_name || !fields.company_name || !en.testimonial) {
+    throw new Error("Customer name, company, and English testimonial are required.");
   }
 
   const { data: current } = await supabase
@@ -96,7 +138,14 @@ export async function updateTestimonial(id: string, formData: FormData) {
     .eq("id", id)
     .single();
 
-  const update: Record<string, unknown> = { ...fields };
+  const update: Record<string, unknown> = {
+    customer_name: fields.customer_name,
+    company_name: fields.company_name,
+    rating: fields.rating,
+    is_active: fields.is_active,
+    testimonial: en.testimonial,
+    customer_role: en.customer_role,
+  };
 
   const avatar = formData.get("avatar");
   if (avatar instanceof File && avatar.size > 0) {
@@ -107,6 +156,8 @@ export async function updateTestimonial(id: string, formData: FormData) {
 
   const { error } = await supabase.from("testimonials").update(update).eq("id", id);
   if (error) throw new Error(error.message);
+
+  await saveTranslations(supabase, id, fields.translations);
 
   revalidateTestimonialPaths();
   redirect("/admin/testimonials");

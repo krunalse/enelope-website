@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { requireAdmin } from "@/lib/supabase/admin-auth";
 import { createClient } from "@/lib/supabase/server";
 import { getAllServicesForAdmin } from "@/lib/supabase/queries";
+import { LOCALES, DEFAULT_LOCALE } from "@/lib/i18n/locales";
 
 const BUCKET = "service-images";
 
@@ -39,32 +40,64 @@ async function uploadImage(
 }
 
 function readServiceFields(formData: FormData) {
-  const title = String(formData.get("title") ?? "").trim();
   const slugInput = String(formData.get("slug") ?? "").trim();
+  const englishTitle = String(formData.get(`title_${DEFAULT_LOCALE}`) ?? "").trim();
+
+  const translations = Object.fromEntries(
+    LOCALES.map((locale) => [
+      locale,
+      {
+        title: String(formData.get(`title_${locale}`) ?? "").trim(),
+        short_description: String(formData.get(`short_description_${locale}`) ?? "").trim(),
+        full_description: String(formData.get(`full_description_${locale}`) ?? "").trim(),
+      },
+    ])
+  ) as Record<
+    (typeof LOCALES)[number],
+    { title: string; short_description: string; full_description: string }
+  >;
+
   return {
-    title,
-    slug: slugify(slugInput || title),
-    short_description: String(formData.get("short_description") ?? "").trim(),
-    full_description: String(formData.get("full_description") ?? "").trim(),
+    slug: slugify(slugInput || englishTitle),
     icon: String(formData.get("icon") ?? "Bot"),
     is_active: formData.get("is_active") === "on",
+    translations,
   };
+}
+
+async function saveTranslations(
+  supabase: ReturnType<typeof createClient>,
+  serviceId: string,
+  translations: ReturnType<typeof readServiceFields>["translations"]
+) {
+  const rows = LOCALES.map((locale) => ({
+    service_id: serviceId,
+    locale,
+    ...translations[locale],
+  }));
+  const { error } = await supabase
+    .from("service_translations")
+    .upsert(rows, { onConflict: "service_id,locale" });
+  if (error) throw new Error(error.message);
 }
 
 function revalidateServicePaths() {
   revalidatePath("/admin/services");
   revalidatePath("/admin");
-  revalidatePath("/services");
-  revalidatePath("/");
+  for (const locale of LOCALES) {
+    revalidatePath(`/${locale}/services`);
+    revalidatePath(`/${locale}`);
+  }
 }
 
 export async function createService(formData: FormData) {
   await requireAdmin();
   const supabase = createClient();
   const fields = readServiceFields(formData);
+  const en = fields.translations[DEFAULT_LOCALE];
 
-  if (!fields.title || !fields.short_description || !fields.full_description) {
-    throw new Error("Title, short description, and full description are required.");
+  if (!en.title || !en.short_description || !en.full_description) {
+    throw new Error("English title, short description, and full description are required.");
   }
 
   const existing = await getAllServicesForAdmin();
@@ -78,14 +111,25 @@ export async function createService(formData: FormData) {
     imageFields = await uploadImage(supabase, image);
   }
 
-  const { error } = await supabase.from("services").insert({
-    ...fields,
-    display_order: nextOrder,
-    image_url: imageFields?.image_url ?? null,
-    image_path: imageFields?.image_path ?? null,
-  });
+  const { data: inserted, error } = await supabase
+    .from("services")
+    .insert({
+      slug: fields.slug,
+      icon: fields.icon,
+      is_active: fields.is_active,
+      display_order: nextOrder,
+      title: en.title,
+      short_description: en.short_description,
+      full_description: en.full_description,
+      image_url: imageFields?.image_url ?? null,
+      image_path: imageFields?.image_path ?? null,
+    })
+    .select("id")
+    .single();
 
-  if (error) throw new Error(error.message);
+  if (error || !inserted) throw new Error(error?.message ?? "Failed to create service.");
+
+  await saveTranslations(supabase, inserted.id, fields.translations);
 
   revalidateServicePaths();
   redirect("/admin/services");
@@ -95,9 +139,10 @@ export async function updateService(id: string, formData: FormData) {
   await requireAdmin();
   const supabase = createClient();
   const fields = readServiceFields(formData);
+  const en = fields.translations[DEFAULT_LOCALE];
 
-  if (!fields.title || !fields.short_description || !fields.full_description) {
-    throw new Error("Title, short description, and full description are required.");
+  if (!en.title || !en.short_description || !en.full_description) {
+    throw new Error("English title, short description, and full description are required.");
   }
 
   const { data: current } = await supabase
@@ -106,7 +151,14 @@ export async function updateService(id: string, formData: FormData) {
     .eq("id", id)
     .single();
 
-  const update: Record<string, unknown> = { ...fields };
+  const update: Record<string, unknown> = {
+    slug: fields.slug,
+    icon: fields.icon,
+    is_active: fields.is_active,
+    title: en.title,
+    short_description: en.short_description,
+    full_description: en.full_description,
+  };
 
   const image = formData.get("image");
   if (image instanceof File && image.size > 0) {
@@ -118,8 +170,12 @@ export async function updateService(id: string, formData: FormData) {
   const { error } = await supabase.from("services").update(update).eq("id", id);
   if (error) throw new Error(error.message);
 
+  await saveTranslations(supabase, id, fields.translations);
+
   revalidateServicePaths();
-  revalidatePath(`/services/${fields.slug}`);
+  for (const locale of LOCALES) {
+    revalidatePath(`/${locale}/services/${fields.slug}`);
+  }
   redirect("/admin/services");
 }
 

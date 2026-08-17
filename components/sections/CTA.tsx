@@ -1,7 +1,14 @@
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
+import type { Locale } from "@/lib/i18n/locales";
+import type { Dictionary } from "@/app/[locale]/dictionaries";
 
-export function CTA() {
+interface CTAProps {
+  locale: Locale;
+  dict: Dictionary["home"]["cta"];
+}
+
+export function CTA({ locale, dict }: CTAProps) {
   return (
     <section className="py-20 sm:py-28">
       <Container>
@@ -12,15 +19,14 @@ export function CTA() {
           />
           <div className="relative">
             <h2 className="mx-auto max-w-xl font-display text-3xl font-medium text-white sm:text-4xl">
-              Ready to find out where automation actually pays off?
+              {dict.title}
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-base text-white/70">
-              Start with a conversation, not a contract. We&apos;ll tell you
-              honestly what&apos;s worth building.
+              {dict.subtitle}
             </p>
             <div className="mt-8 flex justify-center">
-              <ButtonLink href="/contact" variant="primary">
-                Start a project
+              <ButtonLink href={`/${locale}/contact`} variant="primary">
+                {dict.startProject}
               </ButtonLink>
             </div>
           </div>
