@@ -1,6 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import type { Dictionary } from "@/app/[locale]/dictionaries";
+import type { Dictionary } from "@/lib/content/dictionary";
 
 export function Process({ dict }: { dict: Dictionary["home"]["process"] }) {
   return (

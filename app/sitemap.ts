@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
-import { getActiveServices } from "@/lib/supabase/queries";
-import { LOCALES, DEFAULT_LOCALE } from "@/lib/i18n/locales";
-import { localeAlternates } from "@/lib/i18n/alternates";
+import { getServices } from "@/lib/content/data";
+
+export const dynamic = "force-static";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.enelope.ch";
 
@@ -15,26 +15,20 @@ const STATIC_PATHS: { path: string; changeFrequency: MetadataRoute.Sitemap[numbe
   { path: "/terms", changeFrequency: "yearly", priority: 0.2 },
 ];
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const services = await getActiveServices(DEFAULT_LOCALE);
+export default function sitemap(): MetadataRoute.Sitemap {
+  const services = getServices();
 
-  const staticRoutes: MetadataRoute.Sitemap = STATIC_PATHS.flatMap(({ path, changeFrequency, priority }) =>
-    LOCALES.map((locale) => ({
-      url: `${baseUrl}/${locale}${path === "/" ? "" : path}`,
-      changeFrequency,
-      priority,
-      alternates: localeAlternates(locale, path),
-    }))
-  );
+  const staticRoutes: MetadataRoute.Sitemap = STATIC_PATHS.map(({ path, changeFrequency, priority }) => ({
+    url: `${baseUrl}${path === "/" ? "" : path}`,
+    changeFrequency,
+    priority,
+  }));
 
-  const serviceRoutes: MetadataRoute.Sitemap = services.flatMap((service) =>
-    LOCALES.map((locale) => ({
-      url: `${baseUrl}/${locale}/services/${service.slug}`,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-      alternates: localeAlternates(locale, `/services/${service.slug}`),
-    }))
-  );
+  const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
+    url: `${baseUrl}/services/${service.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
 
   return [...staticRoutes, ...serviceRoutes];
 }

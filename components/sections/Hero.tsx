@@ -1,15 +1,13 @@
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import type { Locale } from "@/lib/i18n/locales";
-import type { Dictionary } from "@/app/[locale]/dictionaries";
+import type { Dictionary } from "@/lib/content/dictionary";
 
 interface HeroProps {
-  locale: Locale;
   dict: Dictionary["home"]["hero"];
 }
 
-export function Hero({ locale, dict }: HeroProps) {
+export function Hero({ dict }: HeroProps) {
   return (
     <section className="relative overflow-hidden pb-20 pt-16 sm:pb-28 sm:pt-24">
       <div
@@ -26,8 +24,8 @@ export function Hero({ locale, dict }: HeroProps) {
             {dict.subtitle}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <ButtonLink href={`/${locale}/contact`}>{dict.startProject}</ButtonLink>
-            <ButtonLink href={`/${locale}/case-studies`} variant="secondary">
+            <ButtonLink href="/contact">{dict.startProject}</ButtonLink>
+            <ButtonLink href="/case-studies" variant="secondary">
               {dict.seeCaseStudies}
             </ButtonLink>
           </div>

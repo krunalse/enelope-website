@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.enelope.ch";
 
 export default function robots(): MetadataRoute.Robots {
@@ -7,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/admin", "/api"],
+      disallow: ["/api"],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
   };

@@ -1,0 +1,3 @@
+module.exports=[93592,a=>{"use strict";var b=a.i(87924),c=a.i(8908);a.s(["DeleteButton",0,function({confirmMessage:a="Delete this item? This can't be undone.",onClick:d,children:e="Delete",...f}){return(0,b.jsx)(c.SubmitButton,{...f,onClick:b=>{confirm(a)?d?.(b):b.preventDefault()},children:e})}])},8908,a=>{"use strict";var b=a.i(87924),c=a.i(35112),d=a.i(12466);a.s(["SubmitButton",0,function({children:a,pendingLabel:e="Saving…",...f}){let{pending:g}=(0,c.useFormStatus)();return(0,b.jsx)(d.Button,{type:"submit",disabled:g,...f,children:g?e:a})}])},33354,(a,b,c)=>{"use strict";c._=function(a){return a&&a.__esModule?a:{default:a}}},35112,(a,b,c)=>{"use strict";b.exports=a.r(42602).vendored["react-ssr"].ReactDOM}];
+
+//# sourceMappingURL=_1_magmj._.js.map

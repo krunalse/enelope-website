@@ -1,0 +1,3 @@
+{
+  "/admin/(protected)/testimonials/[id]/page": "app/admin/(protected)/testimonials/[id]/page.js"
+}

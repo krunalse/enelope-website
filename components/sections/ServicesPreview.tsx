@@ -1,24 +1,17 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceGrid } from "@/components/services/ServiceGrid";
-import { getActiveServices } from "@/lib/supabase/queries";
-import type { Locale } from "@/lib/i18n/locales";
-import type { Dictionary } from "@/app/[locale]/dictionaries";
+import { getServices } from "@/lib/content/data";
+import type { Dictionary } from "@/lib/content/dictionary";
 
 interface ServicesPreviewProps {
-  locale: Locale;
   dict: Dictionary["home"]["servicesPreview"];
   serviceGridDict: Dictionary["serviceGrid"];
   learnMoreLabel: string;
 }
 
-export async function ServicesPreview({
-  locale,
-  dict,
-  serviceGridDict,
-  learnMoreLabel,
-}: ServicesPreviewProps) {
-  const services = await getActiveServices(locale);
+export function ServicesPreview({ dict, serviceGridDict, learnMoreLabel }: ServicesPreviewProps) {
+  const services = getServices();
 
   return (
     <section className="bg-surface-muted py-20 dark:bg-surface-dark-muted/40 sm:py-28">
@@ -27,7 +20,6 @@ export async function ServicesPreview({
         <div className="mt-14">
           <ServiceGrid
             services={services}
-            locale={locale}
             emptyMessage={serviceGridDict.empty}
             learnMoreLabel={learnMoreLabel}
           />

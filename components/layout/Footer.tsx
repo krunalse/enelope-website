@@ -1,40 +1,38 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import type { Locale } from "@/lib/i18n/locales";
-import type { Dictionary } from "@/app/[locale]/dictionaries";
+import type { Dictionary } from "@/lib/content/dictionary";
 
 interface FooterProps {
-  locale: Locale;
   dict: Dictionary;
 }
 
-export function Footer({ locale, dict: fullDict }: FooterProps) {
+export function Footer({ dict: fullDict }: FooterProps) {
   const dict = fullDict.footer;
 
   const columns = [
     {
       heading: dict.companyHeading,
       links: [
-        { href: `/${locale}/about`, label: dict.aboutLink },
-        { href: `/${locale}/case-studies`, label: dict.caseStudiesLink },
-        { href: `/${locale}/contact`, label: dict.contactLink },
+        { href: "/about", label: dict.aboutLink },
+        { href: "/case-studies", label: dict.caseStudiesLink },
+        { href: "/contact", label: dict.contactLink },
       ],
     },
     {
       heading: dict.servicesHeading,
       links: [
-        { href: `/${locale}/services/ai-agents`, label: dict.aiAgentsLink },
-        { href: `/${locale}/services/chatbots`, label: dict.chatbotsLink },
-        { href: `/${locale}/services/cloud`, label: dict.cloudLink },
-        { href: `/${locale}/services/consulting`, label: dict.consultingLink },
+        { href: "/services/ai-agents", label: dict.aiAgentsLink },
+        { href: "/services/chatbots", label: dict.chatbotsLink },
+        { href: "/services/cloud", label: dict.cloudLink },
+        { href: "/services/consulting", label: dict.consultingLink },
       ],
     },
     {
       heading: dict.legalHeading,
       links: [
-        { href: `/${locale}/privacy`, label: dict.privacyLink },
-        { href: `/${locale}/terms`, label: dict.termsLink },
+        { href: "/privacy", label: dict.privacyLink },
+        { href: "/terms", label: dict.termsLink },
       ],
     },
   ];
@@ -44,7 +42,7 @@ export function Footer({ locale, dict: fullDict }: FooterProps) {
       <Container className="py-16">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
           <div className="col-span-2">
-            <Link href={`/${locale}`} className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/enelope-logo.png"
                 alt="Enelope"

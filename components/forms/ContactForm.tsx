@@ -4,40 +4,52 @@ import { FormEvent, useState } from "react";
 import { Send } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Service } from "@/types";
-import type { Dictionary } from "@/app/[locale]/dictionaries";
+import type { Dictionary } from "@/lib/content/dictionary";
 
 const inputClass =
   "w-full rounded-xl border border-ink/12 bg-surface px-4 py-3 text-sm text-ink placeholder:text-ink-soft/50 focus:border-brand dark:border-white/15 dark:bg-surface-dark-muted dark:text-white dark:placeholder:text-white/30 dark:focus:border-signal";
 
-type Status = "idle" | "submitting" | "success" | "error";
+type Status = "idle" | "success";
 
 interface ContactFormProps {
   services: Service[];
   dict: Dictionary["contactForm"];
 }
 
+const CONTACT_EMAIL = "hello@enelope.ch";
+
+function buildMailto(payload: Record<string, FormDataEntryValue>) {
+  const name = String(payload.name ?? "");
+  const email = String(payload.email ?? "");
+  const company = String(payload.company ?? "");
+  const phone = String(payload.phone ?? "");
+  const service = String(payload.service ?? "");
+  const message = String(payload.message ?? "");
+
+  const subject = `New inquiry from ${name}${company ? ` (${company})` : ""}`;
+  const detailLines = [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    company && `Company: ${company}`,
+    phone && `Phone: ${phone}`,
+    service && `Service: ${service}`,
+  ].filter((line): line is string => Boolean(line));
+  const body = [...detailLines, "", message].join("\n");
+
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 export function ContactForm({ services, dict }: ContactFormProps) {
   const [status, setStatus] = useState<Status>("idle");
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("submitting");
 
     const form = new FormData(e.currentTarget);
     const payload = Object.fromEntries(form.entries());
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error("Request failed");
-      setStatus("success");
-      (e.target as HTMLFormElement).reset();
-    } catch {
-      setStatus("error");
-    }
+    window.location.href = buildMailto(payload);
+    setStatus("success");
   }
 
   if (status === "success") {
@@ -112,12 +124,8 @@ export function ContactForm({ services, dict }: ContactFormProps) {
         />
       </div>
 
-      {status === "error" && (
-        <p className="text-sm text-red-600 dark:text-red-400">{dict.errorBody}</p>
-      )}
-
-      <Button type="submit" disabled={status === "submitting"} className="w-full sm:w-auto">
-        {status === "submitting" ? dict.sending : dict.submit}
+      <Button type="submit" className="w-full sm:w-auto">
+        {dict.submit}
         <Send className="h-4 w-4" />
       </Button>
     </form>

@@ -2,7 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { ShieldCheck, Gauge, Users } from "lucide-react";
-import type { Dictionary } from "@/app/[locale]/dictionaries";
+import type { Dictionary } from "@/lib/content/dictionary";
 
 const icons = [ShieldCheck, Gauge, Users];
 

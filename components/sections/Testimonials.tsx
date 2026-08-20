@@ -1,17 +1,15 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TestimonialCard } from "@/components/testimonials/TestimonialCard";
-import { getActiveTestimonials } from "@/lib/supabase/queries";
-import type { Locale } from "@/lib/i18n/locales";
-import type { Dictionary } from "@/app/[locale]/dictionaries";
+import { getTestimonials } from "@/lib/content/data";
+import type { Dictionary } from "@/lib/content/dictionary";
 
 interface TestimonialsProps {
-  locale: Locale;
   dict: Dictionary["home"]["testimonialsSection"];
 }
 
-export async function Testimonials({ locale, dict }: TestimonialsProps) {
-  const testimonials = await getActiveTestimonials(locale);
+export function Testimonials({ dict }: TestimonialsProps) {
+  const testimonials = getTestimonials();
 
   if (testimonials.length === 0) return null;
 

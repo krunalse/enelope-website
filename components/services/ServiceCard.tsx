@@ -3,19 +3,17 @@ import { ArrowUpRight } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Service } from "@/types";
 import { getServiceIcon } from "@/lib/utils/serviceIcons";
-import type { Locale } from "@/lib/i18n/locales";
 
 interface ServiceCardProps {
   service: Service;
-  locale: Locale;
   learnMoreLabel: string;
 }
 
-export function ServiceCard({ service, locale, learnMoreLabel }: ServiceCardProps) {
+export function ServiceCard({ service, learnMoreLabel }: ServiceCardProps) {
   const Icon = getServiceIcon(service.icon);
 
   return (
-    <Link href={`/${locale}/services/${service.slug}`} className="group block h-full">
+    <Link href={`/services/${service.slug}`} className="group block h-full">
       <Card className="flex h-full flex-col justify-between">
         <div>
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand dark:bg-signal/15 dark:text-signal">

@@ -1,0 +1,35 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+7:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+8:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+6:X
+1a:X
+1a:C
+0:{"buildId":"WzJTidXvl0Bws7-zQcQvH","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"py-20 sm:py-28","children":["$","div",null,{"className":"mx-auto w-full max-w-6xl px-6 lg:px-8","children":[["$","div",null,{"className":"max-w-2xl","children":[["$","p",null,{"className":"mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand dark:text-signal","children":"About Enelope"}],["$","h2",null,{"className":"font-display text-3xl font-medium leading-tight text-ink dark:text-white sm:text-4xl","children":"A small team that builds AI infrastructure meant to last."}],["$","p",null,{"className":"mt-4 text-base leading-relaxed text-ink-soft dark:text-white/70","children":"We started Enelope because too many AI projects stall at the prototype stage — impressive in a demo, unreliable in production. We work end to end: consulting on where automation fits, building the agents and chatbots, and standing up the cloud infrastructure underneath."}]]}],["$","div",null,{"className":"mt-16 grid gap-6 sm:grid-cols-3","children":[["$","div","0",{"className":"rounded-2xl border border-ink/8 bg-surface p-6 shadow-sm transition-shadow duration-200 hover:shadow-md dark:border-white/10 dark:bg-surface-dark-muted","children":[["$","h3",null,{"className":"font-display text-lg font-medium text-ink dark:text-white","children":"Honest scoping"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-ink-soft dark:text-white/60","children":"We turn down work we don't think will pay off, and we say so before the invoice, not after."}]]}],["$","div","1",{"className":"rounded-2xl border border-ink/8 bg-surface p-6 shadow-sm transition-shadow duration-200 hover:shadow-md dark:border-white/10 dark:bg-surface-dark-muted","children":[["$","h3",null,{"className":"font-display text-lg font-medium text-ink dark:text-white","children":"Production over demos"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-ink-soft dark:text-white/60","children":"A prototype that impresses in a meeting and an agent that survives real traffic are different projects. We build the second one."}]]}],["$","div","2",{"className":"rounded-2xl border border-ink/8 bg-surface p-6 shadow-sm transition-shadow duration-200 hover:shadow-md dark:border-white/10 dark:bg-surface-dark-muted","children":[["$","h3",null,{"className":"font-display text-lg font-medium text-ink dark:text-white","children":"Ownership transfer"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-ink-soft dark:text-white/60","children":"You should be able to run what we build without us. Documentation and handoff are part of every engagement."}]]}]]}]]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":"$@5","staleTime":"$6","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L7",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L8",null,{"children":["$","$3",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"About | Enelope"}],["$","meta","1",{"name":"description","content":"Enelope is a small, senior team building AI agents, chatbots, and cloud infrastructure that actually make it to production."}],["$","meta","2",{"property":"og:title","content":"Enelope — AI Agents, Chatbots, Cloud & Consulting"}],["$","meta","3",{"property":"og:description","content":"AI agents, chatbots, and cloud infrastructure built for teams who want automation they can trust."}],["$","meta","4",{"property":"og:site_name","content":"Enelope"}],["$","meta","5",{"property":"og:image","content":"http://localhost:3000/opengraph-image?82cee7873e98e88d"}],["$","meta","6",{"property":"og:image:type","content":"image/png"}],["$","meta","7",{"property":"og:image:width","content":"1200"}],["$","meta","8",{"property":"og:image:height","content":"630"}],"$L9","$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15"]}]}]}],"$L16"]}],"isPartial":"$@17","staleTime":"$6","varyParams":null},{"rsc":"$L18","isPartial":"$@19","staleTime":"$6","varyParams":"$1a"}],"isUpgradeableISRFallback":false,"a":"$@1b","rootVaryParams":null,"needsRuntimeRequest":"$@1c"}
+1d:I[27201,["/_next/static/chunks/3fntmmi971322.js"],"IconMark"]
+1e:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+1f:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+4:null
+9:["$","meta","9",{"property":"og:image:alt","content":"Enelope — AI Agents, Chatbots, Cloud & Consulting"}]
+a:["$","meta","10",{"property":"og:type","content":"website"}]
+b:["$","meta","11",{"name":"twitter:card","content":"summary_large_image"}]
+c:["$","meta","12",{"name":"twitter:title","content":"Enelope — AI Agents, Chatbots, Cloud & Consulting"}]
+d:["$","meta","13",{"name":"twitter:description","content":"AI agents, chatbots, and cloud infrastructure built for teams who want automation they can trust."}]
+e:["$","meta","14",{"name":"twitter:image","content":"http://localhost:3000/opengraph-image?82cee7873e98e88d"}]
+f:["$","meta","15",{"name":"twitter:image:alt","content":"Enelope — AI Agents, Chatbots, Cloud & Consulting"}]
+10:["$","meta","16",{"name":"twitter:image:type","content":"image/png"}]
+11:["$","meta","17",{"name":"twitter:image:width","content":"1200"}]
+12:["$","meta","18",{"name":"twitter:image:height","content":"630"}]
+13:["$","link","19",{"rel":"icon","href":"/icon?14ebc9357f49dc6d","type":"image/png","sizes":"32x32"}]
+14:["$","link","20",{"rel":"apple-touch-icon","href":"/apple-icon?2ed77e5d3345ca57","type":"image/png","sizes":"180x180"}]
+15:["$","$L1d","21",{}]
+16:["$","meta",null,{"name":"next-size-adjust","content":""}]
+18:["$","$1","c",{"children":[null,["$","$L1e",null,{"parallelRouterKey":"children","template":["$","$L1f",null,{}]}]]}]
+1c:true
+6:300
+6:C
+1b:0
+17:"$undefined"
+19:"$undefined"
+5:"$undefined"

@@ -6,8 +6,17 @@ export interface Service {
   fullDescription: string;
   icon: string; // lucide-react icon name
   imageUrl: string | null;
-  displayOrder: number;
-  isActive: boolean;
+}
+
+export interface CaseStudy {
+  id: string;
+  slug: string;
+  clientName: string;
+  industry: string;
+  summary: string;
+  result: string;
+  fullDescription: string;
+  imageUrl: string | null;
 }
 
 export interface Testimonial {
@@ -18,6 +27,4 @@ export interface Testimonial {
   testimonial: string;
   avatarUrl: string | null;
   rating: number;
-  displayOrder: number;
-  isActive: boolean;
 }

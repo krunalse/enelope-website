@@ -1,14 +1,12 @@
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
-import type { Locale } from "@/lib/i18n/locales";
-import type { Dictionary } from "@/app/[locale]/dictionaries";
+import type { Dictionary } from "@/lib/content/dictionary";
 
 interface CTAProps {
-  locale: Locale;
   dict: Dictionary["home"]["cta"];
 }
 
-export function CTA({ locale, dict }: CTAProps) {
+export function CTA({ dict }: CTAProps) {
   return (
     <section className="py-20 sm:py-28">
       <Container>
@@ -25,7 +23,7 @@ export function CTA({ locale, dict }: CTAProps) {
               {dict.subtitle}
             </p>
             <div className="mt-8 flex justify-center">
-              <ButtonLink href={`/${locale}/contact`} variant="primary">
+              <ButtonLink href="/contact" variant="primary">
                 {dict.startProject}
               </ButtonLink>
             </div>
