@@ -24,10 +24,7 @@ const config: Config = {
           DEFAULT: "#FFFFFF",
           muted: "#EEF3F7",
         },
-        footer: {
-          DEFAULT: "#071B2F",
-          soft: "#102C46",
-        },
+        footer: "#071B2F",
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],
@@ -54,17 +51,9 @@ const config: Config = {
         frame: "0 24px 64px -32px rgba(10,37,64,0.45)",
       },
       keyframes: {
-        "pulse-node": {
-          "0%, 100%": { opacity: "0.6", transform: "scale(1)" },
-          "50%": { opacity: "1", transform: "scale(1.15)" },
-        },
         "fade-up": {
           "0%": { opacity: "0", transform: "translateY(12px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        "fade-in": {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
         },
         "ken-burns": {
           "0%": { transform: "scale(1)" },
@@ -72,9 +61,7 @@ const config: Config = {
         },
       },
       animation: {
-        "pulse-node": "pulse-node 2.4s ease-in-out infinite",
         "fade-up": "fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both",
-        "fade-in": "fade-in 0.8s ease-out both",
         "ken-burns": "ken-burns 9s ease-out both",
       },
     },

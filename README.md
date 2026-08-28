@@ -2,7 +2,11 @@
 
 AI Agents · Chatbots · Cloud · Consulting — marketing site.
 
-Next.js (App Router) · TypeScript · Tailwind CSS · Vercel.
+Next.js (App Router) · TypeScript · Tailwind CSS.
+
+Built as a fully static site (`output: "export"` in `next.config.mjs`) and served
+from a plain web server — `public/.htaccess` carries the Apache rewrite rules
+that map clean URLs onto the exported `.html` files.
 
 ## Getting started
 
@@ -27,9 +31,16 @@ There's no CMS or admin panel — content lives directly in the repo:
   chrome, legal pages, form labels): `lib/content/dictionary.json`, typed via
   `lib/content/dictionary.ts` (`Dictionary = typeof dictionary`).
 
-## Still to build
+## Building
 
-- Deployment: GitHub → Vercel → Production, Vercel env vars, custom domain.
+```bash
+npm run build
+```
+
+Writes the static site to `out/`. Upload its contents (including `.htaccess`)
+to the web root. The only environment variable the site reads is
+`NEXT_PUBLIC_SITE_URL`, used for canonical metadata, `sitemap.xml` and
+`robots.txt`.
 
 ## Project structure
 
@@ -40,7 +51,7 @@ app/
   case-studies/[slug]/, contact/, privacy/, terms/
 components/
   layout/       Navbar, Footer
-  ui/           Button, Card, Badge, Container, SectionHeading
+  ui/           Button, Card, Badge, Container, Section, SectionHeading, Prose
   sections/     homepage sections (Hero, Process, Testimonials, ...)
   services/     ServiceCard, ServiceGrid
   case-studies/ CaseStudyCard

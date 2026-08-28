@@ -1,6 +1,6 @@
 import { Service, CaseStudy, Testimonial } from "@/types";
 
-export const SERVICES: Service[] = [
+const SERVICES: Service[] = [
   {
     id: "ai-agents",
     title: "AI Agents",
@@ -387,7 +387,7 @@ We focus on solving the right problem first—so you invest your time and techno
   },
 ];
 
-export const CASE_STUDIES: CaseStudy[] = [
+const CASE_STUDIES: CaseStudy[] = [
   {
     id: "larkspur-logistics",
     slug: "larkspur-logistics",
@@ -578,7 +578,7 @@ The solution reduced the time employees spent searching for information and impr
   },
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
+const TESTIMONIALS: Testimonial[] = [
   {
     id: "daniel-reiter-northfield-analytics",
     customerName: "Daniel Reiter",
