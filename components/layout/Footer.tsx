@@ -48,11 +48,11 @@ export function Footer({ dict: fullDict }: FooterProps) {
           <div className="col-span-2">
             <Link href="/" className="group inline-flex items-center gap-2.5">
               <Image
-                src="/enelope-logo.png"
+                src="/enelope-mark.png"
                 alt=""
-                width={36}
-                height={36}
-                className="h-8 w-8 object-contain"
+                width={640}
+                height={412}
+                className="h-auto w-10"
               />
               <span className="font-display text-[1.375rem] font-normal text-white">
                 Enelope

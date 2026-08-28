@@ -23,8 +23,6 @@ export function Navbar({ dict: fullDict }: NavbarProps) {
     { href: "/about", label: dict.about },
   ];
 
-  const mobileLinks = [{ href: "/", label: "Enelope" }, ...links];
-
   const socialLinks = [
     { href: "https://enelope.ch", label: "LinkedIn", Icon: Linkedin },
     { href: "https://enelope.ch", label: "X", Icon: X },
@@ -89,13 +87,13 @@ export function Navbar({ dict: fullDict }: NavbarProps) {
             onClick={() => setOpen(false)}
           >
             {/* The mark is a white knockout, so it needs a dark chip to read on the light bar. */}
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-ink transition-colors duration-300 group-hover:bg-brand">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-ink transition-colors duration-300 group-hover:bg-brand">
               <Image
-                src="/enelope-logo.png"
+                src="/enelope-mark.png"
                 alt=""
-                width={40}
-                height={40}
-                className="h-5 w-5 object-contain"
+                width={640}
+                height={412}
+                className="h-auto w-8"
                 priority
               />
             </span>
@@ -157,9 +155,35 @@ export function Navbar({ dict: fullDict }: NavbarProps) {
           open ? "visible translate-y-0" : "invisible translate-y-full"
         }`}
       >
-        {/* pt-20 clears the header row so links never sit under the logo/close button. */}
-        <nav className="flex flex-1 flex-col items-center justify-center gap-8 px-6 pt-20">
-          {mobileLinks.map((link, i) => (
+        {/* Mirrors the header row (h-20 + Container) so the mark holds its exact
+            position as the panel rises over the bar. */}
+        <Container className="flex h-20 shrink-0 items-center">
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className={`group flex items-center gap-2.5 transition-all duration-500 ease-in-out ${
+              open
+                ? "translate-y-0 opacity-100 delay-200"
+                : "translate-y-2 opacity-0 delay-0"
+            }`}
+          >
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 transition-colors duration-300 group-hover:bg-brand">
+              <Image
+                src="/enelope-mark.png"
+                alt=""
+                width={640}
+                height={412}
+                className="h-auto w-8"
+              />
+            </span>
+            <span className="font-display text-[1.375rem] font-normal tracking-tight text-white">
+              Enelope
+            </span>
+          </Link>
+        </Container>
+
+        <nav className="flex flex-1 flex-col items-center justify-center gap-8 px-6 pb-20">
+          {links.map((link, i) => (
             <Link
               key={link.href + link.label}
               href={link.href}
@@ -180,7 +204,7 @@ export function Navbar({ dict: fullDict }: NavbarProps) {
             }`}
             style={{
               transitionDelay: open
-                ? `${120 + mobileLinks.length * 80}ms`
+                ? `${120 + links.length * 80}ms`
                 : "0ms",
             }}
           >
@@ -194,7 +218,7 @@ export function Navbar({ dict: fullDict }: NavbarProps) {
           }`}
           style={{
             transitionDelay: open
-              ? `${120 + (mobileLinks.length + 1) * 80}ms`
+              ? `${120 + (links.length + 1) * 80}ms`
               : "0ms",
           }}
         >
