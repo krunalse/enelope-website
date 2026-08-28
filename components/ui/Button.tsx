@@ -4,15 +4,16 @@ import { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 
 const styles = {
   primary:
-    "bg-brand text-white hover:bg-brand-dark dark:bg-signal dark:text-surface-dark dark:hover:bg-signal-bright",
+    "bg-brand text-white shadow-soft hover:bg-brand-dark hover:shadow-lift active:translate-y-px",
   secondary:
-    "bg-transparent text-ink border border-ink/15 hover:border-brand hover:text-brand dark:text-white dark:border-white/15 dark:hover:border-signal dark:hover:text-signal",
-  ghost:
-    "bg-transparent text-ink hover:text-brand dark:text-white dark:hover:text-signal",
+    "border border-ink/15 bg-surface/60 text-ink backdrop-blur hover:border-brand/40 hover:bg-surface hover:text-brand active:translate-y-px",
+  ghost: "text-ink hover:text-brand active:translate-y-px",
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors duration-200";
+  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium " +
+  "transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out " +
+  "disabled:pointer-events-none disabled:opacity-50";
 
 type Variant = keyof typeof styles;
 
@@ -25,9 +26,7 @@ export function Button({
   className,
   ...props
 }: ButtonProps) {
-  return (
-    <button className={cn(base, styles[variant], className)} {...props} />
-  );
+  return <button className={cn(base, styles[variant], className)} {...props} />;
 }
 
 interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -43,7 +42,11 @@ export function ButtonLink({
   ...props
 }: ButtonLinkProps) {
   return (
-    <Link href={href} className={cn(base, styles[variant], className)} {...props}>
+    <Link
+      href={href}
+      className={cn(base, styles[variant], className)}
+      {...props}
+    >
       {children}
     </Link>
   );

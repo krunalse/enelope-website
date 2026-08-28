@@ -7,11 +7,13 @@ interface ServiceGridProps {
   learnMoreLabel: string;
 }
 
-export function ServiceGrid({ services, emptyMessage, learnMoreLabel }: ServiceGridProps) {
+export function ServiceGrid({
+  services,
+  emptyMessage,
+  learnMoreLabel,
+}: ServiceGridProps) {
   if (services.length === 0) {
-    return (
-      <p className="text-sm text-ink-soft dark:text-white/60">{emptyMessage}</p>
-    );
+    return <p className="text-sm text-ink-soft">{emptyMessage}</p>;
   }
 
   return (

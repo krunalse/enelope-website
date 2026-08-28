@@ -23,88 +23,29 @@
   },
   "dynamicRoutes": [
     {
-      "page": "/admin/services/[id]",
-      "regex": "^/admin/services/([^/]+?)(?:/)?$",
+      "page": "/case-studies/[slug]",
+      "regex": "^/case\\-studies/([^/]+?)(?:/)?$",
       "routeKeys": {
-        "nxtPid": "nxtPid"
-      },
-      "namedRegex": "^/admin/services/(?<nxtPid>[^/]+?)(?:/)?$"
-    },
-    {
-      "page": "/admin/testimonials/[id]",
-      "regex": "^/admin/testimonials/([^/]+?)(?:/)?$",
-      "routeKeys": {
-        "nxtPid": "nxtPid"
-      },
-      "namedRegex": "^/admin/testimonials/(?<nxtPid>[^/]+?)(?:/)?$"
-    },
-    {
-      "page": "/[locale]",
-      "regex": "^/([^/]+?)(?:/)?$",
-      "routeKeys": {
-        "nxtPlocale": "nxtPlocale"
-      },
-      "namedRegex": "^/(?<nxtPlocale>[^/]+?)(?:/)?$"
-    },
-    {
-      "page": "/[locale]/about",
-      "regex": "^/([^/]+?)/about(?:/)?$",
-      "routeKeys": {
-        "nxtPlocale": "nxtPlocale"
-      },
-      "namedRegex": "^/(?<nxtPlocale>[^/]+?)/about(?:/)?$"
-    },
-    {
-      "page": "/[locale]/case-studies",
-      "regex": "^/([^/]+?)/case\\-studies(?:/)?$",
-      "routeKeys": {
-        "nxtPlocale": "nxtPlocale"
-      },
-      "namedRegex": "^/(?<nxtPlocale>[^/]+?)/case\\-studies(?:/)?$"
-    },
-    {
-      "page": "/[locale]/contact",
-      "regex": "^/([^/]+?)/contact(?:/)?$",
-      "routeKeys": {
-        "nxtPlocale": "nxtPlocale"
-      },
-      "namedRegex": "^/(?<nxtPlocale>[^/]+?)/contact(?:/)?$"
-    },
-    {
-      "page": "/[locale]/privacy",
-      "regex": "^/([^/]+?)/privacy(?:/)?$",
-      "routeKeys": {
-        "nxtPlocale": "nxtPlocale"
-      },
-      "namedRegex": "^/(?<nxtPlocale>[^/]+?)/privacy(?:/)?$"
-    },
-    {
-      "page": "/[locale]/services",
-      "regex": "^/([^/]+?)/services(?:/)?$",
-      "routeKeys": {
-        "nxtPlocale": "nxtPlocale"
-      },
-      "namedRegex": "^/(?<nxtPlocale>[^/]+?)/services(?:/)?$"
-    },
-    {
-      "page": "/[locale]/services/[slug]",
-      "regex": "^/([^/]+?)/services/([^/]+?)(?:/)?$",
-      "routeKeys": {
-        "nxtPlocale": "nxtPlocale",
         "nxtPslug": "nxtPslug"
       },
-      "namedRegex": "^/(?<nxtPlocale>[^/]+?)/services/(?<nxtPslug>[^/]+?)(?:/)?$"
+      "namedRegex": "^/case\\-studies/(?<nxtPslug>[^/]+?)(?:/)?$"
     },
     {
-      "page": "/[locale]/terms",
-      "regex": "^/([^/]+?)/terms(?:/)?$",
+      "page": "/services/[slug]",
+      "regex": "^/services/([^/]+?)(?:/)?$",
       "routeKeys": {
-        "nxtPlocale": "nxtPlocale"
+        "nxtPslug": "nxtPslug"
       },
-      "namedRegex": "^/(?<nxtPlocale>[^/]+?)/terms(?:/)?$"
+      "namedRegex": "^/services/(?<nxtPslug>[^/]+?)(?:/)?$"
     }
   ],
   "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
     {
       "page": "/_global-error",
       "regex": "^/_global\\-error(?:/)?$",
@@ -118,52 +59,28 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
-      "page": "/admin",
-      "regex": "^/admin(?:/)?$",
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/admin(?:/)?$"
-    },
-    {
-      "page": "/admin/login",
-      "regex": "^/admin/login(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/admin/login(?:/)?$"
-    },
-    {
-      "page": "/admin/services",
-      "regex": "^/admin/services(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/admin/services(?:/)?$"
-    },
-    {
-      "page": "/admin/services/new",
-      "regex": "^/admin/services/new(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/admin/services/new(?:/)?$"
-    },
-    {
-      "page": "/admin/testimonials",
-      "regex": "^/admin/testimonials(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/admin/testimonials(?:/)?$"
-    },
-    {
-      "page": "/admin/testimonials/new",
-      "regex": "^/admin/testimonials/new(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/admin/testimonials/new(?:/)?$"
-    },
-    {
-      "page": "/api/contact",
-      "regex": "^/api/contact(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/contact(?:/)?$"
+      "namedRegex": "^/about(?:/)?$"
     },
     {
       "page": "/apple-icon",
       "regex": "^/apple\\-icon(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/apple\\-icon(?:/)?$"
+    },
+    {
+      "page": "/case-studies",
+      "regex": "^/case\\-studies(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
     },
     {
       "page": "/icon",
@@ -178,16 +95,34 @@
       "namedRegex": "^/opengraph\\-image(?:/)?$"
     },
     {
+      "page": "/privacy",
+      "regex": "^/privacy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy(?:/)?$"
+    },
+    {
       "page": "/robots.txt",
       "regex": "^/robots\\.txt(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/robots\\.txt(?:/)?$"
     },
     {
+      "page": "/services",
+      "regex": "^/services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services(?:/)?$"
+    },
+    {
       "page": "/sitemap.xml",
       "regex": "^/sitemap\\.xml(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/terms",
+      "regex": "^/terms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms(?:/)?$"
     }
   ],
   "dataRoutes": [],

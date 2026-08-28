@@ -5,6 +5,8 @@ interface SectionHeadingProps {
   title: string;
   description?: string;
   align?: "left" | "center";
+  /** Renders as h1 on pages where this is the page title. */
+  as?: "h1" | "h2";
   className?: string;
 }
 
@@ -13,6 +15,7 @@ export function SectionHeading({
   title,
   description,
   align = "left",
+  as: Heading = "h2",
   className,
 }: SectionHeadingProps) {
   return (
@@ -20,19 +23,37 @@ export function SectionHeading({
       className={cn(
         "max-w-2xl",
         align === "center" && "mx-auto text-center",
-        className
+        className,
       )}
     >
       {eyebrow && (
-        <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand dark:text-signal">
+        <p
+          className={cn(
+            "eyebrow flex items-center gap-3",
+            align === "center" && "justify-center",
+          )}
+        >
+          <span aria-hidden className="h-px w-6 bg-brand/40" />
           {eyebrow}
         </p>
       )}
-      <h2 className="font-display text-3xl font-medium leading-tight text-ink dark:text-white sm:text-4xl">
+      <Heading
+        className={cn(
+          "font-display font-normal leading-[1.12] text-ink",
+          Heading === "h1"
+            ? "mt-5 text-[2.75rem] sm:text-5xl lg:text-[3.5rem]"
+            : "mt-5 text-[2rem] sm:text-[2.5rem]",
+        )}
+      >
         {title}
-      </h2>
+      </Heading>
       {description && (
-        <p className="mt-4 text-base leading-relaxed text-ink-soft dark:text-white/70">
+        <p
+          className={cn(
+            "mt-5 text-[1.0625rem] leading-[1.7] text-ink-soft",
+            align === "center" && "mx-auto",
+          )}
+        >
           {description}
         </p>
       )}

@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import { ArrowLeft } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
+import { Prose } from "@/components/ui/Prose";
 import { getCaseStudies, getCaseStudyBySlug } from "@/lib/content/data";
 import { dictionary } from "@/lib/content/dictionary";
 
@@ -37,53 +38,72 @@ export default async function CaseStudyDetailPage({
   const caseStudy = getCaseStudyBySlug(slug);
   if (!caseStudy) notFound();
 
+  // Some entries set fullDescription to just"summary + result", which the masthead
+  // and pull-quote already show. Only render the body when it adds something.
+  const squash = (s: string) => s.replace(/\s+/g, " ").trim();
+  const hasBody =
+    squash(caseStudy.fullDescription) !==
+    squash(`${caseStudy.summary} ${caseStudy.result}`);
+
   return (
-    <div className="py-20 sm:py-28">
-      <Container className="max-w-3xl">
-        <Link
-          href="/case-studies"
-          className="flex items-center gap-1 text-sm font-medium text-ink-soft hover:text-brand dark:text-white/60 dark:hover:text-signal"
-        >
-          <ArrowLeft className="h-4 w-4" /> {dict.allCaseStudies}
-        </Link>
-
+    <article>
+      <header className="relative isolate overflow-hidden bg-ink">
         {caseStudy.imageUrl && (
-          <div className="mt-8 h-56 w-full overflow-hidden rounded-2xl">
-            <Image
-              src={caseStudy.imageUrl}
-              alt=""
-              width={768}
-              height={320}
-              className="h-full w-full object-cover"
-            />
-          </div>
+          <Image
+            src={caseStudy.imageUrl}
+            alt=""
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover opacity-45"
+          />
         )}
-
-        <p className="mt-8 font-mono text-xs uppercase tracking-wide text-brand dark:text-signal">
-          {caseStudy.industry}
-        </p>
-        <h1 className="mt-3 font-display text-4xl font-medium text-ink dark:text-white">
-          {caseStudy.clientName}
-        </h1>
         <div
-          className="prose prose-lg mt-6 max-w-none prose-headings:font-display prose-headings:text-ink
-            prose-p:text-ink-soft prose-p:leading-relaxed prose-li:text-ink-soft prose-strong:text-ink
-            prose-a:text-brand hover:prose-a:underline dark:prose-invert dark:prose-headings:text-white
-            dark:prose-p:text-white/70 dark:prose-li:text-white/70 dark:prose-strong:text-white
-            dark:prose-a:text-signal"
-        >
-          <ReactMarkdown>{caseStudy.fullDescription}</ReactMarkdown>
-        </div>
-        <p className="mt-6 text-base font-medium text-brand dark:text-signal">
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/80 to-ink"
+        />
+
+        <Container className="relative max-w-3xl py-20 sm:py-24">
+          <Link
+            href="/case-studies"
+            className="group inline-flex items-center gap-1.5 text-sm font-medium text-white/60 transition-colors hover:text-white"
+          >
+            <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
+            {dict.allCaseStudies}
+          </Link>
+
+          <p className="mt-10 font-mono text-[0.6875rem] uppercase tracking-eyebrow text-signal-bright">
+            {caseStudy.industry}
+          </p>
+          <h1 className="mt-4 font-display text-[2.75rem] font-normal leading-[1.1] text-white sm:text-5xl">
+            {caseStudy.clientName}
+          </h1>
+          <p className="mt-6 max-w-[52ch] text-[1.0625rem] leading-relaxed text-white/70">
+            {caseStudy.summary}
+          </p>
+        </Container>
+      </header>
+
+      <Container className="max-w-3xl py-20 sm:py-24">
+        {/* The headline number is the reason to read the page — lead with it. */}
+        <p className="border-l-2 border-brand pl-6 font-display text-[1.75rem] font-normal leading-snug text-ink">
           {caseStudy.result}
         </p>
 
-        <div className="mt-10">
+        {hasBody && (
+          <div className="mt-12">
+            <Prose>
+              <ReactMarkdown>{caseStudy.fullDescription}</ReactMarkdown>
+            </Prose>
+          </div>
+        )}
+
+        <div className="mt-14 border-t border-ink/[0.07] pt-10">
           <ButtonLink href="/contact">
             {dict.talkToUsAbout.replace("{client}", caseStudy.clientName)}
           </ButtonLink>
         </div>
       </Container>
-    </div>
+    </article>
   );
 }

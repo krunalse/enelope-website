@@ -1,31 +1,42 @@
 import { Container } from "@/components/ui/Container";
+import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { Dictionary } from "@/lib/content/dictionary";
 
 export function Process({ dict }: { dict: Dictionary["home"]["process"] }) {
   return (
-    <section className="py-20 sm:py-28">
+    <Section>
       <Container>
         <SectionHeading eyebrow={dict.eyebrow} title={dict.title} />
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+        <ol className="relative mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          {/* One continuous rule behind all four steps reads as a timeline. */}
+          <div
+            aria-hidden
+            className="absolute left-0 right-0 top-[0.4375rem] hidden h-px bg-gradient-to-r from-brand/25 via-ink/10 to-transparent lg:block"
+          />
+
           {dict.steps.map((s, i) => (
-            <div key={i} className="relative pl-2">
-              <p className="font-mono text-sm text-brand/50 dark:text-signal/50">
-                {String(i + 1).padStart(2, "0")}
-              </p>
-              <h3 className="mt-2 font-display text-lg font-medium text-ink dark:text-white">
+            <li key={i} className="relative lg:pr-6">
+              <div className="flex items-center gap-3">
+                <span
+                  aria-hidden
+                  className="relative z-10 h-3.5 w-3.5 shrink-0 rounded-full border-2 border-brand bg-paper"
+                />
+                <span className="font-mono text-xs tracking-eyebrow text-ink-faint">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <h3 className="mt-5 font-display text-xl font-normal text-ink">
                 {s.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft dark:text-white/60">
+              <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">
                 {s.body}
               </p>
-              {i < dict.steps.length - 1 && (
-                <div className="mt-6 hidden h-px w-full bg-ink/8 dark:bg-white/10 lg:block" />
-              )}
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </Container>
-    </section>
+    </Section>
   );
 }

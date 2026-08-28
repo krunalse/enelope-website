@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
+import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceGrid } from "@/components/services/ServiceGrid";
 import { getServices } from "@/lib/content/data";
@@ -15,14 +16,15 @@ export default function ServicesPage() {
   const services = getServices();
 
   return (
-    <div className="py-20 sm:py-28">
+    <Section>
       <Container>
         <SectionHeading
+          as="h1"
           eyebrow={dict.servicesPage.eyebrow}
           title={dict.servicesPage.title}
           description={dict.servicesPage.description}
         />
-        <div className="mt-14">
+        <div className="mt-16">
           <ServiceGrid
             services={services}
             emptyMessage={dict.serviceGrid.empty}
@@ -30,6 +32,6 @@ export default function ServicesPage() {
           />
         </div>
       </Container>
-    </div>
+    </Section>
   );
 }

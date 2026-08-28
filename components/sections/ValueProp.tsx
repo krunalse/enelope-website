@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { Dictionary } from "@/lib/content/dictionary";
 
@@ -10,26 +11,30 @@ export function ValueProp({ dict }: { dict: Dictionary["home"]["valueProp"] }) {
   ];
 
   return (
-    <section className="py-20 sm:py-28">
+    <Section>
       <Container>
         <SectionHeading
           eyebrow={dict.eyebrow}
           title={dict.title}
           description={dict.description}
         />
-        <div className="mt-14 grid gap-8 sm:grid-cols-3">
+
+        <dl className="mt-16 grid gap-px overflow-hidden rounded-2xl bg-ink/[0.07] sm:grid-cols-3">
           {points.map((p, i) => (
-            <div key={i}>
-              <p className="font-display text-4xl font-semibold text-brand dark:text-signal">
-                {p.stat}
-              </p>
-              <p className="mt-2 text-sm text-ink-soft dark:text-white/60">
-                {p.label}
-              </p>
+            <div key={i} className="bg-paper px-6 py-8 sm:px-8 sm:py-10">
+              <dt className="sr-only">{p.label}</dt>
+              <dd>
+                <p className="font-display text-[3rem] font-normal leading-none text-brand">
+                  {p.stat}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+                  {p.label}
+                </p>
+              </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </Container>
-    </section>
+    </Section>
   );
 }

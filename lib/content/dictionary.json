@@ -61,11 +61,16 @@
       "subtitle": "Enelope designs AI agents and chatbots, builds the cloud infrastructure underneath them, and tells you honestly where automation earns its keep — and where it doesn't.",
       "startProject": "Start a project",
       "seeCaseStudies": "See case studies",
-      "diagramAlt": "Diagram connecting AI agents, chatbots, cloud, and consulting around a central node",
+      "carouselLabel": "Visual highlights of AI agents, chatbots, cloud, and consulting work",
       "nodeAgents": "Agents",
       "nodeChatbots": "Chatbots",
       "nodeCloud": "Cloud",
-      "nodeConsulting": "Consulting"
+      "nodeConsulting": "Consulting",
+      "previousSlide": "Previous slide",
+      "nextSlide": "Next slide",
+      "pauseSlideshow": "Pause slideshow",
+      "playSlideshow": "Play slideshow",
+      "goToSlide": "Go to slide"
     },
     "valueProp": {
       "eyebrow": "Why Enelope",
@@ -87,12 +92,30 @@
       "title": "A stack built for production, not demos.",
       "description": "We're model-agnostic and infrastructure-pragmatic — the goal is the right tool for your constraints, not the newest one.",
       "items": [
-        { "label": "LLM orchestration", "detail": "Claude, GPT, and open-weight models" },
-        { "label": "Retrieval & memory", "detail": "Vector search grounded in your data" },
-        { "label": "Workflow automation", "detail": "Multi-step agents with human handoff" },
-        { "label": "Cloud infrastructure", "detail": "AWS, GCP, and other cloud-based stacks" },
-        { "label": "Integrations", "detail": "Slack, Teams, CRM, and internal tools" },
-        { "label": "Observability", "detail": "Logging, evals, and cost monitoring" }
+        {
+          "label": "LLM orchestration",
+          "detail": "Claude, GPT, and open-weight models"
+        },
+        {
+          "label": "Retrieval & memory",
+          "detail": "Vector search grounded in your data"
+        },
+        {
+          "label": "Workflow automation",
+          "detail": "Multi-step agents with human handoff"
+        },
+        {
+          "label": "Cloud infrastructure",
+          "detail": "AWS, GCP, and other cloud-based stacks"
+        },
+        {
+          "label": "Integrations",
+          "detail": "Slack, Teams, CRM, and internal tools"
+        },
+        {
+          "label": "Observability",
+          "detail": "Logging, evals, and cost monitoring"
+        }
       ]
     },
     "whyChooseUs": {
@@ -117,10 +140,22 @@
       "eyebrow": "Process",
       "title": "How an engagement runs.",
       "steps": [
-        { "title": "Assess", "body": "We map your workflows and find where automation would actually change outcomes." },
-        { "title": "Design", "body": "We scope the smallest version of the agent, chatbot, or infrastructure that proves the case." },
-        { "title": "Build", "body": "We build against your real systems and data, with monitoring in place from day one." },
-        { "title": "Operate", "body": "We hand off documentation and support your team as usage — and confidence — grows." }
+        {
+          "title": "Assess",
+          "body": "We map your workflows and find where automation would actually change outcomes."
+        },
+        {
+          "title": "Design",
+          "body": "We scope the smallest version of the agent, chatbot, or infrastructure that proves the case."
+        },
+        {
+          "title": "Build",
+          "body": "We build against your real systems and data, with monitoring in place from day one."
+        },
+        {
+          "title": "Operate",
+          "body": "We hand off documentation and support your team as usage — and confidence — grows."
+        }
       ]
     },
     "caseStudiesSection": {
@@ -200,7 +235,8 @@
     "messageLabel": "Message",
     "successTitle": "Almost there.",
     "successBody": "We've opened your email app with your message pre-filled — just hit send.",
-    "submit": "Send message"
+    "submit": "Send message",
+    "backToForm": "Send another message"
   },
   "privacyPage": {
     "title": "Privacy Policy",
@@ -214,8 +250,14 @@
         "heading": "Information we collect",
         "intro": "We collect information in one way:",
         "bullets": [
-          { "label": "Contact form.", "body": "The contact form opens an email in your own email app, addressed to us, with the name, email, company, phone number, service of interest, and message you provide. Nothing is sent to our servers." },
-          { "label": "Basic hosting logs.", "body": "Our hosting provider (Vercel) automatically logs standard request data (such as IP address and browser type) for security and reliability. We do not use analytics or advertising trackers on this site." }
+          {
+            "label": "Contact form.",
+            "body": "The contact form opens an email in your own email app, addressed to us, with the name, email, company, phone number, service of interest, and message you provide. Nothing is sent to our servers."
+          },
+          {
+            "label": "Basic hosting logs.",
+            "body": "Our hosting provider (Vercel) automatically logs standard request data (such as IP address and browser type) for security and reliability. We do not use analytics or advertising trackers on this site."
+          }
         ],
         "outro": "All other content on this site (service descriptions, case studies, testimonials) is static and does not involve collecting any information from visitors."
       },
@@ -227,7 +269,12 @@
         "heading": "Third-party service providers",
         "intro": "We rely on a small number of subprocessors to run this site:",
         "providers": [
-          { "name": "Vercel", "body": "hosts this website", "linkLabel": "privacy policy", "href": "https://vercel.com/legal/privacy-policy" }
+          {
+            "name": "Vercel",
+            "body": "hosts this website",
+            "linkLabel": "privacy policy",
+            "href": "https://vercel.com/legal/privacy-policy"
+          }
         ]
       },
       {

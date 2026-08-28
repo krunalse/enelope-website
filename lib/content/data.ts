@@ -101,7 +101,7 @@ From a single intelligent assistant to the automation of complex business proces
 **Work smarter. Automate faster. Grow with AI.**
 `,
     icon: "Bot",
-    imageUrl: null,
+    imageUrl: "/images/services/ai-agents.webp",
   },
   {
     id: "chatbots",
@@ -224,7 +224,7 @@ Chatbots can connect with:
 Enelope helps you transform customer and employee interactions into intelligent, automated conversations that deliver real business value.
 `,
     icon: "MessageSquare",
-    imageUrl: null,
+    imageUrl: "/images/services/chatbots.webp",
   },
   {
     id: "cloud",
@@ -354,7 +354,7 @@ We combine cloud engineering, enterprise software expertise, and AI capabilities
 Whether migrating to the cloud, modernizing systems, or preparing for AI, Enelope helps you build a scalable, future-ready cloud foundation.
 `,
     icon: "Cloud",
-    imageUrl: null,
+    imageUrl: "/images/services/cloud.webp",
   },
   {
     id: "consulting",
@@ -383,7 +383,7 @@ We analyze your current processes, systems, and goals, identify opportunities fo
 We focus on solving the right problem first—so you invest your time and technology budget where it creates the most value.
 `,
     icon: "Compass",
-    imageUrl: null,
+    imageUrl: "/images/services/consulting.webp",
   },
 ];
 
@@ -398,7 +398,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     result: "68% of tickets now resolved without a human draft from scratch.",
     fullDescription:
       "Built a triage agent that reads incoming support tickets, checks shipment status across three systems, and drafts a resolution for review. 68% of tickets now resolved without a human draft from scratch.",
-    imageUrl: null,
+    imageUrl: "/images/case-studies/larkspur-logistics.webp",
   },
   {
     id: "northfield-analytics",
@@ -410,7 +410,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     result: "41% reduction in monthly cloud spend.",
     fullDescription:
       "Migrated inference workloads to a right-sized cloud architecture, replacing a generic always-on setup with autoscaling built for actual traffic patterns. 41% reduction in monthly cloud spend.",
-    imageUrl: null,
+    imageUrl: "/images/case-studies/northfield-analytics.webp",
   },
   {
     id: "solvent-home-goods",
@@ -422,7 +422,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     result: "Chatbot live in 6 weeks; deflects 35% of pre-purchase questions.",
     fullDescription:
       "Ran a two-week consulting sprint to rank automation opportunities, then shipped a product-support chatbot grounded in the catalog and return policy. Chatbot live in 6 weeks; deflects 35% of pre-purchase questions.",
-    imageUrl: null,
+    imageUrl: "/images/case-studies/solvent-home-goods.webp",
   },
   {
     id: "telecom-customer-service-modernization",
@@ -431,7 +431,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: "Telecom",
     summary:
       "Designed an AI-powered conversational assistant that helps customers and support agents get instant answers on billing, subscriptions, and service requests by integrating with existing CRM, billing, and knowledge systems. The assistant handles routine queries, creates service requests, and escalates complex cases to human agents.",
-    result: "Reduced repetitive support activities and delivered faster responses to common customer queries.",
+    result:
+      "Reduced repetitive support activities and delivered faster responses to common customer queries.",
     fullDescription: `## AI-Powered Customer Support & Operations
 
 ### The Challenge
@@ -471,7 +472,8 @@ The solution was designed around existing APIs and business systems, allowing th
 The solution helped reduce repetitive support activities, improve access to information, and provide customers with faster responses to common queries.
 
 **Focus:** Customer Experience · AI · Telecom · Automation · Enterprise Integration`,
-    imageUrl: null,
+    imageUrl:
+      "/images/case-studies/telecom-customer-service-modernization.webp",
   },
   {
     id: "real-estate-lead-automation",
@@ -480,7 +482,8 @@ The solution helped reduce repetitive support activities, improve access to info
     industry: "Real Estate",
     summary:
       "Built an AI-powered property assistant that engages potential customers on the website, understands their requirements through natural conversation, and recommends matching listings. The assistant qualifies leads and hands off qualified opportunities to the sales team.",
-    result: "Reduced manual lead qualification for sales teams and enabled 24/7 customer engagement outside business hours.",
+    result:
+      "Reduced manual lead qualification for sales teams and enabled 24/7 customer engagement outside business hours.",
     fullDescription: `## Turning Property Inquiries into Qualified Opportunities
 
 ### The Challenge
@@ -521,7 +524,7 @@ The solution was connected to the property's listing and lead management systems
 The solution reduced the amount of manual qualification required from sales teams and enabled potential customers to receive immediate assistance outside normal business hours.
 
 **Focus:** Real Estate · AI Chatbot · Lead Generation · Automation · Customer Experience`,
-    imageUrl: null,
+    imageUrl: "/images/case-studies/real-estate-lead-automation.webp",
   },
   {
     id: "enterprise-knowledge-assistant",
@@ -530,7 +533,8 @@ The solution reduced the amount of manual qualification required from sales team
     industry: "Enterprise IT",
     summary:
       "Designed an AI-powered enterprise knowledge assistant that gives employees a single conversational interface for accessing approved company information across technical documentation, policies, procedures, and support material. Employees get contextual answers with references to the underlying knowledge sources.",
-    result: "Reduced time employees spent searching for information and freed subject-matter experts from repetitive Q&A.",
+    result:
+      "Reduced time employees spent searching for information and freed subject-matter experts from repetitive Q&A.",
     fullDescription: `## Making Enterprise Knowledge Accessible Through AI
 
 ### The Challenge
@@ -570,17 +574,18 @@ Employees could ask questions in natural language and receive contextual answers
 The solution reduced the time employees spent searching for information and improved access to organizational knowledge, while allowing subject-matter experts to spend more time on complex tasks rather than repeatedly answering routine questions.
 
 **Focus:** Enterprise IT · Generative AI · Knowledge Management · Productivity · Automation`,
-    imageUrl: null,
+    imageUrl: "/images/case-studies/enterprise-knowledge-assistant.webp",
   },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    id: "c35d63b3-436d-4a8b-abc3-ec1e8a2b830c",
-    customerName: "Jhon",
-    customerRole: "CEO",
-    companyName: "Roche",
-    testimonial: "Very good",
+    id: "daniel-reiter-northfield-analytics",
+    customerName: "Daniel Reiter",
+    customerRole: "CTO",
+    companyName: "Northfield Analytics",
+    testimonial:
+      "We were paying for peak capacity around the clock. Enelope rebuilt the inference stack around our actual traffic, and the bill dropped by more than a third with no hit to latency.",
     avatarUrl: null,
     rating: 5,
   },

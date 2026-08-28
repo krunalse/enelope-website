@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceGrid } from "@/components/services/ServiceGrid";
 import { getServices } from "@/lib/content/data";
@@ -10,14 +11,18 @@ interface ServicesPreviewProps {
   learnMoreLabel: string;
 }
 
-export function ServicesPreview({ dict, serviceGridDict, learnMoreLabel }: ServicesPreviewProps) {
+export function ServicesPreview({
+  dict,
+  serviceGridDict,
+  learnMoreLabel,
+}: ServicesPreviewProps) {
   const services = getServices();
 
   return (
-    <section className="bg-surface-muted py-20 dark:bg-surface-dark-muted/40 sm:py-28">
+    <Section tone="muted">
       <Container>
         <SectionHeading eyebrow={dict.eyebrow} title={dict.title} />
-        <div className="mt-14">
+        <div className="mt-16">
           <ServiceGrid
             services={services}
             emptyMessage={serviceGridDict.empty}
@@ -25,6 +30,6 @@ export function ServicesPreview({ dict, serviceGridDict, learnMoreLabel }: Servi
           />
         </div>
       </Container>
-    </section>
+    </Section>
   );
 }

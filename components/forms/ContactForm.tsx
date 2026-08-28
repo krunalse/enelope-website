@@ -1,13 +1,17 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Send } from "lucide-react";
+import { ChevronDown, Send } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Service } from "@/types";
 import type { Dictionary } from "@/lib/content/dictionary";
 
-const inputClass =
-  "w-full rounded-xl border border-ink/12 bg-surface px-4 py-3 text-sm text-ink placeholder:text-ink-soft/50 focus:border-brand dark:border-white/15 dark:bg-surface-dark-muted dark:text-white dark:placeholder:text-white/30 dark:focus:border-signal";
+const fieldClass =
+  "w-full rounded-xl border border-ink/[0.12] bg-surface px-4 py-3 text-sm text-ink shadow-sm " +
+  "placeholder:text-ink-faint transition-[border-color,box-shadow] duration-200 " +
+  "hover:border-ink/25 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/15";
+
+const labelClass = "mb-2 block text-sm font-medium text-ink";
 
 type Status = "idle" | "success";
 
@@ -54,65 +58,93 @@ export function ContactForm({ services, dict }: ContactFormProps) {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-brand/20 bg-brand/5 p-8 text-center dark:border-signal/20 dark:bg-signal/5">
-        <p className="font-display text-lg font-medium text-ink dark:text-white">
+      <div className="rounded-2xl border border-brand/20 bg-brand/[0.04] p-10 text-center">
+        <p className="font-display text-2xl font-normal text-ink">
           {dict.successTitle}
         </p>
-        <p className="mt-2 text-sm text-ink-soft dark:text-white/60">
+        <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-ink-soft">
           {dict.successBody}
         </p>
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="mt-6 text-sm font-medium text-brand underline-offset-4 hover:underline"
+        >
+          {dict.backToForm}
+        </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="grid gap-5 sm:grid-cols-2">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-6 rounded-2xl border border-ink/[0.07] bg-surface p-7 shadow-soft sm:p-8"
+    >
+      <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-ink dark:text-white">
+          <label htmlFor="name" className={labelClass}>
             {dict.nameLabel}
           </label>
-          <input id="name" name="name" required className={inputClass} />
+          <input id="name" name="name" required className={fieldClass} />
         </div>
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-ink dark:text-white">
+          <label htmlFor="email" className={labelClass}>
             {dict.emailLabel}
           </label>
-          <input id="email" name="email" type="email" required className={inputClass} />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            className={fieldClass}
+          />
         </div>
         <div>
-          <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-ink dark:text-white">
+          <label htmlFor="company" className={labelClass}>
             {dict.companyLabel}
           </label>
-          <input id="company" name="company" className={inputClass} />
+          <input id="company" name="company" className={fieldClass} />
         </div>
         <div>
-          <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-ink dark:text-white">
+          <label htmlFor="phone" className={labelClass}>
             {dict.phoneLabel}
           </label>
-          <input id="phone" name="phone" type="tel" className={inputClass} />
+          <input id="phone" name="phone" type="tel" className={fieldClass} />
         </div>
       </div>
 
       <div>
-        <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-ink dark:text-white">
+        <label htmlFor="service" className={labelClass}>
           {dict.serviceLabel}
         </label>
-        <select id="service" name="service" className={inputClass} defaultValue="">
-          <option value="" disabled>
-            {dict.servicePlaceholder}
-          </option>
-          {services.map((s) => (
-            <option key={s.id} value={s.title}>
-              {s.title}
+        {/* Native chevron is suppressed so the select matches the text inputs. */}
+        <div className="relative">
+          <select
+            id="service"
+            name="service"
+            defaultValue=""
+            className={`${fieldClass} appearance-none pr-11`}
+          >
+            <option value="" disabled>
+              {dict.servicePlaceholder}
             </option>
-          ))}
-          <option value={dict.serviceNotSure}>{dict.serviceNotSure}</option>
-        </select>
+            {services.map((s) => (
+              <option key={s.id} value={s.title}>
+                {s.title}
+              </option>
+            ))}
+            <option value={dict.serviceNotSure}>{dict.serviceNotSure}</option>
+          </select>
+          <ChevronDown
+            aria-hidden
+            className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-faint"
+          />
+        </div>
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-ink dark:text-white">
+        <label htmlFor="message" className={labelClass}>
           {dict.messageLabel}
         </label>
         <textarea
@@ -120,7 +152,7 @@ export function ContactForm({ services, dict }: ContactFormProps) {
           name="message"
           required
           rows={5}
-          className={inputClass}
+          className={`${fieldClass} resize-y py-3.5 leading-relaxed`}
         />
       </div>
 

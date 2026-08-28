@@ -3,8 +3,10 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
+import { Prose } from "@/components/ui/Prose";
 import { getServices, getServiceBySlug } from "@/lib/content/data";
 import { getServiceIcon } from "@/lib/utils/serviceIcons";
 import { dictionary } from "@/lib/content/dictionary";
@@ -40,38 +42,57 @@ export default async function ServiceDetailPage({
   const Icon = getServiceIcon(service.icon);
 
   return (
-    <div className="py-20 sm:py-28">
-      <Container className="max-w-3xl">
-        <Link
-          href="/services"
-          className="flex items-center gap-1 text-sm font-medium text-ink-soft hover:text-brand dark:text-white/60 dark:hover:text-signal"
-        >
-          <ArrowLeft className="h-4 w-4" /> {dict.allServices}
-        </Link>
-
-        <div className="mt-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-brand dark:bg-signal/15 dark:text-signal">
-          <Icon className="h-7 w-7" />
-        </div>
-
-        <h1 className="mt-6 font-display text-4xl font-medium text-ink dark:text-white">
-          {service.title}
-        </h1>
+    <article>
+      {/* Full-bleed masthead: the service photo was previously unused on this page. */}
+      <header className="relative isolate overflow-hidden bg-ink">
+        {service.imageUrl && (
+          <Image
+            src={service.imageUrl}
+            alt=""
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover opacity-45"
+          />
+        )}
         <div
-          className="prose prose-lg mt-6 max-w-none prose-headings:font-display prose-headings:text-ink
-            prose-p:text-ink-soft prose-p:leading-relaxed prose-li:text-ink-soft prose-strong:text-ink
-            prose-a:text-brand hover:prose-a:underline dark:prose-invert dark:prose-headings:text-white
-            dark:prose-p:text-white/70 dark:prose-li:text-white/70 dark:prose-strong:text-white
-            dark:prose-a:text-signal"
-        >
-          <ReactMarkdown>{service.fullDescription}</ReactMarkdown>
-        </div>
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/80 to-ink"
+        />
 
-        <div className="mt-10">
+        <Container className="relative max-w-3xl py-20 sm:py-24">
+          <Link
+            href="/services"
+            className="group inline-flex items-center gap-1.5 text-sm font-medium text-white/60 transition-colors hover:text-white"
+          >
+            <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
+            {dict.allServices}
+          </Link>
+
+          <div className="mt-10 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-signal-bright backdrop-blur">
+            <Icon className="h-7 w-7" />
+          </div>
+
+          <h1 className="mt-7 font-display text-[2.75rem] font-normal leading-[1.1] text-white sm:text-5xl">
+            {service.title}
+          </h1>
+          <p className="mt-5 max-w-[52ch] text-[1.0625rem] leading-relaxed text-white/70">
+            {service.shortDescription}
+          </p>
+        </Container>
+      </header>
+
+      <Container className="max-w-3xl py-20 sm:py-24">
+        <Prose>
+          <ReactMarkdown>{service.fullDescription}</ReactMarkdown>
+        </Prose>
+
+        <div className="mt-14 border-t border-ink/[0.07] pt-10">
           <ButtonLink href="/contact">
             {dict.talkToUsAbout.replace("{title}", service.title)}
           </ButtonLink>
         </div>
       </Container>
-    </div>
+    </article>
   );
 }

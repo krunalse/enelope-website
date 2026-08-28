@@ -9,10 +9,10 @@
     }
   },
   "/_not-found": {
-    "hints": 64,
+    "hints": 0,
     "slots": {
       "children": {
-        "hints": 96,
+        "hints": 64,
         "slots": {
           "children": {
             "hints": 160,
@@ -22,163 +22,25 @@
       }
     }
   },
-  "/[locale]/about": {
-    "hints": 64,
+  "/about": {
+    "hints": 0,
     "slots": {
       "children": {
-        "hints": 32,
+        "hints": 64,
         "slots": {
           "children": {
-            "hints": 64,
-            "slots": {
-              "children": {
-                "hints": 160,
-                "slots": null
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/[locale]/case-studies": {
-    "hints": 64,
-    "slots": {
-      "children": {
-        "hints": 32,
-        "slots": {
-          "children": {
-            "hints": 64,
-            "slots": {
-              "children": {
-                "hints": 160,
-                "slots": null
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/[locale]/contact": {
-    "hints": 64,
-    "slots": {
-      "children": {
-        "hints": 32,
-        "slots": {
-          "children": {
-            "hints": 64,
-            "slots": {
-              "children": {
-                "hints": 160,
-                "slots": null
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/[locale]": {
-    "hints": 64,
-    "slots": {
-      "children": {
-        "hints": 32,
-        "slots": {
-          "children": {
-            "hints": 128,
+            "hints": 160,
             "slots": null
           }
         }
       }
     }
   },
-  "/[locale]/privacy": {
-    "hints": 64,
+  "/case-studies/[slug]": {
+    "hints": 0,
     "slots": {
       "children": {
-        "hints": 32,
-        "slots": {
-          "children": {
-            "hints": 64,
-            "slots": {
-              "children": {
-                "hints": 160,
-                "slots": null
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/[locale]/services/[slug]": {
-    "hints": 64,
-    "slots": {
-      "children": {
-        "hints": 32,
-        "slots": {
-          "children": {
-            "hints": 64,
-            "slots": {
-              "children": {
-                "hints": 96,
-                "slots": {
-                  "children": {
-                    "hints": 160,
-                    "slots": null
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/[locale]/services": {
-    "hints": 64,
-    "slots": {
-      "children": {
-        "hints": 32,
-        "slots": {
-          "children": {
-            "hints": 64,
-            "slots": {
-              "children": {
-                "hints": 160,
-                "slots": null
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/[locale]/terms": {
-    "hints": 64,
-    "slots": {
-      "children": {
-        "hints": 32,
-        "slots": {
-          "children": {
-            "hints": 64,
-            "slots": {
-              "children": {
-                "hints": 160,
-                "slots": null
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/admin/login": {
-    "hints": 64,
-    "slots": {
-      "children": {
-        "hints": 96,
+        "hints": 64,
         "slots": {
           "children": {
             "hints": 96,
@@ -188,6 +50,104 @@
                 "slots": null
               }
             }
+          }
+        }
+      }
+    }
+  },
+  "/case-studies": {
+    "hints": 0,
+    "slots": {
+      "children": {
+        "hints": 64,
+        "slots": {
+          "children": {
+            "hints": 160,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "/contact": {
+    "hints": 0,
+    "slots": {
+      "children": {
+        "hints": 64,
+        "slots": {
+          "children": {
+            "hints": 160,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "/": {
+    "hints": 0,
+    "slots": {
+      "children": {
+        "hints": 128,
+        "slots": null
+      }
+    }
+  },
+  "/privacy": {
+    "hints": 0,
+    "slots": {
+      "children": {
+        "hints": 64,
+        "slots": {
+          "children": {
+            "hints": 160,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "/services/[slug]": {
+    "hints": 0,
+    "slots": {
+      "children": {
+        "hints": 64,
+        "slots": {
+          "children": {
+            "hints": 96,
+            "slots": {
+              "children": {
+                "hints": 160,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/services": {
+    "hints": 0,
+    "slots": {
+      "children": {
+        "hints": 64,
+        "slots": {
+          "children": {
+            "hints": 160,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "/terms": {
+    "hints": 0,
+    "slots": {
+      "children": {
+        "hints": 64,
+        "slots": {
+          "children": {
+            "hints": 160,
+            "slots": null
           }
         }
       }
