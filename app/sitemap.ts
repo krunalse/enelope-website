@@ -3,7 +3,7 @@ import { getServices } from "@/lib/content/data";
 
 export const dynamic = "force-static";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.enelope.ch";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.NexaAI.ch";
 
 const STATIC_PATHS: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }[] = [
   { path: "/", changeFrequency: "weekly", priority: 1 },

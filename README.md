@@ -1,4 +1,4 @@
-# Enelope Website
+# NexaAI Website
 
 AI Agents · Chatbots · Cloud · Consulting — marketing site.
 

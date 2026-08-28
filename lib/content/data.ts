@@ -6,7 +6,7 @@ const SERVICES: Service[] = [
     title: "AI Agents",
     slug: "ai-agents",
     shortDescription: `Autonomous agents that handle real work — research, triage, follow-ups — inside your existing tools.`,
-    fullDescription: `At **Enelope**, we design and develop custom AI agents that automate business processes, assist employees, and create smarter customer experiences.
+    fullDescription: `At **NexaAI**, we design and develop custom AI agents that automate business processes, assist employees, and create smarter customer experiences.
 
 Unlike traditional chatbots that mainly answer questions, AI agents can understand context, retrieve information, reason over business data, interact with enterprise systems, and execute defined business tasks.
 
@@ -82,7 +82,7 @@ We connect the AI agent with your existing applications, APIs, databases, knowle
 
 We validate the agent's responses, workflow execution, reliability, and business behavior before deploying the solution into your environment.
 
-## Why Choose Enelope?
+## Why Choose NexaAI?
 
 We combine enterprise software development and system integration expertise with modern generative AI technologies to build practical AI solutions.
 
@@ -96,7 +96,7 @@ We combine enterprise software development and system integration expertise with
 
 ## Start Your AI Journey
 
-From a single intelligent assistant to the automation of complex business processes, **Enelope** helps you turn AI into a practical business solution.
+From a single intelligent assistant to the automation of complex business processes, **NexaAI** helps you turn AI into a practical business solution.
 
 **Work smarter. Automate faster. Grow with AI.**
 `,
@@ -110,7 +110,7 @@ From a single intelligent assistant to the automation of complex business proces
     shortDescription: `Conversational assistants for support, sales, and internal knowledge — grounded in your own data.`,
     fullDescription: `## Intelligent Chatbots for Better Experiences
 
-At Enelope, we build AI-powered chatbots that automate conversations, deliver instant support, and improve customer and employee experiences across web, mobile, and enterprise systems.
+At NexaAI, we build AI-powered chatbots that automate conversations, deliver instant support, and improve customer and employee experiences across web, mobile, and enterprise systems.
 
 Unlike rule-based bots, our chatbots understand natural language, maintain context, and provide intelligent, intent-based responses using your business knowledge and systems.
 
@@ -210,7 +210,7 @@ Chatbots can connect with:
 * Scalable engagement
 * Action-driven conversations
 
-## Why Enelope
+## Why NexaAI
 
 * Custom AI chatbot solutions
 * Enterprise system integration
@@ -221,7 +221,7 @@ Chatbots can connect with:
 
 ## Build Smarter Conversations
 
-Enelope helps you transform customer and employee interactions into intelligent, automated conversations that deliver real business value.
+NexaAI helps you transform customer and employee interactions into intelligent, automated conversations that deliver real business value.
 `,
     icon: "MessageSquare",
     imageUrl: "/images/services/chatbots.webp",
@@ -233,7 +233,7 @@ Enelope helps you transform customer and employee interactions into intelligent,
     shortDescription: `Cloud architecture and migrations built for the workloads AI adds to your infrastructure.`,
     fullDescription: `## Modern Cloud Infrastructure for Your Business
 
-At Enelope, we design, migrate, and operate cloud infrastructure that helps businesses modernize IT systems, improve scalability, and enable AI workloads. We build cloud-native environments focused on performance, reliability, and future growth.
+At NexaAI, we design, migrate, and operate cloud infrastructure that helps businesses modernize IT systems, improve scalability, and enable AI workloads. We build cloud-native environments focused on performance, reliability, and future growth.
 
 ---
 
@@ -336,7 +336,7 @@ We integrate cloud environments with your existing ecosystem:
 
 ---
 
-## Why Enelope
+## Why NexaAI
 
 We combine cloud engineering, enterprise software expertise, and AI capabilities to deliver end-to-end cloud solutions.
 
@@ -351,7 +351,7 @@ We combine cloud engineering, enterprise software expertise, and AI capabilities
 
 ## Build Your Cloud Foundation
 
-Whether migrating to the cloud, modernizing systems, or preparing for AI, Enelope helps you build a scalable, future-ready cloud foundation.
+Whether migrating to the cloud, modernizing systems, or preparing for AI, NexaAI helps you build a scalable, future-ready cloud foundation.
 `,
     icon: "Cloud",
     imageUrl: "/images/services/cloud.webp",
@@ -363,7 +363,7 @@ Whether migrating to the cloud, modernizing systems, or preparing for AI, Enelop
     shortDescription: `Independent advice on where AI actually fits your business, and where it doesn't.`,
     fullDescription: `## Find the Right Problems to Solve
 
-Before we build anything, we help you identify the right problems, opportunities, and priorities. Enelope combines business understanding, technology expertise, and AI experience to turn complex challenges into practical solutions.
+Before we build anything, we help you identify the right problems, opportunities, and priorities. NexaAI combines business understanding, technology expertise, and AI experience to turn complex challenges into practical solutions.
 
 We analyze your current processes, systems, and goals, identify opportunities for improvement and automation, and define a clear roadmap for implementation.
 
@@ -443,7 +443,7 @@ The company wanted to improve response times while reducing repetitive manual wo
 
 ### The Solution
 
-Enelope designed an AI-powered conversational assistant integrated with the existing enterprise ecosystem.
+NexaAI designed an AI-powered conversational assistant integrated with the existing enterprise ecosystem.
 
 The solution enabled customers and support agents to:
 
@@ -494,7 +494,7 @@ This resulted in inconsistent response times and significant manual effort.
 
 ### The Solution
 
-Enelope designed an AI-powered property assistant that could engage potential customers through a website and understand their requirements through natural conversation.
+NexaAI designed an AI-powered property assistant that could engage potential customers through a website and understand their requirements through natural conversation.
 
 The assistant could:
 
@@ -545,7 +545,7 @@ Employees frequently depended on experienced colleagues or manually searched mul
 
 ### The Solution
 
-Enelope designed an AI-powered enterprise knowledge assistant that provided employees with a single conversational interface for accessing approved company information.
+NexaAI designed an AI-powered enterprise knowledge assistant that provided employees with a single conversational interface for accessing approved company information.
 
 The assistant could search and retrieve relevant information from:
 
@@ -585,7 +585,7 @@ const TESTIMONIALS: Testimonial[] = [
     customerRole: "CTO",
     companyName: "Northfield Analytics",
     testimonial:
-      "We were paying for peak capacity around the clock. Enelope rebuilt the inference stack around our actual traffic, and the bill dropped by more than a third with no hit to latency.",
+      "We were paying for peak capacity around the clock. NexaAI rebuilt the inference stack around our actual traffic, and the bill dropped by more than a third with no hit to latency.",
     avatarUrl: null,
     rating: 5,
   },
@@ -595,7 +595,7 @@ const TESTIMONIALS: Testimonial[] = [
     customerRole: "VP of Operations",
     companyName: "Larkspur Logistics",
     testimonial:
-      "The triage agent Enelope built now handles the majority of our support tickets end to end. Our team finally has time for the cases that actually need a human.",
+      "The triage agent NexaAI built now handles the majority of our support tickets end to end. Our team finally has time for the cases that actually need a human.",
     avatarUrl: null,
     rating: 5,
   },
@@ -605,7 +605,7 @@ const TESTIMONIALS: Testimonial[] = [
     customerRole: "Head of Engineering",
     companyName: "Solvent Home Goods",
     testimonial:
-      "Enelope didn't just build a chatbot — they took the time to understand our catalog and return policy first. It shows in how well it handles real customer questions.",
+      "NexaAI didn't just build a chatbot — they took the time to understand our catalog and return policy first. It shows in how well it handles real customer questions.",
     avatarUrl: null,
     rating: 5,
   },

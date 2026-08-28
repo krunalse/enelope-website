@@ -2,7 +2,7 @@ import { Fragment } from "react";
 
 const linkClass =
   "font-medium text-brand underline underline-offset-4 decoration-brand/30 transition-colors hover:decoration-brand";
-const CONTACT_EMAIL = "hello@enelope.ch";
+const CONTACT_EMAIL = "hello@NexaAI.ch";
 
 // Renders paragraph text that may contain"{email}"placeholders, replacing each
 // with a mailto link — used by the Privacy/Terms pages'"Your rights"/"Contact"

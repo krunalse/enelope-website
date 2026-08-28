@@ -57,8 +57,8 @@ export function Navbar({ dict: fullDict, services, caseStudies }: NavbarProps) {
   ];
 
   const socialLinks = [
-    { href: "https://enelope.ch", label: "LinkedIn", Icon: Linkedin },
-    { href: "https://enelope.ch", label: "X", Icon: X },
+    { href: "https://NexaAI.ch", label: "LinkedIn", Icon: Linkedin },
+    { href: "https://NexaAI.ch", label: "X", Icon: X },
   ];
 
   useEffect(() => {
@@ -125,8 +125,8 @@ export function Navbar({ dict: fullDict, services, caseStudies }: NavbarProps) {
             {/* The mark is a white knockout, so it needs a dark chip to read on the light bar. */}
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-ink transition-colors duration-300 group-hover:bg-brand">
               <Image
-                src="/enelope-mark.png"
-                alt="Enelope"
+                src="/NexaAI-mark.png"
+                alt="NexaAI"
                 width={640}
                 height={412}
                 className="h-auto w-8"
@@ -135,7 +135,7 @@ export function Navbar({ dict: fullDict, services, caseStudies }: NavbarProps) {
             </span>
             {/* Wordmark temporarily hidden. */}
             {/* <span className="font-display text-[1.375rem] font-normal tracking-tight text-ink">
-              Enelope
+              NexaAI
             </span> */}
           </Link>
 
@@ -279,8 +279,8 @@ export function Navbar({ dict: fullDict, services, caseStudies }: NavbarProps) {
           >
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 transition-colors duration-300 group-hover:bg-brand">
               <Image
-                src="/enelope-mark.png"
-                alt="Enelope"
+                src="/NexaAI-mark.png"
+                alt="NexaAI"
                 width={640}
                 height={412}
                 className="h-auto w-8"
@@ -288,7 +288,7 @@ export function Navbar({ dict: fullDict, services, caseStudies }: NavbarProps) {
             </span>
             {/* Wordmark temporarily hidden. */}
             {/* <span className="font-display text-[1.375rem] font-normal tracking-tight text-white">
-              Enelope
+              NexaAI
             </span> */}
           </Link>
         </Container>

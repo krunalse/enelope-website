@@ -1,20 +1,20 @@
 {
   "meta": {
     "home": {
-      "title": "Enelope — AI Agents, Chatbots, Cloud & Consulting",
-      "description": "Enelope designs and deploys AI agents, chatbots, and cloud infrastructure — backed by consulting that tells you where automation actually pays off."
+      "title": "NexaAI — AI Agents, Chatbots, Cloud & Consulting",
+      "description": "NexaAI designs and deploys AI agents, chatbots, and cloud infrastructure — backed by consulting that tells you where automation actually pays off."
     },
     "about": {
       "title": "About",
-      "description": "Enelope is a small, senior team building AI agents, chatbots, and cloud infrastructure that actually make it to production."
+      "description": "NexaAI is a small, senior team building AI agents, chatbots, and cloud infrastructure that actually make it to production."
     },
     "services": {
       "title": "Services",
-      "description": "AI agents, chatbots, cloud infrastructure, and consulting — Enelope's four core services."
+      "description": "AI agents, chatbots, cloud infrastructure, and consulting — NexaAI's four core services."
     },
     "caseStudies": {
       "title": "Case Studies",
-      "description": "Recent Enelope engagements across logistics, analytics, and e-commerce."
+      "description": "Recent NexaAI engagements across logistics, analytics, and e-commerce."
     },
     "contact": {
       "title": "Contact",
@@ -22,11 +22,11 @@
     },
     "privacy": {
       "title": "Privacy Policy",
-      "description": "How Enelope collects, uses, and protects your information."
+      "description": "How NexaAI collects, uses, and protects your information."
     },
     "terms": {
       "title": "Terms of Service",
-      "description": "The terms governing use of the enelope.ch website."
+      "description": "The terms governing use of the NexaAI.ch website."
     }
   },
   "nav": {
@@ -53,14 +53,14 @@
     "consultingLink": "Consulting",
     "privacyLink": "Privacy",
     "termsLink": "Terms",
-    "copyright": "© {year} Enelope. All rights reserved.",
+    "copyright": "© {year} NexaAI. All rights reserved.",
     "builtWith": "Built with Next.js"
   },
   "home": {
     "hero": {
       "badge": "AI Agents · Chatbots · Cloud · Consulting",
       "title": "Automation your team will actually trust.",
-      "subtitle": "Enelope designs AI agents and chatbots, builds the cloud infrastructure underneath them, and tells you honestly where automation earns its keep — and where it doesn't.",
+      "subtitle": "NexaAI designs AI agents and chatbots, builds the cloud infrastructure underneath them, and tells you honestly where automation earns its keep — and where it doesn't.",
       "startProject": "Start a project",
       "seeCaseStudies": "See case studies",
       "carouselLabel": "Visual highlights of AI agents, chatbots, cloud, and consulting work",
@@ -75,7 +75,7 @@
       "goToSlide": "Go to slide"
     },
     "valueProp": {
-      "eyebrow": "Why Enelope",
+      "eyebrow": "Why NexaAI",
       "title": "We build the automation, not just the demo.",
       "description": "Most AI projects stall between the prototype and production. We close that gap — grounding every agent and chatbot in your real data, your real systems, and infrastructure that holds up under real load.",
       "stat1Value": "3 weeks",
@@ -121,7 +121,7 @@
       ]
     },
     "whyChooseUs": {
-      "eyebrow": "Why choose Enelope",
+      "eyebrow": "Why choose NexaAI",
       "title": "Automation that earns your trust before it earns autonomy.",
       "reasons": [
         {
@@ -176,9 +176,9 @@
     }
   },
   "about": {
-    "eyebrow": "About Enelope",
+    "eyebrow": "About NexaAI",
     "title": "A small team that builds AI infrastructure meant to last.",
-    "description": "We started Enelope because too many AI projects stall at the prototype stage — impressive in a demo, unreliable in production. We work end to end: consulting on where automation fits, building the agents and chatbots, and standing up the cloud infrastructure underneath.",
+    "description": "We started NexaAI because too many AI projects stall at the prototype stage — impressive in a demo, unreliable in production. We work end to end: consulting on where automation fits, building the agents and chatbots, and standing up the cloud infrastructure underneath.",
     "values": [
       {
         "title": "Honest scoping",
@@ -246,7 +246,7 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "This policy explains what information Enelope (\"we\", \"us\") collects through enelope.ch, how we use it, and who we share it with. It covers this website only — separate agreements govern any client engagement or project work."
+        "body": "This policy explains what information NexaAI (\"we\", \"us\") collects through NexaAI.ch, how we use it, and who we share it with. It covers this website only — separate agreements govern any client engagement or project work."
       },
       {
         "heading": "Information we collect",
@@ -307,7 +307,7 @@
     "sections": [
       {
         "heading": "Acceptance of terms",
-        "body": "By using enelope.ch (the \"Site\"), you agree to these terms. These terms govern use of the Site only — they don't govern any paid engagement with Enelope, which is covered by a separate signed agreement or statement of work."
+        "body": "By using NexaAI.ch (the \"Site\"), you agree to these terms. These terms govern use of the Site only — they don't govern any paid engagement with NexaAI, which is covered by a separate signed agreement or statement of work."
       },
       {
         "heading": "Use of the site",
@@ -315,11 +315,11 @@
       },
       {
         "heading": "Engaging our services",
-        "body": "Descriptions of services on this Site are informational and do not constitute an offer or contract. Project scope, pricing, deliverables, and ownership of work product for any engagement are defined exclusively in a separate written agreement between Enelope and the client."
+        "body": "Descriptions of services on this Site are informational and do not constitute an offer or contract. Project scope, pricing, deliverables, and ownership of work product for any engagement are defined exclusively in a separate written agreement between NexaAI and the client."
       },
       {
         "heading": "Intellectual property",
-        "body": "The Site's content, design, and the Enelope name and logo are owned by Enelope and may not be copied or reused without permission. This does not apply to deliverables produced under a separate client agreement, which is governed by that agreement's IP terms."
+        "body": "The Site's content, design, and the NexaAI name and logo are owned by NexaAI and may not be copied or reused without permission. This does not apply to deliverables produced under a separate client agreement, which is governed by that agreement's IP terms."
       },
       {
         "heading": "No warranty",
@@ -327,7 +327,7 @@
       },
       {
         "heading": "Limitation of liability",
-        "body": "To the fullest extent permitted by law, Enelope is not liable for any indirect, incidental, or consequential damages arising from your use of the Site."
+        "body": "To the fullest extent permitted by law, NexaAI is not liable for any indirect, incidental, or consequential damages arising from your use of the Site."
       },
       {
         "heading": "Third-party services",

@@ -20,7 +20,7 @@ interface ContactFormProps {
   dict: Dictionary["contactForm"];
 }
 
-const CONTACT_EMAIL = "hello@enelope.ch";
+const CONTACT_EMAIL = "hello@NexaAI.ch";
 
 function buildMailto(payload: Record<string, FormDataEntryValue>) {
   const name = String(payload.name ?? "");

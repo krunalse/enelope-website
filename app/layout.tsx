@@ -28,7 +28,7 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.enelope.ch",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.NexaAI.ch",
   ),
   title: {
     default: "Nexa AI — AI Agents, Chatbots, Cloud & Consulting",

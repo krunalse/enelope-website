@@ -48,15 +48,15 @@ export function Footer({ dict: fullDict }: FooterProps) {
           <div className="col-span-2">
             <Link href="/" className="group inline-flex items-center gap-2.5">
               <Image
-                src="/enelope-mark.png"
-                alt="Enelope"
+                src="/NexaAI-mark.png"
+                alt="NexaAI"
                 width={640}
                 height={412}
                 className="h-auto w-10"
               />
               {/* Wordmark temporarily hidden. */}
               {/* <span className="font-display text-[1.375rem] font-normal text-white">
-                Enelope
+                NexaAI
               </span> */}
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/55">
