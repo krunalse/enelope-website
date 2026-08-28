@@ -5,26 +5,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#F7F9FB",
+        paper: "#F5F5F7",
         ink: {
-          DEFAULT: "#0A2540",
-          soft: "#3A5570",
-          faint: "#55708A",
+          DEFAULT: "#1A1A1A",
+          soft: "#525252",
+          faint: "#737373",
         },
         brand: {
-          DEFAULT: "#0F4C81",
-          dark: "#08203A",
-          light: "#3B7BB8",
+          DEFAULT: "#262626",
+          dark: "#141414",
+          light: "#6B6B6B",
         },
         signal: {
-          DEFAULT: "#3BA7DB",
-          bright: "#7FD4F5",
+          DEFAULT: "#8A8A8A",
+          bright: "#D4D4D4",
         },
         surface: {
           DEFAULT: "#FFFFFF",
-          muted: "#EEF3F7",
+          muted: "#F0F0F0",
         },
-        footer: "#071B2F",
+        footer: "#121212",
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],
@@ -35,20 +35,16 @@ const config: Config = {
         eyebrow: "0.18em",
       },
       backgroundImage: {
-        "signal-glow":
-          "radial-gradient(circle at center, rgba(59,167,219,0.35) 0%, rgba(59,167,219,0) 70%)",
-        "hero-wash":
-          "radial-gradient(120% 100% at 15% 0%, rgba(59,167,219,0.18) 0%, rgba(59,167,219,0) 55%), radial-gradient(90% 80% at 95% 15%, rgba(15,76,129,0.14) 0%, rgba(15,76,129,0) 60%)",
         "grid-fade":
-          "linear-gradient(to right, rgba(10,37,64,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(10,37,64,0.05) 1px, transparent 1px)",
+          "linear-gradient(to right, rgba(26,26,26,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(26,26,26,0.05) 1px, transparent 1px)",
       },
       backgroundSize: {
         grid: "64px 64px",
       },
       boxShadow: {
-        soft: "0 1px 2px rgba(10,37,64,0.04), 0 8px 24px -12px rgba(10,37,64,0.12)",
-        lift: "0 2px 4px rgba(10,37,64,0.05), 0 24px 48px -20px rgba(10,37,64,0.22)",
-        frame: "0 24px 64px -32px rgba(10,37,64,0.45)",
+        soft: "0 1px 2px rgba(20,20,20,0.04), 0 8px 24px -12px rgba(20,20,20,0.12)",
+        lift: "0 2px 4px rgba(20,20,20,0.05), 0 24px 48px -20px rgba(20,20,20,0.22)",
+        frame: "0 24px 64px -32px rgba(20,20,20,0.45)",
       },
       keyframes: {
         "fade-up": {

@@ -24,11 +24,7 @@ export function Hero({ dict }: HeroProps) {
 
   return (
     <section className="relative overflow-hidden pb-8 pt-14 sm:pb-14 sm:pt-20">
-      {/* Layered ambient wash + hairline grid: depth without a heavy background image. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-hero-wash"
-      />
+      {/* Hairline grid: subtle depth without a heavy background image. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-grid-fade bg-grid [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]"

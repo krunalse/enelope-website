@@ -90,16 +90,17 @@ export function Navbar({ dict: fullDict }: NavbarProps) {
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-ink transition-colors duration-300 group-hover:bg-brand">
               <Image
                 src="/enelope-mark.png"
-                alt=""
+                alt="Enelope"
                 width={640}
                 height={412}
                 className="h-auto w-8"
                 priority
               />
             </span>
-            <span className="font-display text-[1.375rem] font-normal tracking-tight text-ink">
+            {/* Wordmark temporarily hidden. */}
+            {/* <span className="font-display text-[1.375rem] font-normal tracking-tight text-ink">
               Enelope
-            </span>
+            </span> */}
           </Link>
 
           <nav className="hidden items-center gap-9 md:flex">
@@ -170,15 +171,16 @@ export function Navbar({ dict: fullDict }: NavbarProps) {
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 transition-colors duration-300 group-hover:bg-brand">
               <Image
                 src="/enelope-mark.png"
-                alt=""
+                alt="Enelope"
                 width={640}
                 height={412}
                 className="h-auto w-8"
               />
             </span>
-            <span className="font-display text-[1.375rem] font-normal tracking-tight text-white">
+            {/* Wordmark temporarily hidden. */}
+            {/* <span className="font-display text-[1.375rem] font-normal tracking-tight text-white">
               Enelope
-            </span>
+            </span> */}
           </Link>
         </Container>
 

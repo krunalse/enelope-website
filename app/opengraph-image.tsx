@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const dynamic = "force-static";
-export const alt = "Enelope — AI Agents, Chatbots, Cloud & Consulting";
+export const alt = "Nexa AI — AI Agents, Chatbots, Cloud & Consulting";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -16,7 +16,7 @@ export default function OpengraphImage() {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
-          background: "#0A2540",
+          background: "#1A1A1A",
           padding: "80px",
           fontFamily: "sans-serif",
         }}
@@ -29,8 +29,8 @@ export default function OpengraphImage() {
             width: 88,
             height: 88,
             borderRadius: 20,
-            background: "rgba(59, 167, 219, 0.15)",
-            color: "#3BA7DB",
+            background: "rgba(255, 255, 255, 0.1)",
+            color: "#8A8A8A",
             fontSize: 44,
             fontWeight: 700,
           }}
@@ -45,13 +45,13 @@ export default function OpengraphImage() {
             color: "#FFFFFF",
           }}
         >
-          Enelope
+          Nexa AI
         </div>
         <div
           style={{
             marginTop: 20,
             fontSize: 32,
-            color: "#7FD4F5",
+            color: "#D4D4D4",
           }}
         >
           AI Agents · Chatbots · Cloud · Consulting

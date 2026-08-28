@@ -38,10 +38,10 @@ export default function ContactPage() {
                 </dt>
                 <dd className="mt-0.5">
                   <a
-                    href="mailto:hello@enelope.ch"
+                    href="mailto:hello@nexaai.ch"
                     className="text-sm text-ink-soft underline-offset-4 transition-colors hover:text-brand hover:underline"
                   >
-                    hello@enelope.ch
+                    hello@nexaai.ch
                   </a>
                 </dd>
               </div>

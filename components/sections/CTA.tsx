@@ -26,10 +26,6 @@ export function CTA({ dict }: CTAProps) {
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-signal-glow opacity-40"
-          />
-          <div
-            aria-hidden
             className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10"
           />
 

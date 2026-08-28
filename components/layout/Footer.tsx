@@ -49,14 +49,15 @@ export function Footer({ dict: fullDict }: FooterProps) {
             <Link href="/" className="group inline-flex items-center gap-2.5">
               <Image
                 src="/enelope-mark.png"
-                alt=""
+                alt="Enelope"
                 width={640}
                 height={412}
                 className="h-auto w-10"
               />
-              <span className="font-display text-[1.375rem] font-normal text-white">
+              {/* Wordmark temporarily hidden. */}
+              {/* <span className="font-display text-[1.375rem] font-normal text-white">
                 Enelope
-              </span>
+              </span> */}
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/55">
               {dict.tagline}
