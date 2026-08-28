@@ -30,16 +30,16 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.enelope.ch",
   ),
   title: {
-    default: "Enelope — AI Agents, Chatbots, Cloud & Consulting",
-    template: "%s | Enelope",
+    default: "Nexa AI — AI Agents, Chatbots, Cloud & Consulting",
+    template: "%s | Nexa AI",
   },
   description:
-    "Enelope designs and deploys AI agents, chatbots, and cloud infrastructure — backed by consulting that tells you where automation actually pays off.",
+    "Nexa AI designs and deploys AI agents, chatbots, and cloud infrastructure — backed by consulting that tells you where automation actually pays off.",
   openGraph: {
-    title: "Enelope — AI Agents, Chatbots, Cloud & Consulting",
+    title: "Nexa AI — AI Agents, Chatbots, Cloud & Consulting",
     description:
       "AI agents, chatbots, and cloud infrastructure built for teams who want automation they can trust.",
-    siteName: "Enelope",
+    siteName: "Nexa AI",
     type: "website",
   },
 };
