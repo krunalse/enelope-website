@@ -6,6 +6,7 @@ const config: Config = {
     extend: {
       colors: {
         paper: "#F5F5F7",
+        header: "#EAEAED",
         ink: {
           DEFAULT: "#1A1A1A",
           soft: "#525252",

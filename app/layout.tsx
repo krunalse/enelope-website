@@ -4,6 +4,7 @@ import { Inter, Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { dictionary } from "@/lib/content/dictionary";
+import { getServices, getCaseStudies } from "@/lib/content/data";
 import "./globals.css";
 
 const body = Inter({
@@ -51,7 +52,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${body.variable} ${display.variable} ${mono.variable}`}
     >
       <body>
-        <Navbar dict={dictionary} />
+        <Navbar
+          dict={dictionary}
+          services={getServices()}
+          caseStudies={getCaseStudies()}
+        />
         <main>{children}</main>
         <Footer dict={dictionary} />
       </body>

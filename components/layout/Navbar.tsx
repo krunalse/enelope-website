@@ -6,21 +6,54 @@ import { useEffect, useState } from "react";
 import { Menu, X, Linkedin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
+import { getServiceIcon } from "@/lib/utils/serviceIcons";
 import type { Dictionary } from "@/lib/content/dictionary";
+import type { Service, CaseStudy } from "@/types";
 
 interface NavbarProps {
   dict: Dictionary;
+  services: Service[];
+  caseStudies: CaseStudy[];
 }
 
-export function Navbar({ dict: fullDict }: NavbarProps) {
+export function Navbar({ dict: fullDict, services, caseStudies }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const dict = fullDict.nav;
 
   const links = [
-    { href: "/services", label: dict.services },
-    { href: "/case-studies", label: dict.caseStudies },
-    { href: "/about", label: dict.about },
+    {
+      href: "/services",
+      label: dict.services,
+      menu: {
+        columns: 1 as const,
+        viewAllHref: "/services",
+        viewAllLabel: dict.viewAllServices,
+        items: services.map((service) => ({
+          href: `/services/${service.slug}`,
+          title: service.title,
+          description: service.shortDescription,
+          icon: service.icon,
+        })),
+      },
+    },
+    {
+      href: "/case-studies",
+      label: dict.caseStudies,
+      menu: {
+        columns: 2 as const,
+        viewAllHref: "/case-studies",
+        viewAllLabel: dict.viewAllCaseStudies,
+        items: caseStudies.map((caseStudy) => ({
+          href: `/case-studies/${caseStudy.slug}`,
+          title: caseStudy.clientName,
+          description: caseStudy.industry,
+          icon: null as string | null,
+        })),
+      },
+    },
+    { href: "/about", label: dict.about, menu: null },
   ];
 
   const socialLinks = [
@@ -63,17 +96,20 @@ export function Navbar({ dict: fullDict }: NavbarProps) {
     };
   }, [open]);
 
+  const activeLink = links.find((link) => link.href === activeMenu) ?? null;
+
   return (
     <>
       {/* When open the bar goes fully transparent so the single rising panel
           behind it provides the dark background — no second surface to seam with. */}
       <header
+        onMouseLeave={() => setActiveMenu(null)}
         className={`sticky top-0 z-50 transition-[background-color,border-color,box-shadow] duration-300 ease-out ${
           open
             ? "border-b border-transparent bg-transparent"
-            : scrolled
-              ? "border-b border-ink/[0.07] bg-paper/80 shadow-soft backdrop-blur-xl"
-              : "border-b border-transparent bg-paper/60 backdrop-blur-sm"
+            : scrolled || activeMenu
+              ? "border-b border-ink/[0.07] bg-header/95 shadow-soft backdrop-blur-xl"
+              : "border-b border-transparent bg-header/80 backdrop-blur-sm"
         }`}
       >
         <Container className="flex h-20 items-center justify-between">
@@ -108,7 +144,13 @@ export function Navbar({ dict: fullDict }: NavbarProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative py-1 text-sm font-medium text-ink-soft transition-colors hover:text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-brand after:transition-transform after:duration-300 hover:after:scale-x-100"
+                onMouseEnter={() => setActiveMenu(link.menu ? link.href : null)}
+                onFocus={() => setActiveMenu(link.menu ? link.href : null)}
+                className={`relative py-1 text-sm font-medium transition-colors after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-brand after:transition-transform after:duration-300 hover:after:scale-x-100 ${
+                  activeMenu === link.href
+                    ? "text-ink after:scale-x-100"
+                    : "text-ink-soft hover:text-ink"
+                }`}
               >
                 {link.label}
               </Link>
@@ -147,7 +189,74 @@ export function Navbar({ dict: fullDict }: NavbarProps) {
             />
           </button>
         </Container>
+
+        {/* Apple-style mega menu: one full-bleed panel flush under the header,
+            content swapped by activeMenu so it never floats as a separate card. */}
+        <div
+          className={`absolute inset-x-0 top-full border-t border-ink/[0.06] bg-header shadow-lift transition-[opacity,transform] duration-300 ease-out ${
+            activeMenu
+              ? "pointer-events-auto translate-y-0 opacity-100"
+              : "pointer-events-none -translate-y-1 opacity-0"
+          }`}
+        >
+          {activeLink?.menu && (
+            <Container className="py-10">
+              <ul
+                className={`grid gap-x-10 gap-y-6 ${
+                  activeLink.menu.columns === 2
+                    ? "grid-cols-2 sm:grid-cols-4"
+                    : "grid-cols-2 sm:grid-cols-3"
+                }`}
+              >
+                {activeLink.menu.items.map((item) => {
+                  const Icon = item.icon ? getServiceIcon(item.icon) : null;
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={() => setActiveMenu(null)}
+                        className="group/item flex flex-col gap-3"
+                      >
+                        {Icon && (
+                          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-surface text-ink transition-colors group-hover/item:bg-ink group-hover/item:text-paper">
+                            <Icon className="h-4 w-4" />
+                          </span>
+                        )}
+                        <span className="min-w-0">
+                          <span className="block text-sm font-medium text-ink transition-colors group-hover/item:text-brand">
+                            {item.title}
+                          </span>
+                          <span className="mt-0.5 block truncate text-xs text-ink-faint">
+                            {item.description}
+                          </span>
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="mt-8 border-t border-ink/[0.06] pt-5">
+                <Link
+                  href={activeLink.menu.viewAllHref}
+                  onClick={() => setActiveMenu(null)}
+                  className="text-sm font-medium text-brand transition-colors hover:text-ink"
+                >
+                  {activeLink.menu.viewAllLabel} →
+                </Link>
+              </div>
+            </Container>
+          )}
+        </div>
       </header>
+
+      {/* Dims the page behind the mega menu, Apple-style, and closes it on click-away. */}
+      <div
+        aria-hidden="true"
+        onClick={() => setActiveMenu(null)}
+        className={`fixed inset-0 top-20 z-40 bg-ink/20 backdrop-blur-[2px] transition-opacity duration-300 ease-out md:block ${
+          activeMenu ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      />
 
       <div
         id="mobile-nav"

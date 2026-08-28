@@ -35,7 +35,9 @@
     "about": "About",
     "startProject": "Start a project",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "viewAllServices": "View all services",
+    "viewAllCaseStudies": "View all case studies"
   },
   "footer": {
     "tagline": "AI Agents · Chatbots · Cloud · Consulting — built for teams who want automation they can actually trust.",
