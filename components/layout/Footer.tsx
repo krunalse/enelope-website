@@ -15,8 +15,14 @@ export function Footer({ dict: fullDict }: FooterProps) {
       heading: dict.companyHeading,
       links: [
         { href: "/about", label: dict.aboutLink },
-        { href: "/case-studies", label: dict.caseStudiesLink },
         { href: "/contact", label: dict.contactLink },
+      ],
+    },
+    {
+      heading: dict.solutionsHeading,
+      links: [
+        { href: "/industries", label: dict.industriesLink },
+        { href: "/use-cases", label: dict.useCasesLink },
       ],
     },
     {
@@ -44,7 +50,7 @@ export function Footer({ dict: fullDict }: FooterProps) {
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-signal/30 to-transparent"
       />
       <Container className="py-20">
-        <div className="grid grid-cols-2 gap-12 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-12 md:grid-cols-6">
           <div className="col-span-2">
             <Link href="/" className="group inline-flex items-center gap-2.5">
               <Image
@@ -55,11 +61,11 @@ export function Footer({ dict: fullDict }: FooterProps) {
                 className="h-auto w-10"
               />
               {/* Wordmark temporarily hidden. */}
-              {/* <span className="font-display text-[1.375rem] font-normal text-white">
+              {/* <span className="font-display text-[1.375rem] font-semibold text-white">
                 NexaAI
               </span> */}
             </Link>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/55">
+            <p className="mt-5 max-w-xs text-[0.9375rem] leading-7 text-white/55">
               {dict.tagline}
             </p>
           </div>
@@ -89,7 +95,6 @@ export function Footer({ dict: fullDict }: FooterProps) {
           <p>
             {dict.copyright.replace("{year}", String(new Date().getFullYear()))}
           </p>
-          <p className="font-mono tracking-wide">{dict.builtWith}</p>
         </div>
       </Container>
     </footer>

@@ -25,7 +25,12 @@ app rather than sending anything through the server.
 
 There's no CMS or admin panel — content lives directly in the repo:
 
-- **Services, case studies, testimonials**: `lib/content/data.ts` — plain
+- **Industries and use cases**: one markdown file per page in
+  `content/industries/` and `content/use-cases/` (frontmatter: title,
+  description, icon, industries). Display order is set in
+  `lib/content/solutions.ts`; header images are Unsplash photos
+  in `public/images/{industries,use-cases}/`, credited in `public/images/CREDITS.md`.
+- **Services, testimonials**: `lib/content/data.ts` — plain
   arrays typed by `types/index.ts`. Edit the arrays directly and redeploy.
 - **All other site copy** (nav, footer, homepage sections, About, page
   chrome, legal pages, form labels): `lib/content/dictionary.json`, typed via
@@ -47,20 +52,20 @@ to the web root. The only environment variable the site reads is
 ```
 app/
   layout.tsx          root layout — html/body, fonts, Navbar, Footer
-  page.tsx, about/, services/, services/[slug]/, case-studies/,
-  case-studies/[slug]/, contact/, privacy/, terms/
+  page.tsx, about/, services/, services/[slug]/, industries/, industries/[slug]/, use-cases/,
+  use-cases/[slug]/, contact/, privacy/, terms/
 components/
   layout/       Navbar, Footer
   ui/           Button, Card, Badge, Container, Section, SectionHeading, Prose
   sections/     homepage sections (Hero, Process, Testimonials, ...)
   services/     ServiceCard, ServiceGrid
-  case-studies/ CaseStudyCard
+  solutions/    SolutionCard, SolutionGrid, SolutionDetail (industries + use cases)
   testimonials/ TestimonialCard
   legal/        LegalBody — renders Privacy/Terms body text with the
                 {email} placeholder swapped for a real mailto link
   forms/        ContactForm
 lib/
-  content/      data.ts (services/case studies/testimonials),
+  content/      data.ts (services/testimonials),
                 dictionary.json + dictionary.ts (all other site copy)
   utils/        cn.ts, serviceIcons.tsx (shared lucide icon map)
 types/          shared TypeScript types

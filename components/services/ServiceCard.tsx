@@ -40,10 +40,10 @@ export function ServiceCard({ service, learnMoreLabel }: ServiceCardProps) {
 
         <div className="flex flex-1 flex-col justify-between p-6 pt-9">
           <div>
-            <h3 className="font-display text-[1.375rem] font-normal leading-snug text-ink">
+            <h3 className="font-display text-[1.375rem] font-semibold leading-snug text-ink">
               {service.title}
             </h3>
-            <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">
+            <p className="mt-2.5 text-[0.9375rem] leading-7 text-ink-soft">
               {service.shortDescription}
             </p>
           </div>

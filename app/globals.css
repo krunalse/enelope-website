@@ -23,11 +23,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Instrument Serif runs wide and loose by default; tighten it optically so
-   large headings hold together the way a display cut should. */
+
 .font-display {
-  letter-spacing: -0.015em;
-  word-spacing: 0.02em;
+  letter-spacing: -0.02em;
+  font-weight: 400;
 }
 
 ::selection {

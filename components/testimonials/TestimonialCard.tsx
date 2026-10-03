@@ -23,7 +23,7 @@ export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           ))}
         </div>
 
-        <blockquote className="mt-5 font-display text-[1.0625rem] font-normal leading-[1.65] text-ink">
+        <blockquote className="mt-5 font-display text-base font-semibold leading-7 text-ink">
           &ldquo;{testimonial.testimonial}&rdquo;
         </blockquote>
       </div>

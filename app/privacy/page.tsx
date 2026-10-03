@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LegalBody, linkClass } from "@/components/legal/LegalBody";
+import { LegalBody } from "@/components/legal/LegalBody";
 import { LegalPage, LegalSection } from "@/components/legal/LegalPage";
 import { dictionary } from "@/lib/content/dictionary";
 
@@ -30,28 +30,7 @@ export default function PrivacyPage() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-3">{section.outro}</p>
-            </>
-          ) : "providers" in section && section.providers ? (
-            <>
-              <p>{section.intro}</p>
-              <ul className={listClass}>
-                {section.providers.map((p, j) => (
-                  <li key={j}>
-                    <strong className="font-semibold text-ink">{p.name}</strong>{" "}
-                    — {p.body} (
-                    <a
-                      href={p.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={linkClass}
-                    >
-                      {p.linkLabel}
-                    </a>
-                    ).
-                  </li>
-                ))}
-              </ul>
+              {section.outro && <p className="mt-3">{section.outro}</p>}
             </>
           ) : "body" in section && section.body ? (
             <LegalBody text={section.body} />

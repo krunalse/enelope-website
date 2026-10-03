@@ -6,17 +6,7 @@ export interface Service {
   fullDescription: string;
   icon: string; // lucide-react icon name
   imageUrl: string | null;
-}
-
-export interface CaseStudy {
-  id: string;
-  slug: string;
-  clientName: string;
-  industry: string;
-  summary: string;
-  result: string;
-  fullDescription: string;
-  imageUrl: string | null;
+  diagram?: { src: string; alt: string };
 }
 
 export interface Testimonial {
@@ -27,4 +17,16 @@ export interface Testimonial {
   testimonial: string;
   avatarUrl: string | null;
   rating: number;
+}
+
+/** An industry solution or a use case page, loaded from content/<kind>/<slug>.md. */
+export interface Solution {
+  slug: string;
+  title: string;
+  description: string;
+  icon: string; // lucide-react icon name
+  imageUrl: string;
+  body: string; // markdown
+  /** Industry slugs a use case applies to; empty for industries. */
+  industries: string[];
 }

@@ -9,11 +9,13 @@ const icons = [ShieldCheck, Gauge, Users];
 
 export function WhyChooseUs({
   dict,
+  tone = "default",
 }: {
   dict: Dictionary["home"]["whyChooseUs"];
+  tone?: "default" | "muted";
 }) {
   return (
-    <Section tone="muted">
+    <Section tone={tone}>
       <Container>
         <SectionHeading
           eyebrow={dict.eyebrow}
@@ -29,10 +31,10 @@ export function WhyChooseUs({
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/[0.08] text-brand">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-5 font-display text-xl font-normal text-ink">
+                <h3 className="mt-5 font-display text-xl font-semibold text-ink">
                   {r.title}
                 </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">
+                <p className="mt-2.5 text-[0.9375rem] leading-7 text-ink-soft">
                   {r.body}
                 </p>
               </Card>

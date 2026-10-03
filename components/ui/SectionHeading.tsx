@@ -39,7 +39,7 @@ export function SectionHeading({
       )}
       <Heading
         className={cn(
-          "font-display font-normal leading-[1.12] text-ink",
+          "font-display font-semibold leading-[1.12] text-ink",
           Heading === "h1"
             ? "mt-5 text-[2.75rem] sm:text-5xl lg:text-[3.5rem]"
             : "mt-5 text-[2rem] sm:text-[2.5rem]",
@@ -50,7 +50,7 @@ export function SectionHeading({
       {description && (
         <p
           className={cn(
-            "mt-5 text-[1.0625rem] leading-[1.7] text-ink-soft",
+            "mt-5 text-[1.0625rem] leading-7 text-ink-soft",
             align === "center" && "mx-auto",
           )}
         >

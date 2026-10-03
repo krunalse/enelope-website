@@ -8,15 +8,16 @@ import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { getServiceIcon } from "@/lib/utils/serviceIcons";
 import type { Dictionary } from "@/lib/content/dictionary";
-import type { Service, CaseStudy } from "@/types";
+import type { Service, Solution } from "@/types";
 
 interface NavbarProps {
   dict: Dictionary;
   services: Service[];
-  caseStudies: CaseStudy[];
+  industries: Solution[];
+  useCases: Solution[];
 }
 
-export function Navbar({ dict: fullDict, services, caseStudies }: NavbarProps) {
+export function Navbar({ dict: fullDict, services, industries, useCases }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -39,17 +40,32 @@ export function Navbar({ dict: fullDict, services, caseStudies }: NavbarProps) {
       },
     },
     {
-      href: "/case-studies",
-      label: dict.caseStudies,
+      href: "/industries",
+      label: dict.industries,
       menu: {
         columns: 2 as const,
-        viewAllHref: "/case-studies",
-        viewAllLabel: dict.viewAllCaseStudies,
-        items: caseStudies.map((caseStudy) => ({
-          href: `/case-studies/${caseStudy.slug}`,
-          title: caseStudy.clientName,
-          description: caseStudy.industry,
-          icon: null as string | null,
+        viewAllHref: "/industries",
+        viewAllLabel: dict.viewAllIndustries,
+        items: industries.map((item) => ({
+          href: `/industries/${item.slug}`,
+          title: item.title,
+          description: item.description,
+          icon: item.icon as string | null,
+        })),
+      },
+    },
+    {
+      href: "/use-cases",
+      label: dict.useCases,
+      menu: {
+        columns: 2 as const,
+        viewAllHref: "/use-cases",
+        viewAllLabel: dict.viewAllUseCases,
+        items: useCases.map((item) => ({
+          href: `/use-cases/${item.slug}`,
+          title: item.title,
+          description: item.description,
+          icon: item.icon as string | null,
         })),
       },
     },
@@ -134,7 +150,7 @@ export function Navbar({ dict: fullDict, services, caseStudies }: NavbarProps) {
               />
             </span>
             {/* Wordmark temporarily hidden. */}
-            {/* <span className="font-display text-[1.375rem] font-normal tracking-tight text-ink">
+            {/* <span className="font-display text-[1.375rem] font-semibold tracking-tight text-ink">
               NexaAI
             </span> */}
           </Link>
@@ -287,7 +303,7 @@ export function Navbar({ dict: fullDict, services, caseStudies }: NavbarProps) {
               />
             </span>
             {/* Wordmark temporarily hidden. */}
-            {/* <span className="font-display text-[1.375rem] font-normal tracking-tight text-white">
+            {/* <span className="font-display text-[1.375rem] font-semibold tracking-tight text-white">
               NexaAI
             </span> */}
           </Link>
@@ -299,7 +315,7 @@ export function Navbar({ dict: fullDict, services, caseStudies }: NavbarProps) {
               key={link.href + link.label}
               href={link.href}
               onClick={() => setOpen(false)}
-              className={`font-display text-4xl font-normal text-white transition-all duration-500 ease-in-out hover:text-signal ${
+              className={`font-display text-4xl font-semibold text-white transition-all duration-500 ease-in-out hover:text-signal ${
                 open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
               }`}
               style={{ transitionDelay: open ? `${120 + i * 80}ms` : "0ms" }}

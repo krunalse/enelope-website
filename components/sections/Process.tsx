@@ -6,9 +6,15 @@ import type { Dictionary } from "@/lib/content/dictionary";
 
 const icons = [Search, PenTool, Hammer, Settings2];
 
-export function Process({ dict }: { dict: Dictionary["home"]["process"] }) {
+export function Process({
+  dict,
+  tone = "default",
+}: {
+  dict: Dictionary["home"]["process"];
+  tone?: "default" | "muted";
+}) {
   return (
-    <Section>
+    <Section tone={tone}>
       <Container>
         <SectionHeading eyebrow={dict.eyebrow} title={dict.title} />
 
@@ -35,10 +41,10 @@ export function Process({ dict }: { dict: Dictionary["home"]["process"] }) {
                 <div className="mt-5 flex h-11 w-11 items-center justify-center rounded-xl bg-brand/[0.08] text-brand">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-4 font-display text-xl font-normal text-ink">
+                <h3 className="mt-4 font-display text-xl font-semibold text-ink">
                   {s.title}
                 </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">
+                <p className="mt-2.5 text-[0.9375rem] leading-7 text-ink-soft">
                   {s.body}
                 </p>
               </li>

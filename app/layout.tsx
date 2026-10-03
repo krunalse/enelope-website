@@ -1,29 +1,21 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Inter, Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { dictionary } from "@/lib/content/dictionary";
-import { getServices, getCaseStudies } from "@/lib/content/data";
+import { getServices } from "@/lib/content/data";
+import { getIndustries, getUseCases } from "@/lib/content/solutions";
 import "./globals.css";
 
-const body = Inter({
+const body = Geist({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "500", "600", "700"],
 });
 
-const display = Instrument_Serif({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400"],
-  style: ["normal", "italic"],
-});
-
-const mono = IBM_Plex_Mono({
+const mono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -49,13 +41,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${body.variable} ${display.variable} ${mono.variable}`}
+      className={`${body.variable} ${mono.variable}`}
     >
       <body>
         <Navbar
           dict={dictionary}
           services={getServices()}
-          caseStudies={getCaseStudies()}
+          industries={getIndustries()}
+          useCases={getUseCases()}
         />
         <main>{children}</main>
         <Footer dict={dictionary} />

@@ -3,35 +3,44 @@ import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { CaseStudyCard } from "@/components/case-studies/CaseStudyCard";
-import { getCaseStudies } from "@/lib/content/data";
-import type { Dictionary } from "@/lib/content/dictionary";
+import { SolutionGrid } from "@/components/solutions/SolutionGrid";
+import type { Solution } from "@/types";
 
-interface CaseStudiesProps {
-  dict: Dictionary["home"]["caseStudiesSection"];
+interface SolutionsProps {
+  dict: { eyebrow: string; title: string; viewAll: string };
+  solutions: Solution[];
+  basePath: "/industries" | "/use-cases";
+  learnMoreLabel: string;
+  tone?: "default" | "muted";
 }
 
-export function CaseStudies({ dict }: CaseStudiesProps) {
-  const caseStudies = getCaseStudies();
-
+/** Home-page teaser for industries / use cases: first four entries plus a link to all. */
+export function Solutions({
+  dict,
+  solutions,
+  basePath,
+  learnMoreLabel,
+  tone = "default",
+}: SolutionsProps) {
   return (
-    <Section tone="muted">
+    <Section tone={tone}>
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading eyebrow={dict.eyebrow} title={dict.title} />
           <Link
-            href="/case-studies"
+            href={basePath}
             className="group flex items-center gap-1.5 text-sm font-medium text-brand transition-colors hover:text-brand-dark"
           >
             {dict.viewAll}
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
-
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {caseStudies.map((caseStudy) => (
-            <CaseStudyCard key={caseStudy.id} caseStudy={caseStudy} />
-          ))}
+        <div className="mt-16">
+          <SolutionGrid
+            solutions={solutions.slice(0, 4)}
+            basePath={basePath}
+            learnMoreLabel={learnMoreLabel}
+          />
         </div>
       </Container>
     </Section>

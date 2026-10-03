@@ -1,65 +1,73 @@
+import Image from "next/image";
+import { Check } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { HeroCarousel } from "@/components/sections/HeroCarousel";
 import type { Dictionary } from "@/lib/content/dictionary";
 
 interface HeroProps {
   dict: Dictionary["home"]["hero"];
 }
 
-const HERO_SLIDES = [
-  { src: "/images/hero/ai-agents.webp", labelKey: "nodeAgents" },
-  { src: "/images/hero/chatbots.webp", labelKey: "nodeChatbots" },
-  { src: "/images/hero/cloud.webp", labelKey: "nodeCloud" },
-  { src: "/images/hero/consulting.webp", labelKey: "nodeConsulting" },
-] as const;
-
 export function Hero({ dict }: HeroProps) {
-  const slides = HERO_SLIDES.map((slide) => ({
-    src: slide.src,
-    alt: "",
-    label: dict[slide.labelKey],
-  }));
-
   return (
-    <section className="relative overflow-hidden pb-8 pt-14 sm:pb-14 sm:pt-20">
-      {/* Hairline grid: subtle depth without a heavy background image. */}
+    <section className="relative flex min-h-[min(calc(100svh-5rem),52rem)] items-center overflow-hidden bg-[#06070b] py-14 sm:py-20">
+      {/* Full-bleed photo (human and robotic hand); the robotic hand sits right of the copy. */}
+      <Image
+        src="/images/hero/hero-photo.webp"
+        alt=""
+        fill
+        fetchPriority="high"
+        sizes="100vw"
+        className="pointer-events-none object-cover"
+      />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-grid-fade bg-grid [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#06070b] via-[#06070b]/80 to-[#06070b]/60 sm:to-transparent"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#06070b]/70 via-transparent to-transparent"
       />
 
-      <Container className="relative grid gap-16 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-20">
+      <Container className="relative">
         <div className="animate-fade-up">
-          <Badge>{dict.badge}</Badge>
+          <Badge className="border-indigo-200/25 bg-indigo-200/10 text-indigo-100">
+            {dict.badge}
+          </Badge>
 
-          <h1 className="mt-7 max-w-[15ch] font-display text-[2.75rem] font-normal leading-[1.08] text-ink sm:text-[3.5rem] lg:text-[4rem]">
+          <h1 className="mt-7 max-w-[18ch] font-display text-[2.75rem] font-semibold leading-[1.08] text-white sm:text-[3.5rem] lg:text-[4rem]">
             {dict.title}
           </h1>
 
-          <p className="mt-6 max-w-[46ch] text-[1.0625rem] leading-[1.75] text-ink-soft">
+          <p className="mt-6 max-w-[46ch] text-[1.0625rem] leading-7 text-slate-300">
             {dict.subtitle}
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-3">
-            <ButtonLink href="/contact">{dict.startProject}</ButtonLink>
-            <ButtonLink href="/case-studies" variant="secondary">
-              {dict.seeCaseStudies}
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <ButtonLink
+              href="/contact"
+              className="!bg-white !text-[#06070b] hover:!bg-indigo-100 sm:min-w-0"
+            >
+              {dict.startProject}
+            </ButtonLink>
+            <ButtonLink
+              href="/industries"
+              variant="secondary"
+              className="!border-white/25 !bg-white/10 !text-white hover:!bg-white/20"
+            >
+              {dict.exploreIndustries}
             </ButtonLink>
           </div>
-        </div>
 
-        <div
-          className="relative mx-auto w-full max-w-md animate-fade-up lg:max-w-none"
-          style={{ animationDelay: "120ms" }}
-        >
-          {/* Offset tint block behind the frame gives the image somewhere to sit. */}
-          <div
-            aria-hidden
-            className="absolute -inset-3 -rotate-1 rounded-[1.75rem] bg-brand/[0.07]"
-          />
-          <HeroCarousel slides={slides} dict={dict} />
+          <ul className="mt-12 flex max-w-2xl flex-wrap gap-x-7 gap-y-3 border-t border-white/10 pt-6 text-sm text-white/70">
+            {dict.trust.map((item) => (
+              <li key={item} className="flex items-center gap-2">
+                <Check aria-hidden className="h-4 w-4 text-signal-bright" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
     </section>

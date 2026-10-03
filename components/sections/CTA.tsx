@@ -30,18 +30,25 @@ export function CTA({ dict }: CTAProps) {
           />
 
           <div className="relative">
-            <h2 className="mx-auto max-w-[20ch] font-display text-[2.25rem] font-normal leading-[1.15] text-white sm:text-[3rem]">
+            <h2 className="mx-auto max-w-[20ch] font-display text-[2.25rem] font-semibold leading-[1.15] text-white sm:text-[3rem]">
               {dict.title}
             </h2>
-            <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/70">
+            <p className="mx-auto mt-5 max-w-lg text-[1.0625rem] leading-7 text-white/70">
               {dict.subtitle}
             </p>
-            <div className="mt-10 flex justify-center">
+            <div className="mt-10 flex flex-wrap justify-center gap-3">
               <ButtonLink
                 href="/contact"
                 className="bg-white text-ink shadow-lift hover:bg-signal-bright hover:text-ink"
               >
                 {dict.startProject}
+              </ButtonLink>
+              <ButtonLink
+                href="/use-cases"
+                variant="secondary"
+                className="!border-white/25 !bg-white/10 !text-white hover:!bg-white/20"
+              >
+                {dict.browseUseCases}
               </ButtonLink>
             </div>
           </div>

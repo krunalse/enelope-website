@@ -5,11 +5,13 @@ import type { Dictionary } from "@/lib/content/dictionary";
 
 export function Capabilities({
   dict,
+  tone = "default",
 }: {
   dict: Dictionary["home"]["capabilities"];
+  tone?: "default" | "muted";
 }) {
   return (
-    <Section>
+    <Section tone={tone}>
       <Container>
         <SectionHeading
           eyebrow={dict.eyebrow}
@@ -30,7 +32,7 @@ export function Capabilities({
               <p className="font-mono text-[0.6875rem] uppercase tracking-eyebrow text-brand">
                 {c.label}
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+              <p className="mt-3 text-[0.9375rem] leading-7 text-ink-soft">
                 {c.detail}
               </p>
             </div>

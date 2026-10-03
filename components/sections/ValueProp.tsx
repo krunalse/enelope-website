@@ -3,7 +3,13 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { Dictionary } from "@/lib/content/dictionary";
 
-export function ValueProp({ dict }: { dict: Dictionary["home"]["valueProp"] }) {
+export function ValueProp({
+  dict,
+  tone = "default",
+}: {
+  dict: Dictionary["home"]["valueProp"];
+  tone?: "default" | "muted";
+}) {
   const points = [
     { stat: dict.stat1Value, label: dict.stat1Label },
     { stat: dict.stat2Value, label: dict.stat2Label },
@@ -11,7 +17,7 @@ export function ValueProp({ dict }: { dict: Dictionary["home"]["valueProp"] }) {
   ];
 
   return (
-    <Section>
+    <Section tone={tone}>
       <Container>
         <SectionHeading
           eyebrow={dict.eyebrow}
@@ -24,10 +30,10 @@ export function ValueProp({ dict }: { dict: Dictionary["home"]["valueProp"] }) {
             <div key={i} className="bg-paper px-6 py-8 sm:px-8 sm:py-10">
               <dt className="sr-only">{p.label}</dt>
               <dd>
-                <p className="font-display text-[3rem] font-normal leading-none text-brand">
+                <p className="font-display text-[3rem] font-semibold leading-none text-brand">
                   {p.stat}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+                <p className="mt-3 text-[0.9375rem] leading-7 text-ink-soft">
                   {p.label}
                 </p>
               </dd>

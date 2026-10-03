@@ -1,4 +1,4 @@
-import { Service, CaseStudy, Testimonial } from "@/types";
+import { Service, Testimonial } from "@/types";
 
 const SERVICES: Service[] = [
   {
@@ -355,6 +355,10 @@ Whether migrating to the cloud, modernizing systems, or preparing for AI, NexaAI
 `,
     icon: "Cloud",
     imageUrl: "/images/services/cloud.webp",
+    diagram: {
+      src: "/images/services/cloud-ai-agent.webp",
+      alt: "Diagram of an AI agent on cloud infrastructure: users, data and events flow into the agent, which perceives, reasons and acts through business apps and APIs.",
+    },
   },
   {
     id: "consulting",
@@ -384,197 +388,6 @@ We focus on solving the right problem first—so you invest your time and techno
 `,
     icon: "Compass",
     imageUrl: "/images/services/consulting.webp",
-  },
-];
-
-const CASE_STUDIES: CaseStudy[] = [
-  {
-    id: "larkspur-logistics",
-    slug: "larkspur-logistics",
-    clientName: "Larkspur Logistics",
-    industry: "Supply Chain",
-    summary:
-      "Built a triage agent that reads incoming support tickets, checks shipment status across three systems, and drafts a resolution for review.",
-    result: "68% of tickets now resolved without a human draft from scratch.",
-    fullDescription:
-      "Built a triage agent that reads incoming support tickets, checks shipment status across three systems, and drafts a resolution for review. 68% of tickets now resolved without a human draft from scratch.",
-    imageUrl: "/images/case-studies/larkspur-logistics.webp",
-  },
-  {
-    id: "northfield-analytics",
-    slug: "northfield-analytics",
-    clientName: "Northfield Analytics",
-    industry: "Data & Analytics",
-    summary:
-      "Migrated inference workloads to a right-sized cloud architecture, replacing a generic always-on setup with autoscaling built for actual traffic patterns.",
-    result: "41% reduction in monthly cloud spend.",
-    fullDescription:
-      "Migrated inference workloads to a right-sized cloud architecture, replacing a generic always-on setup with autoscaling built for actual traffic patterns. 41% reduction in monthly cloud spend.",
-    imageUrl: "/images/case-studies/northfield-analytics.webp",
-  },
-  {
-    id: "solvent-home-goods",
-    slug: "solvent-home-goods",
-    clientName: "Solvent Home Goods",
-    industry: "E-commerce",
-    summary:
-      "Ran a two-week consulting sprint to rank automation opportunities, then shipped a product-support chatbot grounded in the catalog and return policy.",
-    result: "Chatbot live in 6 weeks; deflects 35% of pre-purchase questions.",
-    fullDescription:
-      "Ran a two-week consulting sprint to rank automation opportunities, then shipped a product-support chatbot grounded in the catalog and return policy. Chatbot live in 6 weeks; deflects 35% of pre-purchase questions.",
-    imageUrl: "/images/case-studies/solvent-home-goods.webp",
-  },
-  {
-    id: "telecom-customer-service-modernization",
-    slug: "telecom-customer-service-modernization",
-    clientName: "Telecom Customer Service Modernization",
-    industry: "Telecom",
-    summary:
-      "Designed an AI-powered conversational assistant that helps customers and support agents get instant answers on billing, subscriptions, and service requests by integrating with existing CRM, billing, and knowledge systems. The assistant handles routine queries, creates service requests, and escalates complex cases to human agents.",
-    result:
-      "Reduced repetitive support activities and delivered faster responses to common customer queries.",
-    fullDescription: `## AI-Powered Customer Support & Operations
-
-### The Challenge
-
-A telecom service provider was handling a large volume of customer queries related to billing, subscriptions, service requests, and product information. Support teams spent significant time searching across CRM, billing, product catalog, and knowledge systems to answer routine questions.
-
-The company wanted to improve response times while reducing repetitive manual work for customer service teams.
-
-### The Solution
-
-NexaAI designed an AI-powered conversational assistant integrated with the existing enterprise ecosystem.
-
-The solution enabled customers and support agents to:
-
-* Ask questions using natural language
-* Retrieve customer and service information
-* Understand billing and subscription details
-* Search product and service information
-* Create and track service requests
-* Access internal knowledge and troubleshooting information
-* Escalate complex cases to human agents
-
-The solution was designed around existing APIs and business systems, allowing the AI assistant to become an intelligent layer on top of the existing technology landscape.
-
-### Key Capabilities
-
-* AI-powered conversational interface
-* CRM and billing integration
-* Enterprise knowledge retrieval
-* Context-aware conversations
-* Automated service request handling
-* Human-agent escalation
-* Multilingual support
-
-### Business Impact
-
-The solution helped reduce repetitive support activities, improve access to information, and provide customers with faster responses to common queries.
-
-**Focus:** Customer Experience · AI · Telecom · Automation · Enterprise Integration`,
-    imageUrl:
-      "/images/case-studies/telecom-customer-service-modernization.webp",
-  },
-  {
-    id: "real-estate-lead-automation",
-    slug: "real-estate-lead-automation",
-    clientName: "Real Estate Lead Automation",
-    industry: "Real Estate",
-    summary:
-      "Built an AI-powered property assistant that engages potential customers on the website, understands their requirements through natural conversation, and recommends matching listings. The assistant qualifies leads and hands off qualified opportunities to the sales team.",
-    result:
-      "Reduced manual lead qualification for sales teams and enabled 24/7 customer engagement outside business hours.",
-    fullDescription: `## Turning Property Inquiries into Qualified Opportunities
-
-### The Challenge
-
-A growing real estate business was receiving property inquiries through multiple channels. Sales teams manually reviewed inquiries, asked qualification questions, searched for suitable properties, and followed up with potential customers.
-
-This resulted in inconsistent response times and significant manual effort.
-
-### The Solution
-
-NexaAI designed an AI-powered property assistant that could engage potential customers through a website and understand their requirements through natural conversation.
-
-The assistant could:
-
-* Understand property preferences
-* Ask qualification questions
-* Identify budget and location requirements
-* Search available properties
-* Recommend relevant listings
-* Capture customer information
-* Qualify leads
-* Forward qualified opportunities to the sales team
-
-The solution was connected to the property's listing and lead management systems through APIs.
-
-### Key Capabilities
-
-* Conversational property search
-* AI-powered lead qualification
-* Personalized recommendations
-* Automated lead capture
-* CRM integration
-* 24/7 customer engagement
-* Sales-team handover
-
-### Business Impact
-
-The solution reduced the amount of manual qualification required from sales teams and enabled potential customers to receive immediate assistance outside normal business hours.
-
-**Focus:** Real Estate · AI Chatbot · Lead Generation · Automation · Customer Experience`,
-    imageUrl: "/images/case-studies/real-estate-lead-automation.webp",
-  },
-  {
-    id: "enterprise-knowledge-assistant",
-    slug: "enterprise-knowledge-assistant",
-    clientName: "Enterprise Knowledge Assistant",
-    industry: "Enterprise IT",
-    summary:
-      "Designed an AI-powered enterprise knowledge assistant that gives employees a single conversational interface for accessing approved company information across technical documentation, policies, procedures, and support material. Employees get contextual answers with references to the underlying knowledge sources.",
-    result:
-      "Reduced time employees spent searching for information and freed subject-matter experts from repetitive Q&A.",
-    fullDescription: `## Making Enterprise Knowledge Accessible Through AI
-
-### The Challenge
-
-An enterprise organization had a large volume of technical documentation, internal procedures, policies, project documentation, and support material distributed across multiple knowledge repositories.
-
-Employees frequently depended on experienced colleagues or manually searched multiple systems to find the required information.
-
-### The Solution
-
-NexaAI designed an AI-powered enterprise knowledge assistant that provided employees with a single conversational interface for accessing approved company information.
-
-The assistant could search and retrieve relevant information from:
-
-* Technical documentation
-* Internal policies
-* Standard operating procedures
-* FAQs
-* Project documentation
-* Product documentation
-* Support knowledge bases
-
-Employees could ask questions in natural language and receive contextual answers with references to the underlying knowledge sources.
-
-### Key Capabilities
-
-* Enterprise knowledge search
-* AI-powered question answering
-* Document and PDF processing
-* Context-aware conversations
-* Knowledge source integration
-* Role-based access to information
-* Multilingual interaction
-
-### Business Impact
-
-The solution reduced the time employees spent searching for information and improved access to organizational knowledge, while allowing subject-matter experts to spend more time on complex tasks rather than repeatedly answering routine questions.
-
-**Focus:** Enterprise IT · Generative AI · Knowledge Management · Productivity · Automation`,
-    imageUrl: "/images/case-studies/enterprise-knowledge-assistant.webp",
   },
 ];
 
@@ -617,14 +430,6 @@ export function getServices(): Service[] {
 
 export function getServiceBySlug(slug: string): Service | null {
   return SERVICES.find((s) => s.slug === slug) ?? null;
-}
-
-export function getCaseStudies(): CaseStudy[] {
-  return CASE_STUDIES;
-}
-
-export function getCaseStudyBySlug(slug: string): CaseStudy | null {
-  return CASE_STUDIES.find((c) => c.slug === slug) ?? null;
 }
 
 export function getTestimonials(): Testimonial[] {

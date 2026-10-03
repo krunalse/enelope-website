@@ -73,16 +73,26 @@ export default async function ServiceDetailPage({
             <Icon className="h-7 w-7" />
           </div>
 
-          <h1 className="mt-7 font-display text-[2.75rem] font-normal leading-[1.1] text-white sm:text-5xl">
+          <h1 className="mt-7 font-display text-[2.75rem] font-semibold leading-[1.1] text-white sm:text-5xl">
             {service.title}
           </h1>
-          <p className="mt-5 max-w-[52ch] text-[1.0625rem] leading-relaxed text-white/70">
+          <p className="mt-5 max-w-[52ch] text-[1.0625rem] leading-7 text-white/70">
             {service.shortDescription}
           </p>
         </Container>
       </header>
 
       <Container className="max-w-3xl py-20 sm:py-24">
+        {service.diagram && (
+          <Image
+            src={service.diagram.src}
+            alt={service.diagram.alt}
+            width={1600}
+            height={900}
+            sizes="(min-width: 768px) 768px, 100vw"
+            className="mb-14 h-auto w-full rounded-2xl border border-ink/[0.07]"
+          />
+        )}
         <Prose>
           <ReactMarkdown>{service.fullDescription}</ReactMarkdown>
         </Prose>

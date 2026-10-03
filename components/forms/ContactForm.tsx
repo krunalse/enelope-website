@@ -59,10 +59,10 @@ export function ContactForm({ services, dict }: ContactFormProps) {
   if (status === "success") {
     return (
       <div className="rounded-2xl border border-brand/20 bg-brand/[0.04] p-10 text-center">
-        <p className="font-display text-2xl font-normal text-ink">
+        <p className="font-display text-2xl font-semibold text-ink">
           {dict.successTitle}
         </p>
-        <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-ink-soft">
+        <p className="mx-auto mt-3 max-w-sm text-[0.9375rem] leading-7 text-ink-soft">
           {dict.successBody}
         </p>
         <button
@@ -152,7 +152,7 @@ export function ContactForm({ services, dict }: ContactFormProps) {
           name="message"
           required
           rows={5}
-          className={`${fieldClass} resize-y py-3.5 leading-relaxed`}
+          className={`${fieldClass} resize-y py-3.5 leading-7`}
         />
       </div>
 

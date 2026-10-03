@@ -53,10 +53,10 @@ export default function AboutPage() {
               <p className="font-mono text-[0.6875rem] uppercase tracking-eyebrow text-brand">
                 {String(i + 1).padStart(2, "0")}
               </p>
-              <h2 className="mt-4 font-display text-xl font-normal text-ink">
+              <h2 className="mt-4 font-display text-xl font-semibold text-ink">
                 {v.title}
               </h2>
-              <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">
+              <p className="mt-2.5 text-[0.9375rem] leading-7 text-ink-soft">
                 {v.body}
               </p>
             </Card>

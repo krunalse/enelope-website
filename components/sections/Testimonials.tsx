@@ -7,15 +7,16 @@ import type { Dictionary } from "@/lib/content/dictionary";
 
 interface TestimonialsProps {
   dict: Dictionary["home"]["testimonialsSection"];
+  tone?: "default" | "muted";
 }
 
-export function Testimonials({ dict }: TestimonialsProps) {
+export function Testimonials({ dict, tone = "default" }: TestimonialsProps) {
   const testimonials = getTestimonials();
 
   if (testimonials.length === 0) return null;
 
   return (
-    <Section>
+    <Section tone={tone}>
       <Container>
         <SectionHeading
           eyebrow={dict.eyebrow}

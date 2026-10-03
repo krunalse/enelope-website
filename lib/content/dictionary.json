@@ -12,10 +12,6 @@
       "title": "Services",
       "description": "AI agents, chatbots, cloud infrastructure, and consulting — NexaAI's four core services."
     },
-    "caseStudies": {
-      "title": "Case Studies",
-      "description": "Recent NexaAI engagements across logistics, analytics, and e-commerce."
-    },
     "contact": {
       "title": "Contact",
       "description": "Tell us about your project — we reply within one business day."
@@ -27,17 +23,27 @@
     "terms": {
       "title": "Terms of Service",
       "description": "The terms governing use of the NexaAI.ch website."
+    },
+    "industries": {
+      "title": "Industry Solutions",
+      "description": "How NexaAI applies AI agents, chatbots and cloud infrastructure in financial services, healthcare, manufacturing, retail, logistics and more."
+    },
+    "useCases": {
+      "title": "Use Cases",
+      "description": "Concrete AI agent and chatbot use cases: customer support, knowledge assistants, document processing, compliance review and more."
     }
   },
   "nav": {
     "services": "Services",
-    "caseStudies": "Case Studies",
     "about": "About",
     "startProject": "Start a project",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "viewAllServices": "View all services",
-    "viewAllCaseStudies": "View all case studies"
+    "industries": "Industries",
+    "useCases": "Use Cases",
+    "viewAllIndustries": "View all industries",
+    "viewAllUseCases": "View all use cases"
   },
   "footer": {
     "tagline": "AI Agents · Chatbots · Cloud · Consulting — built for teams who want automation they can actually trust.",
@@ -45,7 +51,6 @@
     "servicesHeading": "Services",
     "legalHeading": "Legal",
     "aboutLink": "About",
-    "caseStudiesLink": "Case Studies",
     "contactLink": "Contact",
     "aiAgentsLink": "AI Agents",
     "chatbotsLink": "Chatbots",
@@ -54,15 +59,16 @@
     "privacyLink": "Privacy",
     "termsLink": "Terms",
     "copyright": "© {year} NexaAI. All rights reserved.",
-    "builtWith": "Built with Next.js"
+    "solutionsHeading": "Solutions",
+    "industriesLink": "Industries",
+    "useCasesLink": "Use Cases"
   },
   "home": {
     "hero": {
-      "badge": "AI Agents · Chatbots · Cloud · Consulting",
-      "title": "Automation your team will actually trust.",
-      "subtitle": "NexaAI designs AI agents and chatbots, builds the cloud infrastructure underneath them, and tells you honestly where automation earns its keep — and where it doesn't.",
+      "badge": "Swiss AI Start-up · Agents · Chatbots · Cloud",
+      "title": "Intelligence your team will actually trust.",
+      "subtitle": "NexaAI is a Swiss start-up building AI agents, chatbots and the cloud infrastructure beneath them — engineered to Swiss standards of quality and precision, and with full respect for Swiss data protection law. We also tell you honestly where artificial intelligence earns its keep, and where it doesn't.",
       "startProject": "Start a project",
-      "seeCaseStudies": "See case studies",
       "carouselLabel": "Visual highlights of AI agents, chatbots, cloud, and consulting work",
       "nodeAgents": "Agents",
       "nodeChatbots": "Chatbots",
@@ -72,11 +78,18 @@
       "nextSlide": "Next slide",
       "pauseSlideshow": "Pause slideshow",
       "playSlideshow": "Play slideshow",
-      "goToSlide": "Go to slide"
+      "goToSlide": "Go to slide",
+      "exploreIndustries": "Explore industries",
+      "trust": [
+        "Swiss data protection built in",
+        "Model-agnostic",
+        "Human sign-off where it matters",
+        "Documentation and handoff included"
+      ]
     },
     "valueProp": {
       "eyebrow": "Why NexaAI",
-      "title": "We build the automation, not just the demo.",
+      "title": "We build the intelligence, not just the demo.",
       "description": "Most AI projects stall between the prototype and production. We close that gap — grounding every agent and chatbot in your real data, your real systems, and infrastructure that holds up under real load.",
       "stat1Value": "3 weeks",
       "stat1Label": "average time to first working agent",
@@ -160,11 +173,6 @@
         }
       ]
     },
-    "caseStudiesSection": {
-      "eyebrow": "Case studies",
-      "title": "Recent engagements.",
-      "viewAll": "View all"
-    },
     "testimonialsSection": {
       "eyebrow": "From clients",
       "title": "What it's like to work with us."
@@ -172,7 +180,18 @@
     "cta": {
       "title": "Ready to find out where automation actually pays off?",
       "subtitle": "Start with a conversation, not a contract. We'll tell you honestly what's worth building.",
-      "startProject": "Start a project"
+      "startProject": "Start a project",
+      "browseUseCases": "Browse use cases"
+    },
+    "industriesSection": {
+      "eyebrow": "Industries",
+      "title": "Built around how your industry works.",
+      "viewAll": "All industries"
+    },
+    "useCasesSection": {
+      "eyebrow": "Use cases",
+      "title": "Where AI agents earn their keep.",
+      "viewAll": "All use cases"
     }
   },
   "about": {
@@ -209,15 +228,6 @@
   "serviceCard": {
     "learnMore": "Learn more"
   },
-  "caseStudyDetail": {
-    "allCaseStudies": "All case studies",
-    "talkToUsAbout": "Talk to us about {client}"
-  },
-  "caseStudiesPage": {
-    "eyebrow": "Case studies",
-    "title": "Recent engagements.",
-    "description": "A sample of the work — full write-ups available on request."
-  },
   "contactPage": {
     "eyebrow": "Contact",
     "title": "Tell us about your project.",
@@ -242,42 +252,65 @@
   },
   "privacyPage": {
     "title": "Privacy Policy",
-    "lastUpdated": "Last updated: August 19, 2026",
+    "lastUpdated": "Last updated: October 2, 2026",
     "sections": [
       {
-        "heading": "Overview",
-        "body": "This policy explains what information NexaAI (\"we\", \"us\") collects through NexaAI.ch, how we use it, and who we share it with. It covers this website only — separate agreements govern any client engagement or project work."
+        "heading": "Scope",
+        "body": "This policy explains what personal data NexaAI (\"we\", \"us\") processes when you visit NexaAI.ch or contact us through it, how we use it, and who we share it with. It covers this website and our communications with you only — separate agreements govern any client engagement or project work, and third-party sites we may link to are outside its scope."
       },
       {
         "heading": "Information we collect",
-        "intro": "We collect information in one way:",
+        "intro": "We process a limited set of personal data:",
         "bullets": [
           {
-            "label": "Contact form.",
-            "body": "The contact form opens an email in your own email app, addressed to us, with the name, email, company, phone number, service of interest, and message you provide. Nothing is sent to our servers."
+            "label": "Contact details.",
+            "body": "The contact form opens an email in your own email app, addressed to us, with the name, business email, company, phone number, service of interest, and message you provide. Nothing is sent to our servers by the form itself."
+          },
+          {
+            "label": "Correspondence.",
+            "body": "If you email us or we work together, we keep the messages and related business contact details needed to respond and follow up."
           },
           {
             "label": "Basic hosting logs.",
             "body": "Our hosting provider (Vercel) automatically logs standard request data (such as IP address and browser type) for security and reliability. We do not use analytics or advertising trackers on this site."
           }
         ],
-        "outro": "All other content on this site (service descriptions, case studies, testimonials) is static and does not involve collecting any information from visitors."
+        "outro": "All other content on this site (service descriptions, industry and use case pages, testimonials) is static and does not involve collecting any information from visitors."
       },
       {
         "heading": "How we use your information",
-        "body": "We use contact form submissions solely to respond to your inquiry. We do not sell your personal data, and we do not use it for marketing unless you separately opt in."
+        "body": "We use personal data only to run, secure, and support our website and services: to respond to your inquiry, to prepare and deliver agreed work, and to keep the site safe. We do not sell or rent your personal data, and we do not use it for marketing unless you separately opt in."
       },
       {
-        "heading": "Third-party service providers",
-        "intro": "We rely on a small number of subprocessors to run this site:",
-        "providers": [
+        "heading": "Legal bases",
+        "intro": "Where data protection law requires a legal basis, we rely on:",
+        "bullets": [
           {
-            "name": "Vercel",
-            "body": "hosts this website",
-            "linkLabel": "privacy policy",
-            "href": "https://vercel.com/legal/privacy-policy"
+            "label": "Contract.",
+            "body": "processing needed to respond to your request and to enter into or perform an agreement with you."
+          },
+          {
+            "label": "Legal obligations.",
+            "body": "processing needed to meet legal and regulatory requirements, such as accounting, tax, and security duties."
+          },
+          {
+            "label": "Legitimate interests.",
+            "body": "keeping our site secure and providing support, balanced against your rights and interests."
+          },
+          {
+            "label": "Consent.",
+            "body": "where required, and you may withdraw it at any time."
           }
-        ]
+        ],
+        "outro": ""
+      },
+      {
+        "heading": "Data sharing",
+        "body": "We do not sell or rent personal data. We share it only with service providers that help us operate the site (for example our hosting provider) under appropriate contractual protections, with professional advisors bound by confidentiality, or where disclosure is required by law."
+      },
+      {
+        "heading": "International transfers",
+        "body": "We are based in Switzerland. Where our providers process data outside Switzerland or the EEA, we take steps to ensure an adequate level of protection, such as recognised contractual safeguards, as required by the Swiss Federal Act on Data Protection (nFADP) and the GDPR."
       },
       {
         "heading": "Cookies",
@@ -285,15 +318,23 @@
       },
       {
         "heading": "Data retention",
-        "body": "Contact form submissions are sent from your own email app directly to our team's inbox and never pass through or are stored on our servers. Services, case studies, and testimonials content shown on this site is static and maintained directly in the site's source code."
+        "body": "We keep personal data only as long as needed for the purposes above or as required by law. Contact form messages are sent from your own email app directly to our team's inbox and are not stored on our servers. When data is no longer needed, we delete it or securely erase it in line with applicable law."
+      },
+      {
+        "heading": "Security",
+        "body": "We apply reasonable technical and organizational measures — such as access controls and encrypted connections — to protect personal data against unauthorized access, loss, or misuse."
       },
       {
         "heading": "Your rights",
-        "body": "You can ask us what information we hold about you, or request that we delete it, by emailing {email}."
+        "body": "Under the nFADP and, where applicable, the GDPR, you may request access to, correction, erasure, or restriction of your personal data, and data portability. To exercise these rights, email {email}. You may also lodge a complaint with your local data protection authority."
+      },
+      {
+        "heading": "Children's data",
+        "body": "Our site and services are aimed at businesses and professionals. We do not knowingly collect personal data from anyone under 18."
       },
       {
         "heading": "Changes to this policy",
-        "body": "We may update this policy from time to time. Material changes will be reflected by updating the date at the top of this page."
+        "body": "We may update this policy from time to time. Material changes will be reflected by updating the date at the top of this page. Continued use of the site after an update means you accept the revised policy."
       },
       {
         "heading": "Contact",
@@ -311,7 +352,7 @@
       },
       {
         "heading": "Use of the site",
-        "body": "The Site is provided for informational purposes — to describe our services, share case studies, and let you get in touch. You agree not to misuse the Site."
+        "body": "The Site is provided for informational purposes — to describe our services, share industry solutions and use cases, and let you get in touch. You agree not to misuse the Site."
       },
       {
         "heading": "Engaging our services",
@@ -346,5 +387,25 @@
         "body": "Questions about these terms? Email {email}."
       }
     ]
+  },
+  "industriesPage": {
+    "eyebrow": "Industries",
+    "title": "AI solutions shaped by your industry.",
+    "description": "Each industry has its own data, regulation and workflows. Here is where AI agents and chatbots genuinely help, and what we build."
+  },
+  "useCasesPage": {
+    "eyebrow": "Use cases",
+    "title": "Concrete things AI agents can do for you.",
+    "description": "Start from the job to be done. Each use case shows the workflow, what we build, and where automation does not pay off."
+  },
+  "industryDetail": {
+    "allIndustries": "All industries",
+    "talkToUsAbout": "Talk to us about {title}",
+    "relatedUseCases": "Related use cases"
+  },
+  "useCaseDetail": {
+    "allUseCases": "All use cases",
+    "talkToUsAbout": "Talk to us about {title}",
+    "relatedIndustries": "Industries where this applies"
   }
 }
