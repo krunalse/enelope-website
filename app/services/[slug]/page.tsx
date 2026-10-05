@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { ArrowLeft } from "lucide-react";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { Prose } from "@/components/ui/Prose";
@@ -52,13 +52,9 @@ export default async function ServiceDetailPage({
             fill
             sizes="100vw"
             priority
-            className="object-cover opacity-45"
+            className="opacity-45 object-cover"
           />
         )}
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/80 to-ink"
-        />
 
         <Container className="relative max-w-3xl py-20 sm:py-24">
           <Link
@@ -73,10 +69,10 @@ export default async function ServiceDetailPage({
             <Icon className="h-7 w-7" />
           </div>
 
-          <h1 className="mt-7 font-display text-[2.75rem] font-semibold leading-[1.1] text-white sm:text-5xl">
+          <h1 className="mt-7 font-display text-[2.8125rem] font-semibold leading-[1.1] text-white sm:text-5xl">
             {service.title}
           </h1>
-          <p className="mt-5 max-w-[52ch] text-[1.0625rem] leading-7 text-white/70">
+          <p className="mt-5 max-w-[52ch] text-[1.25rem] leading-8 text-white/70">
             {service.shortDescription}
           </p>
         </Container>

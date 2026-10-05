@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import { Star } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Testimonial } from "@/types";

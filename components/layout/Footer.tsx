@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import type { Dictionary } from "@/lib/content/dictionary";
@@ -44,35 +44,33 @@ export function Footer({ dict: fullDict }: FooterProps) {
   ];
 
   return (
-    <footer className="relative bg-footer">
-      <div
-        aria-hidden
-        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-signal/30 to-transparent"
-      />
+    <footer className="relative border-t border-footer-line bg-footer-light text-ink">
       <Container className="py-20">
         <div className="grid grid-cols-2 gap-12 md:grid-cols-6">
           <div className="col-span-2">
             <Link href="/" className="group inline-flex items-center gap-2.5">
-              <Image
-                src="/NexaAI-mark.png"
-                alt="NexaAI"
-                width={640}
-                height={412}
-                className="h-auto w-10"
-              />
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-ink transition-colors duration-300 group-hover:bg-footer-accent-dark">
+                <Image
+                  src="/NexaAI-mark.png"
+                  alt="NexaAI"
+                  width={640}
+                  height={412}
+                  className="h-auto w-8"
+                />
+              </span>
               {/* Wordmark temporarily hidden. */}
-              {/* <span className="font-display text-[1.375rem] font-semibold text-white">
+              {/* <span className="font-display text-[1.4375rem] font-semibold text-white">
                 NexaAI
               </span> */}
             </Link>
-            <p className="mt-5 max-w-xs text-[0.9375rem] leading-7 text-white/55">
+            <p className="mt-5 max-w-xs text-[1rem] leading-7 text-footer-muted">
               {dict.tagline}
             </p>
           </div>
 
           {columns.map((col) => (
             <div key={col.heading}>
-              <p className="font-mono text-[0.6875rem] uppercase tracking-eyebrow text-white/40">
+              <p className="font-mono text-[0.75rem] uppercase tracking-eyebrow text-footer-accent">
                 {col.heading}
               </p>
               <ul className="mt-5 space-y-3">
@@ -80,7 +78,7 @@ export function Footer({ dict: fullDict }: FooterProps) {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/65 transition-colors duration-200 hover:text-signal-bright"
+                      className="text-sm text-ink transition-colors duration-200 hover:text-footer-accent"
                     >
                       {link.label}
                     </Link>
@@ -91,7 +89,7 @@ export function Footer({ dict: fullDict }: FooterProps) {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/40 sm:flex-row sm:items-center">
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-footer-line pt-8 text-xs text-footer-muted sm:flex-row sm:items-center">
           <p>
             {dict.copyright.replace("{year}", String(new Date().getFullYear()))}
           </p>

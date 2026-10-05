@@ -34,7 +34,7 @@ export function WhyChooseUs({
                 <h3 className="mt-5 font-display text-xl font-semibold text-ink">
                   {r.title}
                 </h3>
-                <p className="mt-2.5 text-[0.9375rem] leading-7 text-ink-soft">
+                <p className="mt-2.5 text-[1rem] leading-7 text-ink-soft">
                   {r.body}
                 </p>
               </Card>

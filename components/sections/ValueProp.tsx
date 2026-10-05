@@ -30,10 +30,10 @@ export function ValueProp({
             <div key={i} className="bg-paper px-6 py-8 sm:px-8 sm:py-10">
               <dt className="sr-only">{p.label}</dt>
               <dd>
-                <p className="font-display text-[3rem] font-semibold leading-none text-brand">
+                <p className="font-display text-[3.0625rem] font-semibold leading-none text-brand">
                   {p.stat}
                 </p>
-                <p className="mt-3 text-[0.9375rem] leading-7 text-ink-soft">
+                <p className="mt-3 text-[1rem] leading-7 text-ink-soft">
                   {p.label}
                 </p>
               </dd>

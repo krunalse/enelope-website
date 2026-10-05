@@ -20,6 +20,7 @@ html {
 
 body {
   @apply bg-paper text-ink font-body antialiased;
+  font-size: 1.0625rem;
   text-rendering: optimizeLegibility;
 }
 
@@ -44,7 +45,7 @@ select:focus-visible {
 @layer components {
   /* Small caps label used for section eyebrows and metadata. */
   .eyebrow {
-    @apply font-mono text-[0.6875rem] uppercase tracking-eyebrow text-brand;
+    @apply font-mono text-[0.75rem] uppercase tracking-eyebrow text-brand;
   }
 
   /* Hairline that fades out at both ends — used to separate bands. */

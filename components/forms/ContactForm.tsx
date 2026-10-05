@@ -62,7 +62,7 @@ export function ContactForm({ services, dict }: ContactFormProps) {
         <p className="font-display text-2xl font-semibold text-ink">
           {dict.successTitle}
         </p>
-        <p className="mx-auto mt-3 max-w-sm text-[0.9375rem] leading-7 text-ink-soft">
+        <p className="mx-auto mt-3 max-w-sm text-[1rem] leading-7 text-ink-soft">
           {dict.successBody}
         </p>
         <button

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -50,13 +50,13 @@ export default function AboutPage() {
         <div className="mt-20 grid gap-6 sm:grid-cols-3">
           {dict.values.map((v, i) => (
             <Card key={i} className="p-7">
-              <p className="font-mono text-[0.6875rem] uppercase tracking-eyebrow text-brand">
+              <p className="font-mono text-[0.675rem] uppercase tracking-eyebrow text-brand">
                 {String(i + 1).padStart(2, "0")}
               </p>
               <h2 className="mt-4 font-display text-xl font-semibold text-ink">
                 {v.title}
               </h2>
-              <p className="mt-2.5 text-[0.9375rem] leading-7 text-ink-soft">
+              <p className="mt-2.5 text-[1rem] leading-7 text-ink-soft">
                 {v.body}
               </p>
             </Card>

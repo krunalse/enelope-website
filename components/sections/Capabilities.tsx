@@ -29,10 +29,10 @@ export function Capabilities({
                 aria-hidden
                 className="absolute left-0 top-7 h-6 w-px bg-brand/0 transition-colors duration-300 group-hover:bg-brand"
               />
-              <p className="font-mono text-[0.6875rem] uppercase tracking-eyebrow text-brand">
+              <p className="font-mono text-[0.75rem] uppercase tracking-eyebrow text-brand">
                 {c.label}
               </p>
-              <p className="mt-3 text-[0.9375rem] leading-7 text-ink-soft">
+              <p className="mt-3 text-[1rem] leading-7 text-ink-soft">
                 {c.detail}
               </p>
             </div>

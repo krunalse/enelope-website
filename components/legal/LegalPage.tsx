@@ -19,15 +19,15 @@ export function LegalPage({
     <Section>
       <Container className="max-w-[46rem]">
         <header className="border-b border-ink/[0.07] pb-10">
-          <h1 className="font-display text-[2.5rem] font-semibold leading-tight text-ink">
+          <h1 className="font-display text-[2.5625rem] font-semibold leading-tight text-ink">
             {title}
           </h1>
-          <p className="mt-4 font-mono text-[0.6875rem] uppercase tracking-eyebrow text-ink-faint">
+          <p className="mt-4 font-mono text-[0.75rem] uppercase tracking-eyebrow text-ink-faint">
             {lastUpdated}
           </p>
         </header>
 
-        <div className="mt-12 space-y-12 text-[1.0625rem] leading-7 text-ink-soft">
+        <div className="mt-12 space-y-12 text-[1.125rem] leading-7 text-ink-soft">
           {children}
         </div>
       </Container>

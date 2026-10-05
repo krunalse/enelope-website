@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
@@ -30,10 +30,10 @@ export function CTA({ dict }: CTAProps) {
           />
 
           <div className="relative">
-            <h2 className="mx-auto max-w-[20ch] font-display text-[2.25rem] font-semibold leading-[1.15] text-white sm:text-[3rem]">
+            <h2 className="mx-auto max-w-[20ch] font-display text-[2.3125rem] font-semibold leading-[1.15] text-white sm:text-[3.0625rem]">
               {dict.title}
             </h2>
-            <p className="mx-auto mt-5 max-w-lg text-[1.0625rem] leading-7 text-white/70">
+            <p className="mx-auto mt-5 max-w-lg text-[1.25rem] leading-8 text-white/70">
               {dict.subtitle}
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">

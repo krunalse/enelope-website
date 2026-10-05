@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Card } from "@/components/ui/Card";
@@ -43,10 +43,10 @@ export function SolutionCard({
 
         <div className="flex flex-1 flex-col justify-between p-6 pt-9">
           <div>
-            <h3 className="font-display text-[1.375rem] font-semibold leading-snug text-ink">
+            <h3 className="font-display text-[1.4375rem] font-semibold leading-snug text-ink">
               {solution.title}
             </h3>
-            <p className="mt-2.5 text-[0.9375rem] leading-7 text-ink-soft">
+            <p className="mt-2.5 text-[1rem] leading-7 text-ink-soft">
               {solution.description}
             </p>
           </div>

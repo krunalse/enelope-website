@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X, Linkedin } from "lucide-react";
@@ -124,8 +124,8 @@ export function Navbar({ dict: fullDict, services, industries, useCases }: Navba
           open
             ? "border-b border-transparent bg-transparent"
             : scrolled || activeMenu
-              ? "border-b border-ink/[0.07] bg-header/95 shadow-soft backdrop-blur-xl"
-              : "border-b border-transparent bg-header/80 backdrop-blur-sm"
+              ? "border-b border-ink/[0.07] bg-header shadow-soft"
+              : "border-b border-transparent bg-header"
         }`}
       >
         <Container className="flex h-20 items-center justify-between">
@@ -150,7 +150,7 @@ export function Navbar({ dict: fullDict, services, industries, useCases }: Navba
               />
             </span>
             {/* Wordmark temporarily hidden. */}
-            {/* <span className="font-display text-[1.375rem] font-semibold tracking-tight text-ink">
+            {/* <span className="font-display text-[1.4375rem] font-semibold tracking-tight text-ink">
               NexaAI
             </span> */}
           </Link>
@@ -234,7 +234,7 @@ export function Navbar({ dict: fullDict, services, industries, useCases }: Navba
                         className="group/item flex flex-col gap-3"
                       >
                         {Icon && (
-                          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-surface text-ink transition-colors group-hover/item:bg-ink group-hover/item:text-paper">
+                          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-paper text-ink transition-colors group-hover/item:bg-ink group-hover/item:text-paper">
                             <Icon className="h-4 w-4" />
                           </span>
                         )}
@@ -269,7 +269,7 @@ export function Navbar({ dict: fullDict, services, industries, useCases }: Navba
       <div
         aria-hidden="true"
         onClick={() => setActiveMenu(null)}
-        className={`fixed inset-0 top-20 z-40 bg-ink/20 backdrop-blur-[2px] transition-opacity duration-300 ease-out md:block ${
+        className={`fixed inset-0 top-20 z-40 bg-ink/20 transition-opacity duration-300 ease-out md:block ${
           activeMenu ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       />
@@ -303,7 +303,7 @@ export function Navbar({ dict: fullDict, services, industries, useCases }: Navba
               />
             </span>
             {/* Wordmark temporarily hidden. */}
-            {/* <span className="font-display text-[1.375rem] font-semibold tracking-tight text-white">
+            {/* <span className="font-display text-[1.4375rem] font-semibold tracking-tight text-white">
               NexaAI
             </span> */}
           </Link>

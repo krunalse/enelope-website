@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import type { Dictionary } from "@/lib/content/dictionary";
 
@@ -106,7 +106,7 @@ export function HeroCarousel({
         className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10"
       />
 
-      <p className="absolute bottom-6 left-6 flex items-center gap-2.5 font-mono text-[0.6875rem] uppercase tracking-eyebrow text-white">
+      <p className="absolute bottom-6 left-6 flex items-center gap-2.5 font-mono text-[0.75rem] uppercase tracking-eyebrow text-white">
         <span
           aria-hidden
           className="h-1.5 w-1.5 rounded-full bg-signal-bright"

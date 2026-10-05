@@ -6,7 +6,7 @@ const config: Config = {
     extend: {
       colors: {
         paper: "#F5F5F7",
-        header: "#EAEAED",
+        header: "#FFFFFF",
         ink: {
           DEFAULT: "#1A1A1A",
           soft: "#525252",
@@ -25,12 +25,35 @@ const config: Config = {
           DEFAULT: "#FFFFFF",
           muted: "#F0F0F0",
         },
-        footer: "#121212",
+        footer: {
+          DEFAULT: "#121212",
+          light: "#F4F4F9",
+          accent: "#01A1C9",
+          "accent-dark": "#06121E",
+          line: "#CCCCCC",
+          muted: "#676767",
+        },
       },
       fontFamily: {
         display: ["var(--font-body)", "system-ui", "sans-serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+      },
+      // Tailwind's default scale, each size +1px (0.0625rem). Line heights unchanged.
+      fontSize: {
+        xs: ["0.8125rem", { lineHeight: "1rem" }],
+        sm: ["0.9375rem", { lineHeight: "1.25rem" }],
+        base: ["1.0625rem", { lineHeight: "1.5rem" }],
+        lg: ["1.1875rem", { lineHeight: "1.75rem" }],
+        xl: ["1.3125rem", { lineHeight: "1.75rem" }],
+        "2xl": ["1.5625rem", { lineHeight: "2rem" }],
+        "3xl": ["1.9375rem", { lineHeight: "2.25rem" }],
+        "4xl": ["2.3125rem", { lineHeight: "2.5rem" }],
+        "5xl": ["3.0625rem", { lineHeight: "1" }],
+        "6xl": ["3.8125rem", { lineHeight: "1" }],
+        "7xl": ["4.5625rem", { lineHeight: "1" }],
+        "8xl": ["6.0625rem", { lineHeight: "1" }],
+        "9xl": ["8.0625rem", { lineHeight: "1" }],
       },
       letterSpacing: {
         eyebrow: "0.18em",

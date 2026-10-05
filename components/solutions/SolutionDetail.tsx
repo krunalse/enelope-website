@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
@@ -34,11 +34,7 @@ export function SolutionDetail({
           fill
           sizes="100vw"
           priority
-          className="object-cover opacity-45"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/80 to-ink"
+          className="opacity-45 object-cover"
         />
 
         <Container className="relative max-w-3xl py-20 sm:py-24">
@@ -54,10 +50,10 @@ export function SolutionDetail({
             <Icon className="h-7 w-7" />
           </div>
 
-          <h1 className="mt-7 font-display text-[2.75rem] font-semibold leading-[1.1] text-white sm:text-5xl">
+          <h1 className="mt-7 font-display text-[2.8125rem] font-semibold leading-[1.1] text-white sm:text-5xl">
             {solution.title}
           </h1>
-          <p className="mt-5 max-w-[52ch] text-[1.0625rem] leading-7 text-white/70">
+          <p className="mt-5 max-w-[52ch] text-[1.25rem] leading-8 text-white/70">
             {solution.description}
           </p>
         </Container>

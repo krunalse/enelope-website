@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import { Check } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
@@ -36,11 +36,11 @@ export function Hero({ dict }: HeroProps) {
             {dict.badge}
           </Badge>
 
-          <h1 className="mt-7 max-w-[18ch] font-display text-[2.75rem] font-semibold leading-[1.08] text-white sm:text-[3.5rem] lg:text-[4rem]">
+          <h1 className="mt-7 max-w-[18ch] font-display text-[2.8125rem] font-semibold leading-[1.08] text-white sm:text-[3.5625rem] lg:text-[4.0625rem]">
             {dict.title}
           </h1>
 
-          <p className="mt-6 max-w-[46ch] text-[1.0625rem] leading-7 text-slate-300">
+          <p className="mt-6 max-w-[46ch] text-[1.25rem] leading-8 text-slate-300">
             {dict.subtitle}
           </p>
 

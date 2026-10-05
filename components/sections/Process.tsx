@@ -44,7 +44,7 @@ export function Process({
                 <h3 className="mt-4 font-display text-xl font-semibold text-ink">
                   {s.title}
                 </h3>
-                <p className="mt-2.5 text-[0.9375rem] leading-7 text-ink-soft">
+                <p className="mt-2.5 text-[1rem] leading-7 text-ink-soft">
                   {s.body}
                 </p>
               </li>
