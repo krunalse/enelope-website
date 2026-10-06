@@ -21,14 +21,15 @@ export function SolutionsPage({ solutions, basePath, dict }: SolutionsPageProps)
           title={dict.title}
           description={dict.description}
         />
-        <div className="mt-16">
-          <SolutionGrid
-            solutions={solutions}
-            basePath={basePath}
-            learnMoreLabel={dictionary.serviceCard.learnMore}
-          />
-        </div>
       </Container>
+      <div className="mx-auto mt-12 w-full max-w-[1800px] px-2 sm:px-3">
+        <SolutionGrid
+          solutions={solutions}
+          basePath={basePath}
+          learnMoreLabel={dictionary.serviceCard.learnMore}
+          large
+        />
+      </div>
     </Section>
   );
 }

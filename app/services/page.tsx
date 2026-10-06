@@ -24,14 +24,15 @@ export default function ServicesPage() {
           title={dict.servicesPage.title}
           description={dict.servicesPage.description}
         />
-        <div className="mt-16">
-          <ServiceGrid
-            services={services}
-            emptyMessage={dict.serviceGrid.empty}
-            learnMoreLabel={dict.serviceCard.learnMore}
-          />
-        </div>
       </Container>
+      <div className="mx-auto mt-12 w-full max-w-[1800px] px-2 sm:px-3">
+        <ServiceGrid
+          services={services}
+          emptyMessage={dict.serviceGrid.empty}
+          learnMoreLabel={dict.serviceCard.learnMore}
+          large
+        />
+      </div>
     </Section>
   );
 }
