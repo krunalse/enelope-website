@@ -22,14 +22,15 @@ export function ServicesPreview({
     <Section>
       <Container>
         <SectionHeading eyebrow={dict.eyebrow} title={dict.title} />
-        <div className="mt-16">
-          <ServiceGrid
-            services={services}
-            emptyMessage={serviceGridDict.empty}
-            learnMoreLabel={learnMoreLabel}
-          />
-        </div>
       </Container>
+      <div className="mx-auto mt-12 w-full max-w-[1800px] px-2 sm:px-3">
+        <ServiceGrid
+          services={services}
+          emptyMessage={serviceGridDict.empty}
+          learnMoreLabel={learnMoreLabel}
+          large
+        />
+      </div>
     </Section>
   );
 }

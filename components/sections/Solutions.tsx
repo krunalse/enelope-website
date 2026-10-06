@@ -35,14 +35,15 @@ export function Solutions({
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
-        <div className="mt-16">
-          <SolutionGrid
-            solutions={solutions.slice(0, 4)}
-            basePath={basePath}
-            learnMoreLabel={learnMoreLabel}
-          />
-        </div>
       </Container>
+      <div className="mx-auto mt-12 w-full max-w-[1800px] px-2 sm:px-3">
+        <SolutionGrid
+          solutions={solutions.slice(0, 4)}
+          basePath={basePath}
+          learnMoreLabel={learnMoreLabel}
+          large
+        />
+      </div>
     </Section>
   );
 }

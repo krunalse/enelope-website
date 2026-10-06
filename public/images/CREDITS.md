@@ -16,7 +16,7 @@ runtime requests to any third-party image host.
 | `hero/chatbots.webp` | [Simon Nilsen](https://unsplash.com/@simonkefas) | [Unsplash](https://unsplash.com/photos/abstract-blue-glass-curves-6-J2U5LPhx8) |
 | `hero/cloud.webp` | [Scott Rodgerson](https://unsplash.com/@scottrodgerson) | [Unsplash](https://unsplash.com/photos/a-bunch-of-blue-wires-connected-to-each-other-PSpf_XgOM5w) |
 | `hero/consulting.webp` | [Mario Gogh](https://unsplash.com/@mariogogh) | [Unsplash](https://unsplash.com/photos/group-of-people-having-a-meeting-VBLHICVh-lI) |
-| `services/ai-agents.webp` | [Arseny Togulev](https://unsplash.com/@tetrakiss) | [Unsplash](https://unsplash.com/photos/white-robot-MECKPoKJYjM) |
+| `services/ai-agents.webp` | [Growtika](https://unsplash.com/@growtika) | [Unsplash](https://unsplash.com/photos/an-abstract-image-of-a-sphere-with-dots-and-lines-nGoCBxiaRO0) |
 | `services/chatbots.webp` | [kuu akura](https://unsplash.com/@akurakuu) | [Unsplash](https://unsplash.com/photos/speech-bubbles-on-translucent-screen-pnK6Q-QTHM4) |
 | `services/cloud.webp` | [Kevin Ache](https://unsplash.com/@kevinache) | [Unsplash](https://unsplash.com/photos/a-rack-of-servers-in-a-server-room-2JJ3wBHu4_0) |
 | `services/consulting.webp` | [Austin Distel](https://unsplash.com/@austindistel) | [Unsplash](https://unsplash.com/photos/three-men-sitting-while-using-laptops-and-watching-man-beside-whiteboard-wD1LRb9OeEo) |
