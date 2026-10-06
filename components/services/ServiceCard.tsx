@@ -20,7 +20,7 @@ export function ServiceCard({ service, learnMoreLabel, large = false }: ServiceC
       <Card
         interactive
         className={cn(
-          "relative flex h-full w-full flex-col justify-end overflow-hidden rounded-none bg-ink",
+          "relative flex h-full w-full flex-col justify-end overflow-hidden rounded-none border-0 bg-ink",
           large ? "aspect-[4/3] sm:aspect-[16/11] lg:aspect-[16/9]" : "aspect-[2/3]",
         )}
       >
@@ -35,7 +35,7 @@ export function ServiceCard({ service, learnMoreLabel, large = false }: ServiceC
         )}
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/45 to-transparent transition-opacity duration-500 group-hover:opacity-90"
+          className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 via-45% to-transparent transition-opacity duration-500 group-hover:opacity-90"
         />
 
         <div className={cn("relative p-6", large && "sm:p-8 lg:p-10")}>
