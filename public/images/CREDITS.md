@@ -31,7 +31,7 @@ runtime requests to any third-party image host.
 | `industries/professional-services.webp` | [Vitaly Gariev](https://unsplash.com/@silverkblack) | [Unsplash](https://unsplash.com/photos/business-people-signing-a-contract-at-a-table-iPheGw7_UaI) |
 | `use-cases/customer-support-automation.webp` | [BaljkanN4 📸](https://unsplash.com/@baljkann4) | [Unsplash](https://unsplash.com/photos/a-smiling-woman-wearing-a-headset-at-a-computer-wnpf3Q5pkXA) |
 | `use-cases/enterprise-knowledge-assistant.webp` | [Luke Tanis](https://unsplash.com/@saluken) | [Unsplash](https://unsplash.com/photos/brown-wooden-book-shelves-in-library-yEQ9TOaL5FM) |
-| `use-cases/document-processing.webp` | [Kelly Sikkema](https://unsplash.com/@kellysikkema) | [Unsplash](https://unsplash.com/photos/tax-forms-and-coffee-on-desk-8DEDp6S93Po) |
+| `use-cases/document-processing.webp` | [Vitaly Gariev](https://unsplash.com/@silverkblack) | [Unsplash](https://unsplash.com/photos/woman-in-suit-shows-document-to-man-2AOIg7Qvu8w) |
 | `use-cases/lead-qualification.webp` | [Mina Rad](https://unsplash.com/@miinrad) | [Unsplash](https://unsplash.com/photos/a-man-and-a-woman-shaking-hands-in-front-of-a-laptop-qFSQFSmfZkA) |
 | `use-cases/internal-helpdesk.webp` | [X](https://unsplash.com/@disruptxn) | [Unsplash](https://unsplash.com/photos/woman-and-man-sitting-in-front-of-monitor-IgUR1iX0mqM) |
 | `use-cases/compliance-review.webp` | [Jakub Żerdzicki](https://unsplash.com/@jakubzerdzicki) | [Unsplash](https://unsplash.com/photos/a-hand-marks-off-items-on-a-checklist-yKnIbJV0RbY) |

@@ -52,14 +52,14 @@ export default async function ServiceDetailPage({
             fill
             sizes="100vw"
             priority
-            className="opacity-45 object-cover"
+            className="object-cover"
           />
         )}
 
-        <Container className="relative max-w-3xl py-20 sm:py-24">
+        <Container className="relative max-w-3xl py-20 [text-shadow:0_1px_2px_rgb(0_0_0/0.6),0_0_10px_rgb(0_0_0/0.5)] sm:py-24">
           <Link
             href="/services"
-            className="group inline-flex items-center gap-1.5 text-sm font-medium text-white/60 transition-colors hover:text-white"
+            className="group inline-flex items-center gap-1.5 text-sm font-medium text-white"
           >
             <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
             {dict.allServices}
@@ -72,7 +72,7 @@ export default async function ServiceDetailPage({
           <h1 className="mt-7 font-display text-[2.8125rem] font-semibold leading-[1.1] text-white sm:text-5xl">
             {service.title}
           </h1>
-          <p className="mt-5 max-w-[52ch] text-[1.25rem] leading-8 text-white/70">
+          <p className="mt-5 max-w-[52ch] text-[1.25rem] font-semibold leading-8 text-white">
             {service.shortDescription}
           </p>
         </Container>
