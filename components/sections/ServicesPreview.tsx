@@ -19,11 +19,11 @@ export function ServicesPreview({
   const services = getServices();
 
   return (
-    <Section>
+    <Section className="!pt-6 sm:!pt-8">
       <Container>
         <SectionHeading eyebrow={dict.eyebrow} title={dict.title} />
       </Container>
-      <div className="mx-auto mt-12 w-full max-w-[1800px] px-2 sm:px-3">
+      <div className="mx-auto mt-6 w-full max-w-[1800px] px-2 sm:px-3">
         <ServiceGrid
           services={services}
           emptyMessage={serviceGridDict.empty}

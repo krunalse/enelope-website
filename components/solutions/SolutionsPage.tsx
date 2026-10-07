@@ -13,7 +13,7 @@ interface SolutionsPageProps {
 
 export function SolutionsPage({ solutions, basePath, dict }: SolutionsPageProps) {
   return (
-    <Section>
+    <Section className="!pt-6 sm:!pt-8">
       <Container>
         <SectionHeading
           as="h1"
@@ -22,7 +22,7 @@ export function SolutionsPage({ solutions, basePath, dict }: SolutionsPageProps)
           description={dict.description}
         />
       </Container>
-      <div className="mx-auto mt-12 w-full max-w-[1800px] px-2 sm:px-3">
+      <div className="mx-auto mt-6 w-full max-w-[1800px] px-2 sm:px-3">
         <SolutionGrid
           solutions={solutions}
           basePath={basePath}

@@ -23,7 +23,7 @@ export function Solutions({
   tone = "default",
 }: SolutionsProps) {
   return (
-    <Section tone={tone}>
+    <Section tone={tone} className="!pt-6 sm:!pt-8">
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading eyebrow={dict.eyebrow} title={dict.title} />
@@ -36,7 +36,7 @@ export function Solutions({
           </Link>
         </div>
       </Container>
-      <div className="mx-auto mt-12 w-full max-w-[1800px] px-2 sm:px-3">
+      <div className="mx-auto mt-6 w-full max-w-[1800px] px-2 sm:px-3">
         <SolutionGrid
           solutions={solutions.slice(0, 4)}
           basePath={basePath}

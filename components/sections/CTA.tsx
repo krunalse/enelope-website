@@ -1,5 +1,4 @@
 import Image from "@/components/ui/Image";
-import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 import type { Dictionary } from "@/lib/content/dictionary";
@@ -10,14 +9,14 @@ interface CTAProps {
 
 export function CTA({ dict }: CTAProps) {
   return (
-    <Section>
-      <Container>
-        <div className="relative overflow-hidden rounded-3xl bg-ink px-8 py-20 text-center shadow-frame sm:px-16">
+    <Section className="!px-0 !py-0">
+      <div>
+        <div className="relative overflow-hidden bg-ink px-8 py-28 text-center sm:px-16 lg:py-40">
           <Image
             src="/images/hero/chatbots.webp"
             alt=""
             fill
-            sizes="(min-width: 1152px) 1152px, 100vw"
+            sizes="100vw"
             className="object-cover opacity-30"
           />
           <div
@@ -26,7 +25,7 @@ export function CTA({ dict }: CTAProps) {
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10"
+            className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10"
           />
 
           <div className="relative">
@@ -53,7 +52,7 @@ export function CTA({ dict }: CTAProps) {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </Section>
   );
 }
