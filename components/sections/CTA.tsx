@@ -12,7 +12,7 @@ export function CTA({ dict }: CTAProps) {
   return (
     <Section>
       <Container>
-        <div className="relative overflow-hidden rounded-3xl bg-ink px-8 py-20 text-center shadow-frame sm:px-16">
+        <div className="relative overflow-hidden rounded-3xl bg-[#0B2A5B] px-8 py-20 text-center shadow-frame sm:px-16">
           <Image
             src="/images/hero/chatbots.webp"
             alt=""
@@ -22,7 +22,7 @@ export function CTA({ dict }: CTAProps) {
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-br from-ink via-ink/85 to-brand-dark/90"
+            className="absolute inset-0 bg-gradient-to-br from-[#0B2A5B] via-[#12408C]/85 to-[#1D5FD8]/90"
           />
           <div
             aria-hidden

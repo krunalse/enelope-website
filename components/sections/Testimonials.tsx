@@ -16,7 +16,7 @@ export function Testimonials({ dict, tone = "default" }: TestimonialsProps) {
   if (testimonials.length === 0) return null;
 
   return (
-    <Section tone={tone}>
+    <Section tone={tone} className="pt-12 sm:pt-16">
       <Container>
         <SectionHeading
           eyebrow={dict.eyebrow}

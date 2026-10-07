@@ -17,7 +17,7 @@ export function ValueProp({
   ];
 
   return (
-    <Section tone={tone}>
+    <Section tone={tone} className="pt-12 sm:pt-16">
       <Container>
         <SectionHeading
           eyebrow={dict.eyebrow}

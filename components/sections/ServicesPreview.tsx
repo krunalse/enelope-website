@@ -19,7 +19,7 @@ export function ServicesPreview({
   const services = getServices();
 
   return (
-    <Section>
+    <Section className="pt-12 sm:pt-16">
       <Container>
         <SectionHeading eyebrow={dict.eyebrow} title={dict.title} />
         <div className="mt-16">

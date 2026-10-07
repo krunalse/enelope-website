@@ -23,7 +23,7 @@ export function Solutions({
   tone = "default",
 }: SolutionsProps) {
   return (
-    <Section tone={tone}>
+    <Section tone={tone} className="pt-12 sm:pt-16">
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading eyebrow={dict.eyebrow} title={dict.title} />

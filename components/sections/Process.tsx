@@ -14,7 +14,7 @@ export function Process({
   tone?: "default" | "muted";
 }) {
   return (
-    <Section tone={tone}>
+    <Section tone={tone} className="pt-12 sm:pt-16">
       <Container>
         <SectionHeading eyebrow={dict.eyebrow} title={dict.title} />
 
